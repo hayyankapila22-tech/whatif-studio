@@ -10,6 +10,11 @@ Runs as a scheduled task every night at ~02:17 Asia/Shanghai. Posts go out at **
 ## 1. Pick topics
 Take the top 3 from `TOPICS.md` → "Next up". Next episode number = last episode in `reports/posts.csv` + 1.
 
+## Two formats
+- DOUBLING (ep7–9): one thing doubles every minute; counter = the amount.
+- TIMELINE (most of the owner's ideas): counter = time elapsed (e.g. `fmt: v => v < 1 ? Math.round(v*24)+' hours' : ...`, label 'TIME SINCE …'); every 2.4 s a new, bigger consequence; ends in a payoff + "What should happen next? 👇" (or "Would you survive? 👇").
+  For history / speculative episodes say so on screen ("Speculation:" in the caption or a small 'what scientists think' vs 'our guess') and keep real facts accurate.
+
 ## 2. Write each episode (`season2/episodes/epN/scene.js`)
 Copy the closest existing episode (ep7 coffee/flood + space, ep8 growing Jeremy + planet scale, ep9 instanced swarm + space) and change:
 title (≤ 32 chars so it fits the bar), reel (last item = topic, ≤ 30 chars), beats `{t, m, cap, hi/red, big, space, bubble}` every 2.4 s from t=3.2, `ctaAt`, `total` (≈ last beat + 3.3 s).

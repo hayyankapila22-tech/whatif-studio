@@ -8,6 +8,14 @@ Format: one thing doubles/grows every minute; beats = minute marks; ends in spac
 - Ep9 pigeons double every minute (2026-11-09 19:00)
 
 ## Next up (take from the top, 3 per night)
+### Owner's picks (do these first, in order)
+1. What if humans disappeared for 100 years? — TIMELINE: counter = time since humans vanished (1 day, 1 week, 1 month … 100 years): lights go out, pets/zoos, nuclear plants, cities overgrown, bridges/skyscrapers fall, what's left at 100 yrs.
+2. What if everyone could read minds? — TIMELINE: counter = hours/days after it starts; Jeremy's POV at the café hearing thoughts; poker, dating, ads, politics, lying vanishes.
+3. What if the Roman Empire never collapsed? — TIMELINE: counter = year AD from 476; steam/industry earlier, Roman space program, Latin everywhere. Label as speculation.
+4. What if the Moon disappeared? — TIMELINE: counter = time after it vanishes; tides shrink, night darker, axis wobble, climate swings over millions of years.
+5. What if gravity reversed for 10 seconds every day? — TIMELINE: counter = seconds of reversal (and day count); people/cars float, how fast you rise (g = 9.8 m/s² → 490 m in 10 s, you then fall from that height), what survives.
+
+### Doubling ideas
 - Jeremy's hair doubles in length every minute (0.1 m start; Burj, Everest, Kármán line, Moon)
 - It gets 1 °C hotter every minute (boiling, lead melts, Venus, Sun surface)
 - Gravity halves every minute (jumps, buildings sway, atmosphere leaks, Moon drifts)
@@ -23,3 +31,156 @@ Format: one thing doubles/grows every minute; beats = minute marks; ends in spac
 - Snow falls twice as fast every minute
 - Trees grow twice as tall every minute
 - Cats double every minute
+
+### Owner's 150-idea list (pick visual ones; mix categories ~30% science/Earth, 25% history, 25% biology, 20% mind-bending)
+- What if all humans disappeared overnight?
+- What if Earth stopped spinning for 5 seconds?
+- What if the oceans disappeared?
+- What if the Moon suddenly vanished?
+- What if Earth had two moons?
+- What if Earth had two suns?
+- What if gravity suddenly became twice as strong?
+- What if the entire world flooded?
+- What if it rained continuously for one year?
+- What if all volcanoes erupted simultaneously?
+- What if Earth's magnetic field disappeared?
+- What if the atmosphere became twice as thick?
+- What if Earth moved closer to the Sun?
+- What if Earth became completely flat?
+- What if Antarctica became tropical?
+- What if the Sahara Desert became a rainforest?
+- What if every country experienced the same weather?
+- What if the planet suddenly became 10°C colder?
+- What if all the world's rivers dried up?
+- What if Earth had rings like Saturn?
+- What if humans could live for 500 years?
+- What if humans never needed sleep?
+- What if humans could breathe underwater?
+- What if everyone could read minds?
+- What if humans could regenerate lost limbs?
+- What if humans had wings?
+- What if humans could photosynthesise?
+- What if humans could see in complete darkness?
+- What if humans had perfect memory?
+- What if humans evolved to survive in space?
+- What if humans could communicate with animals?
+- What if humans stopped ageing at 25?
+- What if humans had four arms?
+- What if humans could survive without food for months?
+- What if humans could see infrared light?
+- What if humans evolved to live underground?
+- What if humans could control their body temperature?
+- What if humans had an extra brain?
+- What if humans could breathe on Mars?
+- What if humans evolved to become 10 feet tall?
+- What if dinosaurs never went extinct?
+- What if insects became as large as humans?
+- What if sharks could fly?
+- What if every animal became as intelligent as humans?
+- What if dogs could talk?
+- What if mosquitoes went extinct?
+- What if all bees disappeared?
+- What if humans domesticated lions?
+- What if whales evolved to live on land?
+- What if plants could move around?
+- What if trees could communicate with humans?
+- What if spiders became the size of dogs?
+- What if all animals suddenly doubled in size?
+- What if humans had to compete with intelligent dolphins?
+- What if animals created their own civilisation?
+- What if every extinct animal returned?
+- What if humans disappeared and animals inherited cities?
+- What if plants took over the entire planet?
+- What if every animal became nocturnal?
+- What if the world's oceans were filled with prehistoric creatures?
+- What if Earth was transported to another galaxy?
+- What if a black hole appeared near Earth?
+- What if humans discovered an alien civilisation?
+- What if aliens visited Earth tomorrow?
+- What if humans colonised Mars?
+- What if the Sun suddenly disappeared?
+- What if we discovered another habitable planet?
+- What if the universe had an edge?
+- What if humans could travel faster than light?
+- What if the Moon became habitable?
+- What if Saturn's rings disappeared?
+- What if we discovered life beneath Europa's ice?
+- What if humans built a city around the Sun?
+- What if an asteroid the size of a country approached Earth?
+- What if we discovered that the universe was expanding towards something?
+- What if every star disappeared except the Sun?
+- What if humans could visit parallel universes?
+- What if Earth became a moon of Jupiter?
+- What if we found an Earth-like planet with intelligent life?
+- What if humans became an intergalactic civilisation?
+- What if the Roman Empire never collapsed?
+- What if Napoleon conquered Europe?
+- What if the dinosaurs survived into human history?
+- What if the British Empire never declined?
+- What if the ancient Egyptians invented modern technology?
+- What if the Library of Alexandria never burned?
+- What if the Vikings discovered America first?
+- What if the Mongol Empire conquered all of Europe?
+- What if the Industrial Revolution happened 500 years earlier?
+- What if the internet was invented in 1800?
+- What if the Cold War turned into a space race that never ended?
+- What if the Titanic never sank?
+- What if the American Revolution failed?
+- What if the printing press was never invented?
+- What if electricity was discovered in ancient Greece?
+- What if the Ottoman Empire survived into the modern day?
+- What if humans never developed agriculture?
+- What if the first civilisation developed in Antarctica?
+- What if the world had never discovered oil?
+- What if time stopped for everyone except you?
+- What if gravity reversed for 10 seconds every day?
+- What if everyone received a notification showing their exact death date?
+- What if you could see 10 seconds into the future?
+- What if dreams became visible to everyone?
+- What if everyone swapped bodies for 24 hours?
+- What if humans could hear each other's thoughts?
+- What if everyone woke up speaking a different language?
+- What if the world reset every 100 years?
+- What if everyone suddenly became immortal?
+- What if you could pause your own ageing?
+- What if the world operated like a video game?
+- What if every lie appeared above someone's head?
+- What if you could enter your dreams?
+- What if everyone had a personal AI assistant that knew everything?
+- What if memories could be transferred between people?
+- What if humans could see alternate versions of themselves?
+- What if mirrors showed a different reality?
+- What if everyone suddenly lost their sense of direction?
+- What if the world had no concept of money?
+- What if AI became smarter than every human?
+- What if robots replaced every human job?
+- What if every household had a humanoid robot?
+- What if humans uploaded their minds to computers?
+- What if self-driving cars became mandatory?
+- What if money became completely digital?
+- What if teleportation was invented?
+- What if humans could download knowledge directly into their brains?
+- What if every building was controlled by AI?
+- What if the internet disappeared permanently?
+- What if humans created artificial organs for everyone?
+- What if virtual reality became indistinguishable from real life?
+- What if robots developed their own civilisation?
+- What if humans built a city entirely underwater?
+- What if every person had a digital twin?
+- What if all countries became one country?
+- What if there were no governments?
+- What if nobody had to work anymore?
+- What if everyone earned exactly the same amount?
+- What if money suddenly became worthless?
+- What if all borders disappeared overnight?
+- What if humans lived in a world without laws?
+- What if every person had to live in a different country?
+- What if the world's population doubled?
+- What if nobody could own private property?
+- What if every city became completely self-sufficient?
+- What if school was replaced by AI tutors?
+- What if humans abandoned cities and lived in the wilderness?
+- What if the entire world adopted one language?
+- What if humanity had to restart civilisation from scratch?
+
+Skipped on purpose: 'What if Germany won World War II?' (too sensitive for the account).
