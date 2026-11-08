@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:IDB;src:url(InterDisplay-Black.otf)}
+@font-face{font-family:IDBo;src:url(InterDisplay-Bold.otf)}
+@font-face{font-family:IM;src:url(Inter-Medium.otf)}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#05070f}
+canvas{position:absolute;left:0;top:0;width:1080px;height:1920px}
+#ui{position:absolute;inset:0;pointer-events:none;font-family:IDB}
+#bar{position:absolute;left:60px;right:60px;top:118px;display:flex;justify-content:space-between;align-items:center;font-size:40px;color:#ffc444;letter-spacing:1px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+#bar span:last-child{color:#a9b2d6;font-family:IDBo;font-size:34px}
+#track{position:absolute;left:60px;right:60px;top:180px;height:10px;border-radius:5px;background:rgba(255,255,255,.18)}
+#fill{height:100%;width:0;border-radius:5px;background:linear-gradient(90deg,#ffb020,#ffd76a);box-shadow:0 0 14px rgba(255,196,68,.8)}
+.cap{position:absolute;left:40px;right:40px;text-align:center;line-height:1.08}
+.w{display:inline-block;margin:0 .13em;color:#fff;-webkit-text-stroke:6px #0a0b18;paint-order:stroke fill;text-shadow:0 6px 24px rgba(0,0,0,.55)}
+.g{color:#ffc444}.r{color:#ff5468}.c{color:#5ee0ff}.gr{color:#5dff9e}
+#small{position:absolute;left:0;right:0;text-align:center;font-family:IM;color:#a9b2d6;font-size:34px}
+#black{position:absolute;inset:0;background:#000;opacity:0}
+#flash{position:absolute;inset:0;background:#fff;opacity:0}
+/* live counter */
+#counter{position:absolute;left:50%;top:232px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;opacity:0}
+#cLabel{font-family:IDBo;font-size:38px;letter-spacing:3px;color:#c9d1f5;padding:6px 22px;border-radius:30px;background:rgba(10,14,34,.7);border:2px solid rgba(255,255,255,.15)}
+#cVal{margin-top:10px;font-size:132px;line-height:1;white-space:nowrap;display:flex;-webkit-text-stroke:7px #070915;paint-order:stroke fill}
+#cVal span{display:inline-block}
+#cSub{margin-top:6px;font-family:IDBo;font-size:34px;color:#a9b2d6}
+/* slot intro */
+#intro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
+#iWhat{font-size:190px;color:#fff;-webkit-text-stroke:8px #0a0b18;paint-order:stroke fill;text-shadow:0 0 40px rgba(255,196,68,.55),0 10px 30px rgba(0,0,0,.6);letter-spacing:4px}
+#reel{position:relative;margin-top:30px;width:960px;height:220px;border-radius:44px;overflow:hidden;background:linear-gradient(#0b1030,#161e52 50%,#0b1030);border:6px solid #ffc444;box-shadow:0 0 50px rgba(255,196,68,.55), inset 0 0 40px rgba(0,0,0,.8)}
+#reelIn{position:absolute;left:0;right:0;top:0}
+.ri{height:220px;display:flex;align-items:center;justify-content:center;font-size:84px;white-space:nowrap;color:#ffc444;-webkit-text-stroke:5px #0a0b18;paint-order:stroke fill;text-align:center;line-height:1}
+#reelShade{position:absolute;inset:0;background:linear-gradient(rgba(5,7,20,.85),rgba(5,7,20,0) 30%,rgba(5,7,20,0) 70%,rgba(5,7,20,.85))}
+#iQ{font-size:130px;color:#ffc444;margin-top:10px;-webkit-text-stroke:6px #0a0b18;paint-order:stroke fill}
+</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<div id="ui">
+  <div id="black"></div>
+  <div id="bar"><span>WHAT IF (x)?</span><span>EP. 1</span></div>
+  <div id="track"><div id="fill"></div></div>
+  <div id="counter"><div id="cLabel">DAY 1</div><div id="cVal"></div><div id="cSub"></div></div>
+  <div id="caps"></div>
+  <div id="small"></div>
+  <div id="intro"><div id="iWhat">WHAT IF</div><div id="reel"><div id="reelIn"></div><div id="reelShade"></div></div></div>
+  <div id="flash"></div>
+</div>
+<script type="module" src="scene.js"></script>
+</body></html>
