@@ -3,7 +3,7 @@
 #   mix_ig.wav    -> sound effects only (Instagram, which restricts copyrighted music)
 import sys, os, wave, subprocess, numpy as np
 ep, T = sys.argv[1], float(sys.argv[2]); START = float(sys.argv[3]) if len(sys.argv) > 3 else 12.0; SR = 44100; N = int(SR * T)
-TRACK = os.path.join(os.path.dirname(__file__), '..', 'assets', 'music', 'main_track.mp3')
+TRACK = os.environ.get("WHATIF_TRACK", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "music", "main_track.mp3"))
 def read_wav(p):
     with wave.open(p) as w: x = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(float).reshape(-1, 2) / 32768
     return np.pad(x, ((0, max(0, N - len(x))), (0, 0)))[:N]

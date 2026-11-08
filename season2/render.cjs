@@ -17,6 +17,7 @@ const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'applic
   });
   await page.goto('http://app/index.html');
   await page.waitForFunction('window.READY === true', null, { timeout: 120000 });
+  if (mode === 'spec') { fs.writeFileSync(path.join(ROOT, 'spec.json'), JSON.stringify(await page.evaluate(() => window.SPEC))); console.log('spec written'); }
   if (mode === 'stills') {
     for (const t of args) {
       const t0 = Date.now();

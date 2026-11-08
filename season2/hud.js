@@ -10,7 +10,7 @@ let reelBuilt = false;
 export function intro(t, items, dur = 3.0) {
   const el = $('intro');
   if (t > dur + 0.3) { el.style.opacity = 0; return false; }
-  if (!reelBuilt) { $('reelIn').innerHTML = items.map(s => `<div class="ri" style="font-size:${Math.min(84, Math.floor(1520 / s.length))}px">${s}</div>`).join(''); reelBuilt = true; }
+  if (!reelBuilt) { $('reelIn').innerHTML = items.map(s => `<div class="ri" style="font-size:${Math.min(84, Math.floor(1350 / s.length))}px">${s}</div>`).join(''); reelBuilt = true; }
   const n = items.length - 1;
   // spin: fast, then decelerate and land at 2.1s with an overshoot
   const p = clamp(t / 2.1);
