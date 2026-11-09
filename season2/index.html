@@ -26,7 +26,7 @@ canvas{position:absolute;left:0;top:0;width:1080px;height:1920px}
 #cVal span{display:inline-block}
 #cSub{margin-top:6px;font-family:IDB;font-size:38px;color:#ffffff;-webkit-text-stroke:5px #070915;paint-order:stroke fill}
 #bubble{position:absolute;left:0;top:0;padding:12px 30px 16px;border-radius:44px;background:#fff;color:#0a0b18;font-family:IDB;font-size:62px;letter-spacing:1px;border:6px solid #0a0b18;box-shadow:0 10px 0 #0a0b18,0 0 40px rgba(255,61,110,.45);opacity:0;white-space:nowrap}
-#bubble:after{content:'';position:absolute;left:50%;bottom:-30px;margin-left:-16px;border:16px solid transparent;border-top:22px solid #0a0b18}
+#bubble:after{content:'';position:absolute;left:var(--tl,50%);bottom:-30px;margin-left:-16px;border:16px solid transparent;border-top:22px solid #0a0b18}
 .tag{position:absolute;transform:translate(-50%,-50%);font-family:IDB;font-size:46px;letter-spacing:3px;-webkit-text-stroke:6px #070915;paint-order:stroke fill;opacity:0;white-space:nowrap}
 /* slot intro */
 #intro{position:absolute;left:0;right:90px;top:0;bottom:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}

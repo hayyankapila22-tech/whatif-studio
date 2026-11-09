@@ -90,6 +90,7 @@ export function makeJeremy2() {
     brows.forEach((b, i) => { const s = i ? 1 : -1; b.position.y = by; b.rotation.z = Math.PI * .1 + (expr === 'worried' || expr === 'panic' ? s * -.3 : expr === 'confused' ? (i ? .35 : -.05) : 0); if (expr === 'confused' && i) b.position.y = by + .05; });
     sweat.visible = sweatK > .01; sweat.position.set(.44, .2 - (sweatK % 1) * .35, .26);
   };
+  J.arms = arms; J.headG = head; J.bodyG = body;
   J.pose();
   return J;
 }

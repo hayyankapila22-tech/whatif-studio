@@ -23,6 +23,16 @@ for i, b in enumerate(beats):
     nb = beats[i + 1]['t'] if i + 1 < len(beats) else T
     if nb - t0 > 2 and i + 1 < len(beats) and beats[i + 1].get('big'): add(L.riser(1.4), nb - 1.4, .28)
 add(L.ding(1318), cta, .5); add(L.chaching(), cta + 2.3, .4)
+# v3: episode-specific sound design (spec.sfx one-shots + spec.beds ambience), synthesized in sfx2.py
+import sfx2 as X
+for bd in S.get('beds', []):
+    d = bd['t1'] - bd['t0']; sig = X.BEDS[bd['name']](d); f = min(len(sig), int(.35 * L.SR))
+    sig = sig.copy(); sig[:f] *= np.linspace(0, 1, f); sig[-f:] *= np.linspace(1, 0, f)
+    sig = sig / (np.max(np.abs(sig)) + 1e-9)
+    add(sig, bd['t0'], bd.get('gain', .25), bd.get('pan', 0))
+for ev in S.get('sfx', []):
+    sig = X.ONESHOT[ev['name']]()
+    add(sig / (np.max(np.abs(sig)) + 1e-9), ev['t'], ev.get('gain', .6), ev.get('pan', 0))
 import wave
 x = L.mix / max(1e-6, np.max(np.abs(L.mix))) * 0.92
 with wave.open(os.path.join(ep, 'sfx.wav'), 'wb') as w:

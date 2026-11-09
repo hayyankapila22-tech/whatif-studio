@@ -44,11 +44,18 @@ export const MAT = {
   frame: new THREE.MeshStandardMaterial({ color: 0x2b2e36, roughness: .4, metalness: .7 }),
   wood: new THREE.MeshStandardMaterial({ ...wood, roughness: .7 }),
   bark: new THREE.MeshStandardMaterial({ color: 0x5a4130, roughness: .95 }),
-  leaf: [0x3f8f3a, 0x4fa244, 0x357c33].map(c => new THREE.MeshStandardMaterial({ color: c, roughness: .8 })),
+  leaf: [0x3f9a3a, 0x5cb446, 0x2f8a3c].map(c => new THREE.MeshStandardMaterial({ color: c, roughness: .8 })),
   metal: new THREE.MeshStandardMaterial({ color: 0x3a3f4a, roughness: .35, metalness: .85 }),
 };
-const bricks = [brickSet(0xa4553e, '#cfc6b8', 11, [3, 6]), brickSet(0xc9b28a, '#e8e0d0', 12, [3, 6]), brickSet(0x7d4a3a, '#bdb3a4', 13, [3, 6]), brickSet(0xe6dccb, '#f5f0e6', 14, [3, 6])];
-const plasterCols = [0xf2e3c6, 0xe7f0f7, 0xf6d9d3, 0xd8eedf];
+const bricks = [brickSet(0xb8452c, '#d8cbb6', 11, [3, 6]), brickSet(0xd99a52, '#efe2cc', 12, [3, 6]), brickSet(0x8a3f2c, '#c9b9a4', 13, [3, 6]), brickSet(0xc9683f, '#e9dccb', 14, [3, 6])];
+// v3: saturated storybook stucco (warm ochre, mint, terracotta, periwinkle) with soft grime toward the street
+const plasterTex = ['#f0bd6a', '#74c2b2', '#ee8f6e', '#f3c9b8'].map((c, i) => canvasTex(512, 512, (ctx, w, h) => {
+  ctx.fillStyle = c; ctx.fillRect(0, 0, w, h);
+  speckle(ctx, w, h, 6000, 40 + i, ['rgba(0,0,0,.05)', 'rgba(255,255,255,.07)', 'rgba(0,0,0,.03)'], 1, 4);
+  const g = ctx.createLinearGradient(0, h, 0, h * .55); g.addColorStop(0, 'rgba(60,30,40,.28)'); g.addColorStop(1, 'rgba(60,30,40,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+  const t = ctx.createLinearGradient(0, 0, 0, h * .12); t.addColorStop(0, 'rgba(255,240,220,.25)'); t.addColorStop(1, 'rgba(255,240,220,0)'); ctx.fillStyle = t; ctx.fillRect(0, 0, w, h);
+}).tex);
+const plasterCols = [0xffffff, 0xffffff, 0xffffff, 0xffffff];
 
 function box(w, h, d, mat, r = 0) { const g = r ? new RoundedBoxGeometry(w, h, d, 3, r) : new THREE.BoxGeometry(w, h, d); const m = new THREE.Mesh(g, mat); m.castShadow = m.receiveShadow = true; return m; }
 function signTex(text, bg, fg, w = 1024, h = 220, font = 'IDB') { return canvasTex(w, h, (ctx) => { ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h); ctx.fillStyle = fg; ctx.font = `${h * .55}px ${font}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, w / 2, h / 2 + 6); }).tex; }
@@ -57,7 +64,7 @@ function signTex(text, bg, fg, w = 1024, h = 220, font = 'IDB') { return canvasT
 function building(x, z, w, d, h, side, style, seed) {
   const g = new THREE.Group(); g.position.set(x, 0, z);
   const r = rand(seed);
-  const facadeMat = style < 4 ? new THREE.MeshStandardMaterial({ ...bricks[style], roughness: .9 }) : new THREE.MeshStandardMaterial({ color: plasterCols[style % 4], roughness: .85 });
+  const facadeMat = style < 4 ? new THREE.MeshStandardMaterial({ ...bricks[style], roughness: .9 }) : new THREE.MeshStandardMaterial({ map: plasterTex[style % 4], roughness: .85 });
   const body = box(w, h, d, facadeMat); body.position.y = h / 2; g.add(body);
   const front = side * d / 2; // facade faces the street
   // cornice + roof parapet
@@ -74,6 +81,7 @@ function building(x, z, w, d, h, side, style, seed) {
     dm.position.set(wx, wy - .92, front + side * .12); dm.updateMatrix(); sillI.setMatrixAt(n, dm.matrix); n++;
   }
   [glassI, frameI, sillI].forEach(m => { m.castShadow = true; m.receiveShadow = true; g.add(m); });
+  g.userData = { glass: glassI, x, z, w, d, h, side, front: z + front, facade: facadeMat };
   // ground floor storefront
   const sf = box(w - .4, 3.4, .25, MAT.frame); sf.position.set(0, 1.7, front + side * .05); g.add(sf);
   const sfGlass = box(w - 1.2, 2.6, .1, MAT.glass); sfGlass.position.set(0, 1.55, front + side * .18); g.add(sfGlass);
@@ -116,7 +124,7 @@ function tree(x, z, s = 1, seed = 1) {
 function lamp(x, z, side) {
   const g = new THREE.Group(); const pole = new THREE.Mesh(new THREE.CylinderGeometry(.07, .1, 5.2, 16), MAT.metal); pole.position.y = 2.6; const arm = new THREE.Mesh(new THREE.CylinderGeometry(.04, .04, 1.2, 8), MAT.metal); arm.rotation.x = Math.PI / 2; arm.position.set(0, 5.1, side * .55);
   const head = box(.35, .14, .6, MAT.metal, .05); head.position.set(0, 5.05, side * 1.1); const bulb = new THREE.Mesh(new THREE.BoxGeometry(.25, .03, .45), new THREE.MeshStandardMaterial({ color: 0xfff6d8, emissive: 0xfff0c0, emissiveIntensity: .8 })); bulb.position.set(0, 4.97, side * 1.1);
-  g.add(pole, arm, head, bulb); g.traverse(o => { if (o.isMesh) o.castShadow = true; }); g.position.set(x, 0, z); return g;
+  g.userData.bulb = bulb; g.add(pole, arm, head, bulb); g.traverse(o => { if (o.isMesh) o.castShadow = true; }); g.position.set(x, 0, z); return g;
 }
 export function makeCar(color = 0x3a7bff) {
   const g = new THREE.Group();
@@ -149,20 +157,25 @@ export function buildStreet(scene) {
   for (let i = 0; i < 8; i++) { const st = new THREE.Mesh(new THREE.PlaneGeometry(3, .55), MAT.paint); st.rotation.x = -Math.PI / 2; st.position.set(34, .013, -3.6 + i * 1.03); st.receiveShadow = true; S.add(st); }
   // north side (Jeremy's side): shops + buildings; south side: buildings
   const north = [[-36, 8, 3], [-26, 10, 1], [-15, 11, 4], [-3, 12, 2], [9, 10, 'mart'], [21, 12, 'cafe'], [44, 11, 6], [56, 12, 1], [68, 10, 3], [80, 12, 2]];
-  north.forEach(([x, w, st], i) => { const b = st === 'mart' ? shop(x, 12.9, w, 'CORNER MART', '#e8364e', '#e8364e', 40 + i, false) : st === 'cafe' ? shop(x, 12.9, w, 'CAFÉ π', '#2fb57d', '#1d6b52', 50 + i, true) : building(x, 12.9, w, 10, 10 + (i * 7) % 14, -1, st, 30 + i); S.add(b); });
+  const blocks = []; S.userData.blocks = blocks;
+  north.forEach(([x, w, st], i) => { const b = st === 'mart' ? shop(x, 12.9, w, 'CORNER MART', '#e8364e', '#e8364e', 40 + i, false) : st === 'cafe' ? shop(x, 12.9, w, 'CAFÉ π', '#2fb57d', '#1d6b52', 50 + i, true) : building(x, 12.9, w, 10, 10 + (i * 7) % 14, -1, st, 30 + i); S.add(b); blocks.push(b); });
   const south = [[-34, 12, 5], [-21, 13, 0], [-7, 12, 6], [6, 13, 3], [19, 12, 1], [44, 13, 7], [57, 12, 2], [70, 13, 4], [83, 12, 0]];
-  south.forEach(([x, w, st], i) => { S.add(building(x, -12.9, w, 10, 11 + (i * 5) % 16, 1, st, 60 + i)); });
+  south.forEach(([x, w, st], i) => { const b = building(x, -12.9, w, 10, 11 + (i * 5) % 16, 1, st, 60 + i); S.add(b); blocks.push(b); });
   // trees, lamps, benches
-  for (let i = 0; i < 12; i++) { S.add(tree(-38 + i * 11, 7.2, 1, 70 + i)); S.add(tree(-33 + i * 11, -7.2, 1, 90 + i)); }
-  for (let i = 0; i < 14; i++) { S.add(lamp(-42 + i * 9, 4.8, -1)); S.add(lamp(-37 + i * 9, -4.8, 1)); }
+  for (let i = 0; i < 12; i++) { const a = tree(-38 + i * 11, 7.2, 1, 70 + i), b = tree(-33 + i * 11, -7.2, 1, 90 + i); S.add(a, b); }
+  S.userData.lamps = []; S.userData.trees = [];
+  for (let i = 0; i < 14; i++) { const a = lamp(-42 + i * 9, 4.8, -1), b = lamp(-37 + i * 9, -4.8, 1); S.add(a, b); S.userData.lamps.push(a, b); }
   S.add(bench(15, 7.4, Math.PI)); S.add(bench(-8, 7.4, Math.PI));
   // parked cars
   const carCols = [0x3a7bff, 0xe8364e, 0xf2f2f2, 0x2a2d35, 0xffc93a, 0x29b48a];
-  for (let i = 0; i < 6; i++) { const c = makeCar(carCols[i]); c.position.set(-30 + i * 14, 0, i % 2 ? -3.2 : 3.2); c.rotation.y = i % 2 ? Math.PI : 0; S.add(c); }
+  S.userData.cars = [];
+  for (let i = 0; i < 6; i++) { const c = makeCar(carCols[i]); c.position.set(-30 + i * 14, 0, i % 2 ? -3.2 : 3.2); c.rotation.y = i % 2 ? Math.PI : 0; S.add(c); S.userData.cars.push(c); }
   // distant skyline for depth
-  const far = new THREE.MeshStandardMaterial({ color: 0x9fb2c8, roughness: 1 }); const r = rand(99);
+  const farTex = canvasTex(256, 512, (ctx, w, h) => { ctx.fillStyle = '#7f95bd'; ctx.fillRect(0, 0, w, h); const q = rand(7); for (let y = 12; y < h - 8; y += 22) for (let x = 10; x < w - 10; x += 26) { ctx.fillStyle = q() > .5 ? '#a9bde0' : '#6a80aa'; ctx.fillRect(x, y, 14, 12); } }).tex;
+  farTex.wrapS = farTex.wrapT = THREE.RepeatWrapping; farTex.repeat.set(1, 2);
+  const far = new THREE.MeshStandardMaterial({ map: farTex, roughness: 1 }); const r = rand(99);
   for (let i = 0; i < 40; i++) { const h = 20 + r() * 50, w = 8 + r() * 12; const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, w), far); b.position.set(-100 + r() * 260, h / 2, (r() > .5 ? 1 : -1) * (40 + r() * 60)); S.add(b); }
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), new THREE.MeshStandardMaterial({ color: 0x8a8f86, roughness: 1 })); ground.rotation.x = -Math.PI / 2; ground.position.y = -.02; ground.receiveShadow = true; S.add(ground);
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), new THREE.MeshStandardMaterial({ color: 0x8f8a80, roughness: 1 })); ground.rotation.x = -Math.PI / 2; ground.position.y = -.02; ground.receiveShadow = true; S.add(ground);
   S.updateMatrixWorld(true);
   return { group: S, martDoor: new THREE.Vector3(11.5, 0, 7.6), cafeDoor: new THREE.Vector3(18, 0, 7.6), walkZ: 5.6 };
 }

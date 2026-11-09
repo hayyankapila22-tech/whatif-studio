@@ -36,32 +36,138 @@ document.body.prepend(renderer.domElement);
 
 export const scene = new THREE.Scene();
 import { Sky } from 'three/addons/objects/Sky.js';
-export const sky = new Sky(); sky.scale.setScalar(4500); scene.add(sky);
+// v3 look: the visible sky is a stylised gradient dome (saturated zenith -> bright horizon, warm sun glow);
+// the physical Sky is only used to build the environment lighting.
+const phys = new Sky(); phys.scale.setScalar(4500);
+export const LOOK = { zenith: new THREE.Color('#2f6fd0'), horizon: new THREE.Color('#bcd6f2'), ground: new THREE.Color('#9fb6cf'), sunGlow: new THREE.Color('#fff1cf') };
+export const sky = new THREE.Mesh(new THREE.SphereGeometry(1, 48, 24), new THREE.ShaderMaterial({
+  side: THREE.BackSide, depthWrite: false, fog: false,
+  uniforms: { uZen: { value: LOOK.zenith }, uHor: { value: LOOK.horizon }, uGnd: { value: LOOK.ground }, uSunCol: { value: LOOK.sunGlow }, uSun: { value: new THREE.Vector3(0, 1, 0) } },
+  vertexShader: `varying vec3 vW; void main(){ vec4 w = modelMatrix * vec4(position,1.); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; gl_Position.z = gl_Position.w; }`,
+  fragmentShader: `uniform vec3 uZen,uHor,uGnd,uSunCol,uSun; varying vec3 vW;
+    void main(){ vec3 d = normalize(vW - cameraPosition); float h = d.y;
+      vec3 c = h > 0. ? mix(uHor, uZen, pow(clamp(h,0.,1.), .55)) : mix(uHor, uGnd, clamp(-h*6.,0.,1.));
+      float sd = max(dot(d, normalize(uSun)), 0.); c += uSunCol * (pow(sd, 18.) * .35 + pow(sd, 400.) * 1.2);
+      gl_FragColor = vec4(c, 1.); }`,
+}));
+sky.scale.setScalar(4500); sky.renderOrder = -10; sky.frustumCulled = false; scene.add(sky);
 export const sunDir = new THREE.Vector3();
 const pmrem = new THREE.PMREMGenerator(renderer);
 let envRT = null;
 export function setSun(elevDeg = 38, azimDeg = 200, turbidity = 4, rayleigh = 1.4) {
-  const u = sky.material.uniforms; u.turbidity.value = turbidity; u.rayleigh.value = rayleigh; u.mieCoefficient.value = 0.004; u.mieDirectionalG.value = 0.85;
-  sunDir.setFromSphericalCoords(1, THREE.MathUtils.degToRad(90 - elevDeg), THREE.MathUtils.degToRad(azimDeg)); u.sunPosition.value.copy(sunDir);
+  const u = phys.material.uniforms; u.turbidity.value = turbidity; u.rayleigh.value = rayleigh; u.mieCoefficient.value = 0.004; u.mieDirectionalG.value = 0.85;
+  sunDir.setFromSphericalCoords(1, THREE.MathUtils.degToRad(90 - elevDeg), THREE.MathUtils.degToRad(azimDeg)); u.sunPosition.value.copy(sunDir); sky.material.uniforms.uSun.value.copy(sunDir);
   const envScene = new THREE.Scene(); const sk = new Sky(); sk.scale.setScalar(4500); Object.keys(u).forEach(k => sk.material.uniforms[k].value = (u[k].value.clone ? u[k].value.clone() : u[k].value)); envScene.add(sk);
   if (envRT) envRT.dispose(); envRT = pmrem.fromScene(envScene, 0.02); scene.environment = envRT.texture;
 }
 scene.environmentIntensity = 0.6;
-scene.fog = new THREE.Fog(0xc4d8ee, 70, 300);
+scene.fog = new THREE.Fog(LOOK.horizon.getHex(), 70, 300);
 
 export const camera = new THREE.PerspectiveCamera(55, W / H, 0.05, 6000);
 camera.position.set(0, 2, 12);
 
 const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
+
+// ---------- v3 look: ink outlines (depth + normal edges) ----------
+import { Pass, FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+export const INK = { on: true, color: new THREE.Color('#1b1626'), width: 2.0, strength: 1.0, far: 110, skip: [] };
+class InkPass extends Pass {
+  constructor() {
+    super();
+    this.rt = new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType });
+    this.rt.depthTexture = new THREE.DepthTexture(W, H); this.rt.depthTexture.type = THREE.UnsignedIntType;
+    this.nm = new THREE.MeshNormalMaterial();
+    this.q = new FullScreenQuad(new THREE.ShaderMaterial({
+      uniforms: { tC: { value: null }, tN: { value: null }, tD: { value: null }, uRes: { value: new THREE.Vector2(W, H) }, uW: { value: 1.6 }, uK: { value: .9 }, uInk: { value: INK.color },
+        uNear: { value: .05 }, uFar: { value: 6000 }, uFade: { value: 90 } },
+      vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }`,
+      fragmentShader: `uniform sampler2D tC,tN,tD; uniform vec2 uRes; uniform float uW,uK,uNear,uFar,uFade; uniform vec3 uInk; varying vec2 vUv;
+        float lin(float z){ return uNear * uFar / (uFar - z * (uFar - uNear)); }
+        float D(vec2 o){ return lin(texture2D(tD, vUv + o / uRes).x); }
+        vec3 N(vec2 o){ return texture2D(tN, vUv + o / uRes).xyz * 2. - 1.; }
+        void main(){
+          vec4 c = texture2D(tC, vUv);
+          float d0 = D(vec2(0.)); vec3 n0 = N(vec2(0.));
+          float w = uW;
+          float de = 0., ne = 0.;
+          vec2 off[4]; off[0]=vec2(w,0.); off[1]=vec2(-w,0.); off[2]=vec2(0.,w); off[3]=vec2(0.,-w);
+          for (int i=0;i<4;i++){ float d = D(off[i]); de = max(de, (d0 - d) / max(d, .001)); ne = max(ne, 1. - dot(n0, N(off[i]))); }
+          float edge = max(smoothstep(.06, .16, de), smoothstep(.22, .5, ne) * step(d0, uFar * .9));
+          edge *= uK * (1. - smoothstep(uFade * .5, uFade, d0));
+          gl_FragColor = vec4(mix(c.rgb, uInk * c.rgb * .25 + uInk * .5, edge), c.a);
+        }`,
+    }));
+  }
+  render(renderer, writeBuffer, readBuffer) {
+    const u = this.q.material.uniforms;
+    if (INK.on || DOF.on) {
+      const ov = scene.overrideMaterial, bg = scene.background, au = renderer.shadowMap.autoUpdate, sv = sky.visible;
+      const hid = INK.skip.filter(o => o.visible); hid.forEach(o => o.visible = false);
+      scene.overrideMaterial = this.nm; scene.background = null; renderer.shadowMap.autoUpdate = false; sky.visible = false;
+      renderer.setRenderTarget(this.rt); renderer.setClearColor(0x8080ff, 1); renderer.clear(); renderer.render(scene, camera);
+      scene.overrideMaterial = ov; scene.background = bg; renderer.shadowMap.autoUpdate = au; sky.visible = sv; renderer.setClearColor(0x000000, 0); hid.forEach(o => o.visible = true);
+    }
+    u.tC.value = readBuffer.texture; u.tN.value = this.rt.texture; u.tD.value = this.rt.depthTexture;
+    u.uNear.value = camera.near; u.uFar.value = camera.far; u.uW.value = INK.width; u.uK.value = INK.on ? INK.strength : 0; u.uFade.value = INK.far;
+    renderer.setRenderTarget(this.renderToScreen ? null : writeBuffer); this.q.render(renderer);
+  }
+}
+export const ink = new InkPass();
+composer.addPass(ink);
+// ---------- v3 look: depth of field (gather blur from the ink pass depth; no extra scene render) ----------
+export const DOF = { on: false, focus: 5, aperture: 1.2, maxR: 16 };
+export const dof = new ShaderPass({
+  uniforms: { tDiffuse: { value: null }, tD: { value: null }, uRes: { value: new THREE.Vector2(W, H) }, uFocus: { value: 5 }, uAp: { value: 1 }, uMax: { value: 0 }, uNear: { value: .05 }, uFar: { value: 6000 } },
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
+  fragmentShader: `uniform sampler2D tDiffuse,tD; uniform vec2 uRes; uniform float uFocus,uAp,uMax,uNear,uFar; varying vec2 vUv;
+    float lin(float z){ return uNear * uFar / (uFar - z * (uFar - uNear)); }
+    float cocD(float d){ return uMax * clamp(abs(d - uFocus) / max(d, .001) * uAp, 0., 1.); }
+    void main(){
+      vec4 c0 = texture2D(tDiffuse, vUv); if (uMax < .5) { gl_FragColor = c0; return; }
+      float d0 = lin(texture2D(tD, vUv).x); float c = cocD(d0); vec3 acc = c0.rgb; float wsum = 1.;
+      for (int i = 0; i < 40; i++) {
+        float fi = float(i) + .5; float r = sqrt(fi / 40.) * uMax; float a = fi * 2.39996;
+        vec2 uv = vUv + vec2(cos(a), sin(a)) * r / uRes;
+        float ds = lin(texture2D(tD, uv).x); float cs = cocD(ds);
+        // nearer samples spread with their own blur; farther samples never bleed over a sharper foreground
+        float w = ds < d0 ? smoothstep(r - 1.5, r, cs) : smoothstep(r - 1.5, r, min(cs, c));
+        acc += texture2D(tDiffuse, uv).rgb * w; wsum += w;
+      }
+      gl_FragColor = vec4(acc / wsum, c0.a); }`,
+});
+composer.addPass(dof);
 export const bloom = new UnrealBloomPass(new THREE.Vector2(W / 2, H / 2), 0.22, 0.4, 0.97);
 composer.addPass(bloom);
 composer.addPass(new OutputPass());
-export function draw() { composer.render(); }
+// ---------- v3 look: colour grade (display space) ----------
+export const GRADE = { gain: 1.08, sat: 1.16, contrast: .3, warm: new THREE.Color('#ffd6a0'), cool: new THREE.Color('#5a4f8f'), split: .08, vignette: .32 };
+export const grade = new ShaderPass({
+  uniforms: { tDiffuse: { value: null }, uGain: { value: 1 }, uSat: { value: 1 }, uCon: { value: 0 }, uWarm: { value: GRADE.warm }, uCool: { value: GRADE.cool }, uSplit: { value: 0 }, uVig: { value: 0 } },
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
+  fragmentShader: `uniform sampler2D tDiffuse; uniform float uGain,uSat,uCon,uSplit,uVig; uniform vec3 uWarm,uCool; varying vec2 vUv;
+    void main(){ vec3 c = texture2D(tDiffuse, vUv).rgb * uGain;
+      float l = dot(c, vec3(.2126,.7152,.0722));
+      c = mix(vec3(l), c, uSat);
+      c = mix(c, c * c * (3. - 2. * c), uCon);
+      l = dot(clamp(c,0.,1.), vec3(.2126,.7152,.0722));
+      c = mix(c, c * uCool * 2.2, uSplit * pow(1. - l, 2.));
+      c = mix(c, c * uWarm * 1.15, uSplit * pow(l, 2.));
+      vec2 q = vUv - .5; q.x *= .62; float v = smoothstep(.25, .75, length(q));
+      c *= 1. - uVig * v;
+      gl_FragColor = vec4(clamp(c,0.,1.), 1.); }`,
+});
+composer.addPass(grade);
+export function draw() {
+  const d = dof.uniforms; d.tD.value = ink.rt.depthTexture; d.uFocus.value = DOF.focus; d.uAp.value = DOF.aperture; d.uMax.value = DOF.on ? DOF.maxR : 0; d.uNear.value = camera.near; d.uFar.value = camera.far;
+  const u = grade.uniforms; u.uGain.value = GRADE.gain; u.uSat.value = GRADE.sat; u.uCon.value = GRADE.contrast; u.uSplit.value = GRADE.split; u.uVig.value = GRADE.vignette;
+  composer.render();
+}
 
 // ---------- lights ----------
-export const hemi = new THREE.HemisphereLight(0xcfe3ff, 0x6b5a48, 0.6); scene.add(hemi);
-export const key = new THREE.DirectionalLight(0xfff0dc, 3.4);
+export const hemi = new THREE.HemisphereLight(0xa9c8ff, 0x6b5040, 0.6); scene.add(hemi);
+export const key = new THREE.DirectionalLight(0xffe4c0, 3.4);
 key.position.set(5, 10, 7); key.castShadow = true;
 key.shadow.mapSize.set(4096, 4096);
 Object.assign(key.shadow.camera, { left: -32, right: 32, top: 32, bottom: -32, near: 1, far: 200 });

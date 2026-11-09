@@ -24,7 +24,7 @@ export async function boot(title, ep) {
   setTitle(title, ep);
   setSun(34, 215, 3.5, 1.2);
   K.street = buildStreet(scene);
-  K.J = makeJeremy2(); scene.add(K.J); K.J.scale.setScalar(.75);
+  K.J = makeJeremy2(); scene.add(K.J); K.J.scale.setScalar(.75); rimLight(K.J);
   K.hands = makePOVHands(); camera.add(K.hands); scene.add(camera);
   K.fog = scene.fog;
   buildSpace();
@@ -60,10 +60,28 @@ export function mode(m) { // 'street' | 'space'
   const sp = m === 'space';
   K.street.group.visible = !sp; sky.visible = !sp; K.space.visible = sp;
   scene.background = sp ? black : null; scene.fog = sp ? null : K.fog;
-  scene.environmentIntensity = sp ? 0.08 : 0.6;
+  scene.environmentIntensity = sp ? 0.08 : 0.6; INK.on = !sp;
   scene.traverse(o => { if (o.isLight && o.parent === scene && !o.isAmbientLight) o.visible = !sp || o === K.spaceSun; });
   K.hands.visible = false; K.J.visible = !sp;
 }
+
+// ---------- v3: fresnel rim light on characters (separates them from the background) ----------
+export const RIM = { col: new THREE.Color('#ffe2b0'), k: .55 };
+export function rimLight(obj) {
+  obj.traverse(o => { if (!o.isMesh || !o.material || o.material.userData.rim) return;
+    const m = o.material; m.userData.rim = true;
+    m.onBeforeCompile = sh => { sh.uniforms.rimCol = { value: RIM.col }; sh.uniforms.rimK = { value: 0 }; m.userData.sh = sh;
+      sh.fragmentShader = 'uniform vec3 rimCol; uniform float rimK;\n' + sh.fragmentShader.replace('#include <dithering_fragment>',
+        '#include <dithering_fragment>\n float rimF = pow(1. - clamp(dot(normal, normalize(vViewPosition)), 0., 1.), 2.6); gl_FragColor.rgb += rimCol * rimF * rimK;'); };
+    m.customProgramCacheKey = () => 'rim';
+    o.onBeforeRender = () => { if (m.userData.sh) m.userData.sh.uniforms.rimK.value = RIM.k; };
+  });
+}
+// ---------- v3: depth of field helpers ----------
+import { DOF, INK, GRADE, LOOK } from './engine.js';
+export { DOF, INK, GRADE, LOOK };
+export function focus(worldPos, amount = 1, maxR = 16) { DOF.on = amount > 0; DOF.focus = camera.position.distanceTo(worldPos); DOF.aperture = amount; DOF.maxR = maxR; }
+export function noFocus() { DOF.on = false; }
 
 // ---------- camera ----------
 const look = new THREE.Vector3();
@@ -81,8 +99,12 @@ export function bubble(t, text, t0, worldPos) {
   if (!text || t < t0 || t > t0 + 1.6) { el.style.opacity = 0; return; }
   const k = t - t0, s = k < .25 ? 0.5 + 0.5 * Math.sin(k / .25 * Math.PI / 2) * 1.12 : 1 + 0.06 * Math.exp(-(k - .25) * 6);
   camera.updateMatrixWorld(); tmp.copy(worldPos).project(camera);
-  const x = clamp((tmp.x * .5 + .5) * 1080, 230, 760), y = clamp((-tmp.y * .5 + .5) * 1920, 760, 1080);
-  el.textContent = text; el.style.left = x + 'px'; el.style.top = y + 'px';
+  // v3: the bubble sits beside/above the head (never over the face), inside the safe zone
+  const hx = (tmp.x * .5 + .5) * 1080, hy = (-tmp.y * .5 + .5) * 1920;
+  const side = hx > 540 ? -1 : 1;
+  const pushed = hy - 120 < 720; // head too high: put the bubble beside the face instead of on it
+  const x = clamp(hx + side * (pushed ? 330 : 230), 240, 800), y = clamp(pushed ? hy + 60 : hy - 120, 720, 1180);
+  el.style.setProperty('--tl', side > 0 ? '20%' : '80%'); el.textContent = text; el.style.left = x + 'px'; el.style.top = y + 'px';
   el.style.opacity = 1 - prog(t, t0 + 1.35, t0 + 1.6); el.style.transform = `translate(-50%,-100%) scale(${s}) rotate(${Math.sin(k * 9) * 2}deg)`;
 }
 export function headPos() { return K.J.localToWorld(V(0, 2.75, 0)); }
@@ -98,7 +120,7 @@ export function tag(text, worldPos, color = '#ffffff', alpha = 1) {
 // spec: { total, reel, unit, label(i,b), fmt(v), beats:[{t, v, cap, hi, sev, bubble}], introShot(t), shot(t, b, lt, i, next) }
 export function run(spec) {
   const beats = spec.beats;
-  window.SPEC = { total: spec.total, reel: spec.reel.length, ctaAt: spec.ctaAt, beats: beats.map(b => ({ t: b.t, big: !!b.big, space: !!b.space, bubble: !!b.bubble })) };
+  window.SPEC = { total: spec.total, reel: spec.reel.length, ctaAt: spec.ctaAt, sfx: spec.sfx || [], beds: spec.beds || [], beats: beats.map(b => ({ t: b.t, big: !!b.big, space: !!b.space, bubble: !!b.bubble })) };
   window.renderAt = (t) => {
     K.hands.visible = false; $('pov').style.opacity = 0; $('bubble').style.opacity = 0; tagsUsed = 0;
     const inIntro = intro(t, spec.reel);
