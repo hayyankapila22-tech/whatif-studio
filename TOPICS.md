@@ -7,10 +7,10 @@ Format: one thing doubles/grows every minute; beats = minute marks; ends in spac
 - Ep8 Jeremy doubles in height every minute (2026-11-09 16:00)
 - Ep9 pigeons double every minute (2026-11-09 19:00)
 - Ep10 What if all humans vanished? — owner's pick #1, timeline to 100 years, first v3-quality episode (2026-11-10 12:00)
+- Ep11 What if everyone could read minds? — owner's pick #2, timeline to 100 years, v3 (2026-11-10 19:00)
 
 ## Next up (take from the top, 3 per night)
 ### Owner's picks (do these first, in order)
-2. What if everyone could read minds? — TIMELINE: counter = hours/days after it starts; Jeremy's POV at the café hearing thoughts; poker, dating, ads, politics, lying vanishes.
 3. What if the Roman Empire never collapsed? — TIMELINE: counter = year AD from 476; steam/industry earlier, Roman space program, Latin everywhere. Label as speculation.
 4. What if the Moon disappeared? — TIMELINE: counter = time after it vanishes; tides shrink, night darker, axis wobble, climate swings over millions of years.
 5. What if gravity reversed for 10 seconds every day? — TIMELINE: counter = seconds of reversal (and day count); people/cars float, how fast you rise (g = 9.8 m/s² → 490 m in 10 s, you then fall from that height), what survives.

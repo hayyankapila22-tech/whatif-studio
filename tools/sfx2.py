@@ -126,7 +126,24 @@ def bed_winter(d): t = tt(d); return bp(noise(d), 300, 2500) * (.5 + .5 * np.sin
 def bed_drone(d):  # ominous low pad
     t = tt(d); return (np.sin(2 * np.pi * 55 * t) + .6 * np.sin(2 * np.pi * 82.4 * t) + .3 * np.sin(2 * np.pi * 110.3 * t)) * .3 * (.7 + .3 * np.sin(2 * np.pi * .3 * t))
 
-ONESHOT = dict(poof=poof, clatter=clatter, splash=splash, car_roll=car_roll, hazard=hazard, power_down=power_down, flicker=flicker,
+def pop():        # thought-cloud pop: soft bubbly blip rising in pitch
+    d = .32; t = tt(d); f = 380 + 900 * (t / d) ** .6
+    return norm(np.sin(2 * np.pi * np.cumsum(f) / SR) * env(t, .004, .07) + bp(noise(d), 2000, 6000) * env(t, .002, .015) * .3)
+def chips():      # poker chips clacking onto a stack
+    d = .8; t = tt(d); x = np.zeros(len(t))
+    for o, g in [(0, 1), (.07, .7), (.13, .6), (.2, .45), (.26, .35), (.33, .25)]:
+        i = int(o * SR); n = int(.03 * SR); x[i:i + n] += (bp(noise(.03), 2500, 7000) + np.sin(2 * np.pi * 3100 * tt(.03)) * .4) * np.exp(-tt(.03) * 140) * g
+    return norm(x)
+def ding():       # bright two-note chime
+    d = 1.0; t = tt(d)
+    return norm(sum(np.sin(2 * np.pi * f * t) * np.exp(-(t - o).clip(0) * 5) * (t > o) for f, o in [(1318, 0), (1760, .11)]))
+def bed_murmur(d):  # crowd murmur: speech-band noise with syllable-rate wobble
+    t = tt(d); x = 0
+    for k in range(5):
+        x = x + bp(noise(d), 250 + k * 90, 900 + k * 150) * (.55 + .45 * np.sin(2 * np.pi * (3.1 + k * .7) * t + k))
+    return x * .25
+
+ONESHOT = dict(pop=pop, chips=chips, ding=ding, poof=poof, clatter=clatter, splash=splash, car_roll=car_roll, hazard=hazard, power_down=power_down, flicker=flicker,
                water_gush=water_gush, siren=siren, bark=bark, bark_hi=lambda: bark(560), howl=howl, crack=crack, pipe_burst=pipe_burst,
                crumble=crumble, wind_gust=wind_gust, rustle=rustle, bird=lambda: chirp_bird(3600), sparkle_rev=sparkle_rev)
-BEDS = dict(city=bed_city, wind=bed_silence_wind, crickets=bed_crickets, birds=bed_birds, drip=bed_rain_drip, winter=bed_winter, drone=bed_drone)
+BEDS = dict(murmur=bed_murmur, city=bed_city, wind=bed_silence_wind, crickets=bed_crickets, birds=bed_birds, drip=bed_rain_drip, winter=bed_winter, drone=bed_drone)
