@@ -13,7 +13,7 @@ import { canvasTex, rand } from './engine.js';
 
 await bootStudio('WHAT IF POPCORN DOUBLED?', 'EP. 12');
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
-const PIECE = 5.7e-6;                          // m³ per popped piece (bulk)
+const PIECE_DETAIL = 2; const PIECE = 5.7e-6;                          // m³ per popped piece (bulk)
 const vol = m => PIECE * Math.pow(2, m);
 const CONE = Math.PI / 3 * Math.tan(Math.PI / 6); // V = CONE · R³  (30° heap)
 const heapR = m => Math.cbrt(vol(m) / CONE), heapH = R => R * Math.tan(Math.PI / 6);
@@ -21,7 +21,7 @@ const heapR = m => Math.cbrt(vol(m) / CONE), heapH = R => R * Math.tan(Math.PI /
 // ---------- popcorn piece (smooth lumpy cluster, cream with a few brown hull flecks) ----------
 function pieceGeo(seed) {
   const r = rand(seed), parts = [];
-  const add = (x, y, z, s, col) => { const g = new THREE.IcosahedronGeometry(s, 3); const p = g.attributes.position;
+  const add = (x, y, z, s, col) => { const g = new THREE.IcosahedronGeometry(s, PIECE_DETAIL); const p = g.attributes.position;
     for (let i = 0; i < p.count; i++) { const v = V(p.getX(i), p.getY(i), p.getZ(i)); const n = 1 + .18 * Math.sin(v.x * 300 + seed) * Math.sin(v.y * 260) * Math.sin(v.z * 280 + 1); p.setXYZ(i, v.x * n, v.y * n, v.z * n); }
     g.computeVertexNormals(); g.translate(x, y, z); const c = new THREE.Color(col), a = new Float32Array(p.count * 3); for (let i = 0; i < p.count; i++) { a[i * 3] = c.r; a[i * 3 + 1] = c.g; a[i * 3 + 2] = c.b; } g.setAttribute('color', new THREE.BufferAttribute(a, 3)); parts.push(g); };
   for (let k = 0; k < 6; k++) add((r() - .5) * .018, (r() - .3) * .012, (r() - .5) * .018, .006 + r() * .005, k % 3 ? 0xfff3cf : 0xf7dc95);

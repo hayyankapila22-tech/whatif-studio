@@ -34,7 +34,7 @@ const TYPES = { ".exr": "application/octet-stream", '.html': 'text/html', '.js':
     const tStart = Date.now();
     for (let i = n0; i < n1; i++) {
       await page.evaluate(t => window.renderAt(t), i / FPS);
-      const buf = await page.screenshot({ type: 'jpeg', quality: 92 });
+      const buf = await page.screenshot({ type: 'jpeg', quality: 92, timeout: 180000 });
       if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
       if ((i - n0) % 60 === 0) console.log(out, i, ((Date.now() - tStart) / (i - n0 + 1)).toFixed(0), 'ms/frame');
     }
