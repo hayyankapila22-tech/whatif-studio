@@ -37,14 +37,26 @@ function floor() {
       for (let i = 0; i < 900; i++) { const g = 120 + r() * 70; ctx.fillStyle = `rgba(${g},${g - 3},${g - 8},${.06 + r() * .1})`; const s = 1 + r() * 5; ctx.fillRect(tx * 256 + r() * 256, ty * 256 + r() * 256, s, s); }
       const gr = ctx.createLinearGradient(tx * 256, ty * 256, tx * 256 + 256, ty * 256 + 256); gr.addColorStop(0, 'rgba(255,255,255,.05)'); gr.addColorStop(1, 'rgba(0,0,0,.05)'); ctx.fillStyle = gr; ctx.fillRect(tx * 256, ty * 256, 256, 256);
     }
-    ctx.strokeStyle = '#d9d5ce'; ctx.lineWidth = 4; for (let i = 0; i <= 4; i++) { ctx.beginPath(); ctx.moveTo(i * 256, 0); ctx.lineTo(i * 256, h); ctx.stroke(); ctx.beginPath(); ctx.moveTo(0, i * 256); ctx.lineTo(w, i * 256); ctx.stroke(); }
   }).tex;
   T.wrapS = T.wrapT = THREE.RepeatWrapping; T.repeat.set(5000, 5000); T.anisotropy = 16;
   const m = new THREE.Mesh(new THREE.PlaneGeometry(20000, 20000), new THREE.MeshStandardMaterial({ map: T, roughness: .62, metalness: 0, envMapIntensity: .6 }));
+  // analytic grid lines: filtered with screen-space derivatives so they never alias or shimmer; they fade out when thinner than a pixel
+  GRID.tile = { value: 1 };
+  m.material.onBeforeCompile = sh => { sh.uniforms.uTile = GRID.tile;
+    sh.vertexShader = 'varying vec3 vWp;\n' + sh.vertexShader.replace('#include <project_vertex>', '#include <project_vertex>\n vWp = (modelMatrix * vec4(transformed, 1.)).xyz;');
+    sh.fragmentShader = 'varying vec3 vWp; uniform float uTile;\n' + sh.fragmentShader.replace('#include <map_fragment>', `#include <map_fragment>
+      { vec2 g = vWp.xz / uTile; vec2 fw = max(fwidth(g), vec2(1e-6)); vec2 d = abs(fract(g - .5) - .5);
+        float lw = .011; vec2 dw = max(vec2(lw), fw * .75);
+        vec2 a = 1. - smoothstep(dw - fw * .75, dw + fw * .75, d);
+        a *= clamp(lw / dw, vec2(0.), vec2(1.));
+        float fade = 1. - smoothstep(.25, .6, max(fw.x, fw.y));
+        float line = max(a.x, a.y) * fade;
+        diffuseColor.rgb = mix(diffuseColor.rgb, vec3(.86, .845, .815), line * .9); }`); };
   m.rotation.x = -Math.PI / 2; m.receiveShadow = true; m.scale.setScalar(1); return m;
 }
+const GRID = {};
 /** keep floor tiles readable at any scale: tile size in metres (1, 10, 100 …) */
-export function floorScale(tile, sc = 1) { S.floor.scale.setScalar(sc); S.floor.material.map.repeat.set(20000 * sc / 4 / tile, 20000 * sc / 4 / tile); }
+export function floorScale(tile, sc = 1) { GRID.tile.value = tile; S.floor.scale.setScalar(sc); S.floor.material.map.repeat.set(20000 * sc / 4 / tile, 20000 * sc / 4 / tile); }
 
 // ------------------------------------------------------------------ soft shadows that follow the subject size
 export function shadowFit(center, size) {

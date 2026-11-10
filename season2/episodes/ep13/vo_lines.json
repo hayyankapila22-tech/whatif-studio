@@ -1,0 +1,13 @@
+[
+ {"say": "What if the Roman Empire never collapsed?", "show": "What if the Roman Empire never collapsed?"},
+ {"say": "At its peak, in the year one seventeen, Rome ruled roughly one in five people on Earth.", "show": "At its peak, in 117 AD, Rome ruled roughly 1 in 5 people on Earth."},
+ {"say": "It paved eighty thousand kilometres of roads. Enough to circle the planet twice.", "show": "It paved 80,000 km of roads. Enough to circle the planet twice."},
+ {"say": "Then, in four seventy-six, the western half fell. The east held on for almost a thousand years more.", "show": "Then, in 476, the western half fell. The east held on for almost 1,000 years more."},
+ {"say": "But imagine it never fell. From here on, this is speculation.", "show": "But imagine it never fell. From here on, this is speculation."},
+ {"say": "Latin might be the language of the whole world.", "show": "Latin might be the language of the whole world."},
+ {"say": "Steam trains might have arrived centuries early.", "show": "Steam trains might have arrived centuries early."},
+ {"say": "And the first flag on the Moon might have been Roman.", "show": "And the first flag on the Moon might have been Roman."},
+ {"say": "But here's the twist. Rome already had a steam engine. Hero of Alexandria described one in the first century.", "show": "But here's the twist. Rome already had a steam engine. Hero of Alexandria described one in the 1st century.", "pre": 0.25},
+ {"say": "It stayed a toy for four hundred years.", "show": "It stayed a toy for 400 years."},
+ {"say": "So maybe nothing changes at all. Which moment in history would you change?", "show": "So maybe nothing changes at all.", "pre": 0.2}
+]

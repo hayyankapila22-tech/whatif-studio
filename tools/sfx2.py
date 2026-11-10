@@ -165,3 +165,19 @@ def bed_room(d): t = tt(d); return lpf(noise(d), 180) * .8 + bp(noise(d), 300, 1
 def bed_space(d): t = tt(d); return (np.sin(2 * np.pi * 49 * t) + .5 * np.sin(2 * np.pi * 73.5 * t)) * .25 * (.8 + .2 * np.sin(2 * np.pi * .2 * t)) + lpf(noise(d), 120) * .3
 ONESHOT.update(kpop=kpop, pops=pops, swell=swell)
 BEDS.update(room=bed_room, space=bed_space)
+
+# ---- v5.1 narrated episodes ----
+def glide(d=1.1):   # soft airy camera move
+    t = tt(d); return norm(bp(noise(d), 500, 2500) * np.sin(np.pi * t / d) ** 2) * .6
+def hiss(d=1.6):    # steam hiss
+    t = tt(d); return norm(hpf(noise(d), 3500) * np.minimum(1, t / .15) * np.exp(-t * 1.6))
+def chuff(n=6, rate=3.2):  # steam locomotive chuffs
+    d = n / rate + .3; x = np.zeros(int(d * SR))
+    for i in range(n):
+        c = bp(noise(.22), 300, 2600) * np.exp(-tt(.22) * 14) * (1 if i % 2 == 0 else .7); j = int(i / rate * SR); x[j:j + len(c)] += c
+    return norm(x)
+def rumble_low(d=2.2):
+    t = tt(d); return norm(lpf(noise(d), 110) * np.sin(np.pi * t / d) ** 1.5)
+def chime():
+    t = tt(1.4); return norm(sum(np.sin(2 * np.pi * f * t) * np.exp(-t * (3 + i)) for i, f in enumerate([880, 1318.5, 1760])))
+ONESHOT.update(glide=glide, hiss=hiss, chuff=chuff, rumble_low=rumble_low, chime=chime)

@@ -21,6 +21,13 @@ title (≤ 32 chars so it fits the bar), reel (last item = topic, ≤ 30 chars),
 Fact-check every number with a web search; keep the values exact (counter shows the real computed value).
 Safe zone: all text inside x 60–930, y 250–1440 (kit already places counter/captions/bubbles there). Keep Jeremy out from behind lamp posts (x = 21, 30, 39 on z = 4.8) and parked car (x = 26, z = 3.2): good spots x ≈ 34.5 or 21.5–23.
 
+## v5.1 NARRATED EPISODES (2026-11-10) — every new episode has an AI voiceover. Reference: season2/episodes/ep13 (Rome)
+- Write `season2/episodes/epN/vo_lines.json`: 9-12 short lines, ~110-130 words, 45-55 s. Each `{"say": "...", "show": "..."}`; in `say` write numbers as words ("four seventy-six"), in `show` as digits. Hook question first, facts, a twist, then a question to the viewer. Speculation must be called speculation in the voice AND on screen (HUD "THIS PART IS: FACT / SPECULATION").
+- `tools/new_episode.sh` runs `tools/narrate.py` (Kokoro open-source voice `af_heart`, auto-installs kokoro-onnx and downloads the model from GitHub releases) -> `vo.wav` + `vo.json` (line start/end times). Re-run narrate.py after any text change.
+- The scene loads `vo.json` and times EVERYTHING to it (camera keys per line, HUD, tags, `sfx` and `beds` in SPEC) so sound always matches the picture. `render_ep.sh` then uses `tools/mix3.py`: voice on top, Timeless music ducked under the voice, subtle effects.
+- Format for history / story topics: a "gallery" — real-looking scale models on marble plinths along the clean floor (2 m tiles, `floorScale(2)`), one continuous camera glide from exhibit to exhibit (dist ≈ visible width / 0.344; `lookUp: .075`), depth of field on, Jeremy standing behind/beside an exhibit fully inside the frame (never cut by the frame edge), tags anchored where they do not cover the subject or Jeremy's face.
+- Floor lines are analytic and anti-aliased (studio.js) and the scene renders with 4x MSAA: never bake thin lines into textures.
+
 ## v5 PREMIUM STUDIO LOOK (2026-11-10) — THE CHANNEL STYLE FROM NOW ON, for EVERY topic (history, science, biology, mind-bending). No more doubling episodes (owner rule). Reference episode: season2/episodes/ep12 (popcorn)
 - Look: clean infinite grey tiled floor, soft studio light (HDRI 'studio'), photoreal-ish objects, muted palette with ONE accent colour (orange `ACCENT`), soft shadows, no outlines, no cartoon effects, no flashes/shakes, no slot-machine intro.
 - One slow CONTINUOUS camera (studio.js `orbit(target, dist, {yaw, pitch, fov})`) that pulls back as things grow. The framing size must be a smooth function of time/value (see ep12 `refAt`) — never jumps. Hard cuts only for a change of world (e.g. ground -> space), done with a 0.3 s dip (`#v5fade`).

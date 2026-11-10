@@ -74,7 +74,8 @@ scene.fog = new THREE.Fog(LOOK.horizon.getHex(), 70, 300);
 export const camera = new THREE.PerspectiveCamera(55, W / H, 0.05, 6000);
 camera.position.set(0, 2, 12);
 
-const composer = new EffectComposer(renderer);
+// v5.1: 4x MSAA on the scene render (the composer's default target has none) -> clean geometry edges
+const composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType, samples: 4 }));
 composer.addPass(new RenderPass(scene, camera));
 
 // ---------- v3 look: ink outlines (depth + normal edges) ----------

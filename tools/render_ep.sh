@@ -11,7 +11,7 @@ A=(); B=(); k=0; for sg in "${todo[@]}"; do if (( k % 2 == 0 )); then A+=("$sg")
 worker "${A[@]}" & worker "${B[@]}" & wait
 n=$(python3 -c "import math;print(math.ceil($T/5))"); for ((i=0;i<n;i++)); do [ -f seg_$i.mp4 ] || { echo "missing seg_$i"; exit 1; }; done
 python3 "$TOOLS/autosfx.py" "$D"
-python3 "$TOOLS/mix2.py" "$D" "$T" 12
+if [ -f vo.wav ]; then python3 "$TOOLS/mix3.py" "$D" "$T" 12; else python3 "$TOOLS/mix2.py" "$D" "$T" 12; fi
 ls seg_*.mp4 | sort -V | sed "s/^/file '/; s/$/'/" > list.txt
 ffmpeg -y -loglevel error -f concat -i list.txt -c copy vid.mp4
 ffmpeg -y -loglevel error -i vid.mp4 -i mix_music.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "${NAME}_final.mp4"
