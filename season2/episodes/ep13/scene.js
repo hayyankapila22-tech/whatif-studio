@@ -160,7 +160,7 @@ const T0 = LN.map(l => l.t0), T1 = LN.map(l => l.t1), endAt = T0[10] + 2.3;
 const lineAt = t => { let i = 0; for (let k = 0; k < LN.length; k++) if (t >= T0[k] - .05) i = k; return i; };
 const CAM = [ // one per narration line: [target x, y, dist, yaw, pitch]
   [X.col, .8, 10.2, -.62, .34], [X.globe, GY, 7.4, -.5, .16], [X.globe, GY, 6.6, -.44, .14], [X.globe, GY, 6.9, -.5, .16], [X.globe, GY, 7.6, -.55, .16], [X.globe, GY, 8.0, -.6, .16],
-  [X.train, .85, 9.8, -.5, .2], [X.moon, 1.0, 8.6, -.58, .28], [X.aeo, 1.5, 5.0, -.5, .14], [X.aeo, 1.66, 3.1, -.4, .1], [X.aeo + .45, 1.2, 8.3, -.5, .16]];
+  [X.train, .85, 9.8, -.5, .2], [X.moon, 1.0, 8.6, -.58, .28], [X.aeo, 1.5, 5.0, -.5, .14], [X.aeo, 1.66, 3.1, -.4, .1], [X.aeo + .9, 1.2, 8.8, -.5, .16]];
 function camAt(t) { let c = CAM[0].slice(); for (let i = 1; i < CAM.length; i++) { const k = eInOut(clamp((t - (T0[i] - .8)) / 1.3)); if (k <= 0) break; c = c.map((v, j) => lerp(v, CAM[i][j], k)); } return c; }
 const HUDS = [['80 AD', 'FACT', 'THE COLOSSEUM', '50,000 seats'], ['117 AD', 'FACT', 'TERRITORY', '5 million km²'], ['117 AD', 'FACT', 'PAVED ROADS', '80,500 km'], ['476 AD', 'FACT', 'THE WESTERN EMPIRE', 'Falls'], ['What if?', 'SPECULATION', 'THE EMPIRE', 'Never falls'],
   ['What if?', 'SPECULATION', 'LATIN LANGUAGES TODAY', '900 million speakers'], ['What if?', 'SPECULATION', 'STEAM POWER', 'Centuries early'], ['What if?', 'SPECULATION', 'FIRST FLAG ON THE MOON', 'Roman?'], ['1st century', 'FACT', "HERO'S STEAM ENGINE", 'Already existed'], ['1st century', 'FACT', 'YEARS AS A TOY', '400'], ['1st century', 'FACT', 'YEARS AS A TOY', '400']];

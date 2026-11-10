@@ -9,3 +9,7 @@
 ## 2026-11-10 (owner session)
 - Ep12 render: worker B timed out taking a screenshot in seg_1 (6k high-detail popcorn instances). Fixed: piece detail 2 and a 180 s screenshot timeout in render.cjs; re-ran resumable render.
 - The cloud container restarted once mid-render (all work files survived; the render had to be restarted).
+
+## 2026-11-10 evening (owner session)
+- Ep13: v5.1 render is ~9 s/frame per worker (MSAA + DOF) -> ~105 min for 49 s. The container restarted once mid-render; re-running render_ep.sh resumed. Final shot re-rendered (2 segments) because Jeremy was cut by the frame edge.
+- Ep12 (popcorn, Wed 12:00) still has the old aliased floor and no voiceover.
