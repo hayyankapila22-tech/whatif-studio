@@ -2,7 +2,7 @@
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path'), { spawn } = require('child_process');
 const ROOT = __dirname;
-const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.otf': 'font/otf', '.png': 'image/png', '.jpg': 'image/jpeg' };
+const TYPES = { ".exr": "application/octet-stream", '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.otf': 'font/otf', '.png': 'image/png', '.jpg': 'image/jpeg', '.exr': 'application/octet-stream' };
 
 (async () => {
   const [mode, ...args] = process.argv.slice(2);

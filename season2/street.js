@@ -1,5 +1,6 @@
 // Jeremy's Street — the permanent Season 2 hub set. Street runs along +X; Jeremy walks the north sidewalk (z ≈ 5.6).
 import { THREE, RoundedBoxGeometry, canvasTex, rand, M } from './engine.js';
+import { crown } from './foliage.js';
 
 // ---------- procedural PBR texture sets (colour + normal from a height field) ----------
 function heightToNormal(hc, strength = 2) {
@@ -116,8 +117,8 @@ function shop(x, z, w, name, colA, colB, seed, cafe) {
 function tree(x, z, s = 1, seed = 1) {
   const g = new THREE.Group(); const r = rand(seed);
   const trunk = new THREE.Mesh(new THREE.CylinderGeometry(.12 * s, .2 * s, 3 * s, 16), MAT.bark); trunk.position.y = 1.5 * s; trunk.castShadow = true; g.add(trunk);
-  for (let i = 0; i < 9; i++) { const b = new THREE.Mesh(new THREE.SphereGeometry((.9 + r() * .6) * s, 28, 20), MAT.leaf[i % 3]); b.position.set((r() - .5) * 1.6 * s, (3.2 + r() * 1.6) * s, (r() - .5) * 1.6 * s); b.castShadow = true; b.receiveShadow = true;
-    const p = b.geometry.attributes.position, ph = r() * 9; for (let k = 0; k < p.count; k++) { const x = p.getX(k), y = p.getY(k), z = p.getZ(k); const f = 1 + .12 * Math.sin(x * 4 + ph) * Math.sin(y * 5 + ph) * Math.sin(z * 4.5); p.setXYZ(k, x * f, y * f, z * f); } b.geometry.computeVertexNormals(); g.add(b); }
+  for (const [bx, by, bz, br] of [[0, 3.8, 0, 1.6], [.5, 4.7, .2, 1.15]]) { const c = crown(br * s, seed * 5 + bx * 10 | 0, (seed + (bx * 10 | 0)) & 3); c.position.set(bx * s, by * s, bz * s); g.add(c); }
+  for (const a of [.6, 2.4, 4.2]) { const br = new THREE.Mesh(new THREE.CylinderGeometry(.04 * s, .07 * s, 1.3 * s, 8), MAT.bark); br.position.set(Math.cos(a) * .35 * s, 3.1 * s, Math.sin(a) * .35 * s); br.rotation.set(Math.sin(a) * .7, 0, -Math.cos(a) * .7); br.castShadow = true; g.add(br); }
   const pit = box(1.3, .06, 1.3, new THREE.MeshStandardMaterial({ color: 0x4a3a2a, roughness: 1 })); pit.position.y = .17; g.add(pit);
   g.position.set(x, 0, z); return g;
 }

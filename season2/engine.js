@@ -54,11 +54,19 @@ sky.scale.setScalar(4500); sky.renderOrder = -10; sky.frustumCulled = false; sce
 export const sunDir = new THREE.Vector3();
 const pmrem = new THREE.PMREMGenerator(renderer);
 let envRT = null;
+// ---------- v4: real HDRI environment lighting (CC0 Poly Haven via @pmndrs/assets, 512px) ----------
+import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
+const ENVS = {}; let envName = null;
+export async function loadEnvs(names = ['sky', 'city', 'park', 'sunset', 'sunrise', 'dawn', 'night', 'forest']) {
+  const L = new EXRLoader();
+  for (const n of names) { try { const tex = await L.loadAsync(`./assets/hdri/${n}.exr`); tex.mapping = THREE.EquirectangularReflectionMapping; ENVS[n] = pmrem.fromEquirectangular(tex).texture; tex.dispose(); } catch (e) { console.log('[ep] hdri missing', n); } }
+}
+export function setEnv(n) { if (!n || n === envName || !ENVS[n]) return; envName = n; scene.environment = ENVS[n]; }
 export function setSun(elevDeg = 38, azimDeg = 200, turbidity = 4, rayleigh = 1.4) {
   const u = phys.material.uniforms; u.turbidity.value = turbidity; u.rayleigh.value = rayleigh; u.mieCoefficient.value = 0.004; u.mieDirectionalG.value = 0.85;
   sunDir.setFromSphericalCoords(1, THREE.MathUtils.degToRad(90 - elevDeg), THREE.MathUtils.degToRad(azimDeg)); u.sunPosition.value.copy(sunDir); sky.material.uniforms.uSun.value.copy(sunDir);
   const envScene = new THREE.Scene(); const sk = new Sky(); sk.scale.setScalar(4500); Object.keys(u).forEach(k => sk.material.uniforms[k].value = (u[k].value.clone ? u[k].value.clone() : u[k].value)); envScene.add(sk);
-  if (envRT) envRT.dispose(); envRT = pmrem.fromScene(envScene, 0.02); scene.environment = envRT.texture;
+  if (envRT) envRT.dispose(); envRT = pmrem.fromScene(envScene, 0.02); if (!envName) scene.environment = envRT.texture;
 }
 scene.environmentIntensity = 0.6;
 scene.fog = new THREE.Fog(LOOK.horizon.getHex(), 70, 300);
@@ -72,7 +80,7 @@ composer.addPass(new RenderPass(scene, camera));
 // ---------- v3 look: ink outlines (depth + normal edges) ----------
 import { Pass, FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
-export const INK = { on: true, color: new THREE.Color('#1b1626'), width: 2.0, strength: 1.0, far: 110, skip: [] };
+export const INK = { on: true, color: new THREE.Color('#1b1626'), width: 2.0, strength: 0.0, far: 110, skip: [], ao: .55, aoR: .7 };  // v4: no outlines (realistic), screen-space AO on
 class InkPass extends Pass {
   constructor() {
     super();
@@ -81,9 +89,9 @@ class InkPass extends Pass {
     this.nm = new THREE.MeshNormalMaterial();
     this.q = new FullScreenQuad(new THREE.ShaderMaterial({
       uniforms: { tC: { value: null }, tN: { value: null }, tD: { value: null }, uRes: { value: new THREE.Vector2(W, H) }, uW: { value: 1.6 }, uK: { value: .9 }, uInk: { value: INK.color },
-        uNear: { value: .05 }, uFar: { value: 6000 }, uFade: { value: 90 } },
+        uNear: { value: .05 }, uFar: { value: 6000 }, uFade: { value: 90 }, uAO: { value: .55 }, uAOR: { value: .7 }, uFocal: { value: 1 } },
       vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }`,
-      fragmentShader: `uniform sampler2D tC,tN,tD; uniform vec2 uRes; uniform float uW,uK,uNear,uFar,uFade; uniform vec3 uInk; varying vec2 vUv;
+      fragmentShader: `uniform sampler2D tC,tN,tD; uniform vec2 uRes; uniform float uW,uK,uNear,uFar,uFade,uAO,uAOR,uFocal; uniform vec3 uInk; varying vec2 vUv;
         float lin(float z){ return uNear * uFar / (uFar - z * (uFar - uNear)); }
         float D(vec2 o){ return lin(texture2D(tD, vUv + o / uRes).x); }
         vec3 N(vec2 o){ return texture2D(tN, vUv + o / uRes).xyz * 2. - 1.; }
@@ -96,13 +104,23 @@ class InkPass extends Pass {
           for (int i=0;i<4;i++){ float d = D(off[i]); de = max(de, (d0 - d) / max(d, .001)); ne = max(ne, 1. - dot(n0, N(off[i]))); }
           float edge = max(smoothstep(.06, .16, de), smoothstep(.22, .5, ne) * step(d0, uFar * .9));
           edge *= uK * (1. - smoothstep(uFade * .5, uFade, d0));
-          gl_FragColor = vec4(mix(c.rgb, uInk * c.rgb * .25 + uInk * .5, edge), c.a);
+          // screen-space ambient occlusion: darken creases/contacts using the same depth buffer
+          float ao = 0.;
+          if (uAO > 0. && d0 < uFar * .5) {
+            float rpx = clamp(uAOR * uFocal / d0, 2., 60.);
+            for (int i = 0; i < 12; i++) { float fi = float(i) + .5; float a = fi * 2.39996; float rr = sqrt(fi / 12.) * rpx;
+              float ds = D(vec2(cos(a), sin(a)) * rr); float dz = d0 - ds;
+              ao += smoothstep(.02, .25, dz / uAOR) * (1. - smoothstep(uAOR, uAOR * 3., dz)); }
+            ao = ao / 12.;
+          }
+          vec3 col = c.rgb * (1. - uAO * ao);
+          gl_FragColor = vec4(mix(col, uInk * col * .25 + uInk * .5, edge), c.a);
         }`,
     }));
   }
   render(renderer, writeBuffer, readBuffer) {
     const u = this.q.material.uniforms;
-    if (INK.on || DOF.on) {
+    if (INK.on || DOF.on || INK.ao > 0) {
       const ov = scene.overrideMaterial, bg = scene.background, au = renderer.shadowMap.autoUpdate, sv = sky.visible;
       const hid = INK.skip.filter(o => o.visible); hid.forEach(o => o.visible = false);
       scene.overrideMaterial = this.nm; scene.background = null; renderer.shadowMap.autoUpdate = false; sky.visible = false;
@@ -110,7 +128,7 @@ class InkPass extends Pass {
       scene.overrideMaterial = ov; scene.background = bg; renderer.shadowMap.autoUpdate = au; sky.visible = sv; renderer.setClearColor(0x000000, 0); hid.forEach(o => o.visible = true);
     }
     u.tC.value = readBuffer.texture; u.tN.value = this.rt.texture; u.tD.value = this.rt.depthTexture;
-    u.uNear.value = camera.near; u.uFar.value = camera.far; u.uW.value = INK.width; u.uK.value = INK.on ? INK.strength : 0; u.uFade.value = INK.far;
+    u.uNear.value = camera.near; u.uFar.value = camera.far; u.uW.value = INK.width; u.uK.value = INK.on ? INK.strength : 0; u.uFade.value = INK.far; u.uAO.value = INK.ao; u.uAOR.value = INK.aoR; u.uFocal.value = H / (2 * Math.tan(camera.fov * Math.PI / 360));
     renderer.setRenderTarget(this.renderToScreen ? null : writeBuffer); this.q.render(renderer);
   }
 }
@@ -127,8 +145,8 @@ export const dof = new ShaderPass({
     void main(){
       vec4 c0 = texture2D(tDiffuse, vUv); if (uMax < .5) { gl_FragColor = c0; return; }
       float d0 = lin(texture2D(tD, vUv).x); float c = cocD(d0); vec3 acc = c0.rgb; float wsum = 1.;
-      for (int i = 0; i < 40; i++) {
-        float fi = float(i) + .5; float r = sqrt(fi / 40.) * uMax; float a = fi * 2.39996;
+      for (int i = 0; i < 28; i++) {
+        float fi = float(i) + .5; float r = sqrt(fi / 28.) * uMax; float a = fi * 2.39996;
         vec2 uv = vUv + vec2(cos(a), sin(a)) * r / uRes;
         float ds = lin(texture2D(tD, uv).x); float cs = cocD(ds);
         // nearer samples spread with their own blur; farther samples never bleed over a sharper foreground
@@ -142,7 +160,7 @@ export const bloom = new UnrealBloomPass(new THREE.Vector2(W / 2, H / 2), 0.22, 
 composer.addPass(bloom);
 composer.addPass(new OutputPass());
 // ---------- v3 look: colour grade (display space) ----------
-export const GRADE = { gain: 1.08, sat: 1.16, contrast: .3, warm: new THREE.Color('#ffd6a0'), cool: new THREE.Color('#5a4f8f'), split: .08, vignette: .32 };
+export const GRADE = { gain: 1.1, sat: 1.05, contrast: .2, warm: new THREE.Color('#ffd6a0'), cool: new THREE.Color('#5a4f8f'), split: .05, vignette: .28 };
 export const grade = new ShaderPass({
   uniforms: { tDiffuse: { value: null }, uGain: { value: 1 }, uSat: { value: 1 }, uCon: { value: 0 }, uWarm: { value: GRADE.warm }, uCool: { value: GRADE.cool }, uSplit: { value: 0 }, uVig: { value: 0 } },
   vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
@@ -169,7 +187,7 @@ export function draw() {
 export const hemi = new THREE.HemisphereLight(0xa9c8ff, 0x6b5040, 0.6); scene.add(hemi);
 export const key = new THREE.DirectionalLight(0xffe4c0, 3.4);
 key.position.set(5, 10, 7); key.castShadow = true;
-key.shadow.mapSize.set(4096, 4096);
+key.shadow.mapSize.set(2048, 2048);
 Object.assign(key.shadow.camera, { left: -32, right: 32, top: 32, bottom: -32, near: 1, far: 200 });
 key.shadow.bias = -0.0003; key.shadow.normalBias = 0.02; key.shadow.radius = 4;
 scene.add(key); scene.add(key.target);

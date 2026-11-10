@@ -23,6 +23,7 @@ export async function boot(title, ep) {
   await document.fonts.load('80px IDB'); await document.fonts.load('80px IDBo'); await document.fonts.load('40px IM'); await loadFont();
   setTitle(title, ep);
   setSun(34, 215, 3.5, 1.2);
+  await loadEnvs(); setEnv('sky');
   K.street = buildStreet(scene);
   K.J = makeJeremy2(); scene.add(K.J); K.J.scale.setScalar(.75); rimLight(K.J);
   K.hands = makePOVHands(); camera.add(K.hands); scene.add(camera);
@@ -66,7 +67,7 @@ export function mode(m) { // 'street' | 'space'
 }
 
 // ---------- v3: fresnel rim light on characters (separates them from the background) ----------
-export const RIM = { col: new THREE.Color('#ffe2b0'), k: .55 };
+export const RIM = { col: new THREE.Color('#ffe2b0'), k: .36 };
 export function rimLight(obj) {
   obj.traverse(o => { if (!o.isMesh || !o.material || o.material.userData.rim) return;
     const m = o.material; m.userData.rim = true;
@@ -78,7 +79,7 @@ export function rimLight(obj) {
   });
 }
 // ---------- v3: depth of field helpers ----------
-import { DOF, INK, GRADE, LOOK } from './engine.js';
+import { DOF, INK, GRADE, LOOK, loadEnvs, setEnv } from './engine.js';
 export { DOF, INK, GRADE, LOOK };
 export function focus(worldPos, amount = 1, maxR = 16) { DOF.on = amount > 0; DOF.focus = camera.position.distanceTo(worldPos); DOF.aperture = amount; DOF.maxR = maxR; }
 export function noFocus() { DOF.on = false; }

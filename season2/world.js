@@ -3,19 +3,21 @@
 import { THREE, RoundedBoxGeometry, scene, canvasTex, rand, clamp, lerp, eOut, LOOK, GRADE } from './kit.js';
 import { key, hemi, renderer, INK } from './engine.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { crown, grassGeo, grassMat, leafMats } from './foliage.js';
+import { setEnv } from './engine.js';
 
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 export const W = {}; // handles
 
 // ------------------------------------------------------------------ sky / light presets
 export const SKY = {
-  day:     { zen: '#2f6fd0', hor: '#bcd6f2', gnd: '#9fb6cf', sun: '#fff1cf', key: 3.4, keyCol: '#ffe4c0', hemi: .6, exp: .52, env: .6, fog: [70, 300] },
-  golden:  { zen: '#3d5fb0', hor: '#ffc98e', gnd: '#c99a86', sun: '#ffd28a', key: 3.0, keyCol: '#ffb36b', hemi: .45, exp: .55, env: .45, fog: [60, 280] },
-  dusk:    { zen: '#1b2a6b', hor: '#f08a6a', gnd: '#6a4a6a', sun: '#ff9a6a', key: 1.2, keyCol: '#ff9a7a', hemi: .35, exp: .5, env: .3, fog: [50, 260] },
-  night:   { zen: '#060b24', hor: '#1d2c5c', gnd: '#141a33', sun: '#000000', key: .25, keyCol: '#7f9cff', hemi: .18, exp: .55, env: .08, fog: [40, 220] },
-  overcast:{ zen: '#7d8ea8', hor: '#c9d2dc', gnd: '#a8afb8', sun: '#000000', key: 1.4, keyCol: '#e8eef8', hemi: .8, exp: .55, env: .5, fog: [40, 220] },
-  ominous: { zen: '#3a2a3a', hor: '#e07a4a', gnd: '#5a3a3a', sun: '#ff7a3a', key: 1.6, keyCol: '#ffa070', hemi: .35, exp: .52, env: .3, fog: [50, 400] },
-  winter:  { zen: '#8aa4c8', hor: '#e6edf5', gnd: '#dfe6ee', sun: '#ffffff', key: 1.8, keyCol: '#f2f6ff', hemi: .9, exp: .5, env: .55, fog: [25, 160] },
+  day:     { hdri: 'sky', zen: '#2f6fd0', hor: '#bcd6f2', gnd: '#9fb6cf', sun: '#fff1cf', key: 3.4, keyCol: '#ffe4c0', hemi: .6, exp: .52, env: .6, fog: [70, 300] },
+  golden:  { hdri: 'sunset', zen: '#3d5fb0', hor: '#ffc98e', gnd: '#c99a86', sun: '#ffd28a', key: 3.2, keyCol: '#ffb879', hemi: .7, exp: .7, env: .6, fog: [60, 280] },
+  dusk:    { hdri: 'sunset', zen: '#1b2a6b', hor: '#f08a6a', gnd: '#6a4a6a', sun: '#ff9a6a', key: 1.5, keyCol: '#ff9a7a', hemi: .5, exp: .62, env: .4, fog: [50, 260] },
+  night:   { hdri: 'night', zen: '#060b24', hor: '#1d2c5c', gnd: '#141a33', sun: '#000000', key: .5, keyCol: '#8fa8ff', hemi: .32, exp: .8, env: .3, fog: [40, 220] },
+  overcast:{ hdri: 'city', zen: '#7d8ea8', hor: '#c9d2dc', gnd: '#a8afb8', sun: '#000000', key: 1.4, keyCol: '#e8eef8', hemi: .8, exp: .55, env: .5, fog: [40, 220] },
+  ominous: { hdri: 'sunset', zen: '#3a2a3a', hor: '#e07a4a', gnd: '#5a3a3a', sun: '#ff7a3a', key: 1.6, keyCol: '#ffa070', hemi: .35, exp: .52, env: .3, fog: [50, 400] },
+  winter:  { hdri: 'dawn', zen: '#8aa4c8', hor: '#e6edf5', gnd: '#dfe6ee', sun: '#ffffff', key: 1.8, keyCol: '#f2f6ff', hemi: .9, exp: .5, env: .55, fog: [25, 160] },
 };
 const cA = new THREE.Color(), cB = new THREE.Color();
 export function setSky(a, b = null, k = 0) {
@@ -23,7 +25,8 @@ export function setSky(a, b = null, k = 0) {
   const col = (p) => cA.set(A[p]).lerp(cB.set(B[p]), k);
   LOOK.zenith.copy(col('zen')); LOOK.horizon.copy(col('hor')); LOOK.ground.copy(col('gnd')); LOOK.sunGlow.copy(col('sun'));
   key.intensity = m(A.key, B.key); key.color.copy(col('keyCol')); hemi.intensity = m(A.hemi, B.hemi);
-  renderer.toneMappingExposure = m(A.exp, B.exp); scene.environmentIntensity = m(A.env, B.env);
+  renderer.toneMappingExposure = m(A.exp, B.exp); scene.environmentIntensity = m(A.env, B.env) * 1.15;
+  setEnv(k < .5 ? A.hdri : B.hdri);
   if (scene.fog) { scene.fog.color.copy(LOOK.horizon); scene.fog.near = m(A.fog[0], B.fog[0]); scene.fog.far = m(A.fog[1], B.fog[1]); }
 }
 
@@ -51,7 +54,7 @@ export function buildWorld(K) {
   // ---- grass tufts (instanced, grow with age)
   const blade = (h, rz, ry) => { const gg = new THREE.ConeGeometry(.035, h, 3); gg.translate(0, h / 2, 0); gg.rotateZ(rz); gg.rotateY(ry); return gg; };
   const tuftGeo = mergeGeometries([blade(.34, .25, 0), blade(.28, -.3, 1.2), blade(.36, .1, 2.4), blade(.26, -.2, 3.5), blade(.3, .35, 4.6), blade(.22, .5, 5.5)]);
-  const NG = 7000; W.grass = new THREE.InstancedMesh(tuftGeo, new THREE.MeshStandardMaterial({ roughness: .9 }), NG); W.grass.frustumCulled = false; W.grass.castShadow = false; W.grass.receiveShadow = true;
+  const NG = 7000; W.grass = new THREE.InstancedMesh(grassGeo, grassMat, NG); W.grass.frustumCulled = false; W.grass.castShadow = false; W.grass.receiveShadow = true;
   W.grassD = [];
   const gc = new THREE.Color();
   for (let i = 0; i < NG; i++) {
@@ -74,8 +77,8 @@ export function buildWorld(K) {
   W.flakes = new THREE.Points(new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute(fl, 3)), new THREE.PointsMaterial({ color: 0xffffff, size: .09, transparent: true, opacity: .9, depthWrite: false }));
   W.flakes.visible = false; W.flakeBase = fl.slice(); scene.add(W.flakes);
   // ---- vines climbing the facades (instanced leaves)
-  const leafGeo = new THREE.CircleGeometry(.22, 6); leafGeo.scale(1, .7, 1);
-  const NV = 9000; W.vines = new THREE.InstancedMesh(leafGeo, new THREE.MeshStandardMaterial({ side: THREE.DoubleSide, roughness: .8 }), NV); W.vines.frustumCulled = false;
+  const leafGeo = new THREE.PlaneGeometry(.75, .75);
+  const NV = 9000; W.vines = new THREE.InstancedMesh(leafGeo, leafMats[2], NV); W.vines.frustumCulled = false;
   W.vineD = [];
   for (let i = 0; i < NV; i++) {
     const bi = Math.floor(r() * W.blocks.length), b = W.blocks[bi].userData; const col = Math.floor(r() * 6);
@@ -102,7 +105,7 @@ export function buildWorld(K) {
   spots.forEach(([x, z], i) => {
     const g = new THREE.Group(); const hh = 4 + r() * 4;
     const tr = new THREE.Mesh(new THREE.CylinderGeometry(.12, .3, hh, 8), trunkM); tr.position.y = hh / 2; tr.castShadow = true; g.add(tr);
-    for (let k = 0; k < 7; k++) { const rad = 1 + r() * 1.1; const lb = new THREE.Mesh(new THREE.IcosahedronGeometry(rad, 1), leafMs[(i + k) % 4]); lb.position.set((r() - .5) * 2.4, hh - .4 + r() * 2, (r() - .5) * 2.4); lb.castShadow = true; lb.receiveShadow = true; g.add(lb); }
+    for (let k = 0; k < 4; k++) { const rad = 1.3 + r() * .9; const lb = crown(rad, i * 13 + k, (i + k) % 3); lb.position.set((r() - .5) * 2.2, hh - .2 + r() * 2 + k * .3, (r() - .5) * 2.2); g.add(lb); }
     g.position.set(x, 0, z); g.userData = { birth: i === 0 ? 8 : 9 + i * 1.2 + r() * 4, full: i === 0 ? 28 : 45 + r() * 30 }; g.visible = false; scene.add(g); W.wild.push(g);
   });
   // ---- props
@@ -251,7 +254,11 @@ export function collapse(block, k, t) { // k: 0..1 progress (0 = standing)
 export function debrisPile(block) { collapse(block, 1, 0); W.dust.visible = false; }
 export function resetCollapse() { if (W.debris) { W.debris.userData.block.visible = true; W.debris.visible = false; } W.dust.visible = false; }
 
-// ------------------------------------------------------------------ animals (stylised low-poly quadrupeds)
+// ------------------------------------------------------------------ animals (v4: smooth anatomy + fur texture)
+let furTex = null;
+function FUR() { if (furTex) return furTex; furTex = canvasTex(256, 256, (ctx, w, h) => { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, w, h); const q = rand(55);
+  for (let i = 0; i < 3500; i++) { const x = q() * w, y = q() * h, l = 4 + q() * 9, v = 170 + q() * 85; ctx.strokeStyle = `rgba(${v},${v},${v},.55)`; ctx.lineWidth = 1 + q(); ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + (q() - .5) * 3, y + l); ctx.stroke(); } }).tex;
+  furTex.wrapS = furTex.wrapT = THREE.RepeatWrapping; furTex.repeat.set(3, 3); return furTex; }
 export function makeAnimal(kind) {
   const P = {
     dog:  { len: .75, bh: .32, leg: .36, body: 0xc9884a, belly: 0xf0dcc0, head: .2, snout: .16, ear: 'flop', tail: .3, neck: .12 },
@@ -261,14 +268,14 @@ export function makeAnimal(kind) {
     doe:  { len: 1.05, bh: .4, leg: .74, body: 0xb27a46, belly: 0xf2e6d2, head: .19, snout: .15, ear: 'big', tail: .12, neck: .45 },
   }[kind];
   const g = new THREE.Group(), body = new THREE.Group(); g.add(body);
-  const mb = std(P.body, { roughness: .8 }), mbe = std(P.belly, { roughness: .8 }), dark = std(0x1d1a1c, { roughness: .4 });
-  const torso = new THREE.Mesh(new THREE.SphereGeometry(1, 20, 14), mb); torso.scale.set(P.bh * .9, P.bh, P.len / 2); torso.position.y = P.leg + P.bh * .6; body.add(torso);
+  const mb = new THREE.MeshStandardMaterial({ color: P.body, map: FUR(), roughness: .9 }), mbe = new THREE.MeshStandardMaterial({ color: P.belly, map: FUR(), roughness: .9 }), dark = std(0x1d1a1c, { roughness: .3 });
+  const torso = new THREE.Mesh(new THREE.CapsuleGeometry(1, 1.6, 12, 24), mb); torso.rotation.x = Math.PI / 2; torso.scale.set(P.bh * .78, P.len / 3.6, P.bh * .85); torso.position.y = P.leg + P.bh * .6; body.add(torso);
   const belly = new THREE.Mesh(new THREE.SphereGeometry(1, 16, 10), mbe); belly.scale.set(P.bh * .75, P.bh * .6, P.len * .4); belly.position.set(0, P.leg + P.bh * .35, 0); body.add(belly);
   const neckG = new THREE.Group(); neckG.position.set(0, P.leg + P.bh * .9, P.len * .42); body.add(neckG);
   const neck = new THREE.Mesh(new THREE.CylinderGeometry(P.bh * .32, P.bh * .45, P.neck + .15, 12), mb); neck.position.y = (P.neck + .15) / 2; neck.rotation.x = .5; neckG.add(neck);
   const head = new THREE.Group(); head.position.set(0, P.neck + .12, (P.neck + .15) * .45); neckG.add(head);
-  const hd = new THREE.Mesh(new THREE.SphereGeometry(P.head, 20, 14), mb); hd.scale.set(.9, .9, 1); head.add(hd);
-  const sn = new THREE.Mesh(new THREE.SphereGeometry(P.head * .62, 16, 10), mbe); sn.scale.set(.8, .7, 1.4); sn.position.set(0, -P.head * .25, P.head * .85); head.add(sn);
+  const hd = new THREE.Mesh(new THREE.SphereGeometry(P.head, 32, 24), mb); hd.scale.set(.85, .9, 1.05); head.add(hd);
+  const sn = new THREE.Mesh(new THREE.CapsuleGeometry(P.head * .38, P.head * .7, 8, 16), mbe); sn.rotation.x = Math.PI / 2 - .15; sn.scale.set(1, 1, .85); sn.position.set(0, -P.head * .25, P.head * .85); head.add(sn);
   const nose = new THREE.Mesh(new THREE.SphereGeometry(P.head * .2, 12, 8), dark); nose.position.set(0, -P.head * .12, P.head * 1.55); head.add(nose);
   for (const s of [-1, 1]) {
     const eye = new THREE.Mesh(new THREE.SphereGeometry(P.head * .17, 12, 8), dark); eye.position.set(s * P.head * .5, P.head * .2, P.head * .62); head.add(eye);
@@ -283,7 +290,7 @@ export function makeAnimal(kind) {
   const legs = [];
   for (const [sx, sz] of [[-1, 1], [1, 1], [-1, -1], [1, -1]]) {
     const piv = new THREE.Group(); piv.position.set(sx * P.bh * .55, P.leg + P.bh * .3, sz * P.len * .32); body.add(piv);
-    const lg = new THREE.Mesh(new THREE.CylinderGeometry(P.bh * .16, P.bh * .12, P.leg + P.bh * .3, 8), mb); lg.position.y = -(P.leg + P.bh * .3) / 2; piv.add(lg);
+    const lg = new THREE.Mesh(new THREE.CapsuleGeometry(P.bh * .13, P.leg + P.bh * .1, 6, 12), mb); lg.scale.set(1, 1, 1.25); lg.position.y = -(P.leg + P.bh * .3) / 2; piv.add(lg);
     const hoof = new THREE.Mesh(new THREE.SphereGeometry(P.bh * .15, 8, 6), kind.startsWith('d') && kind !== 'dog' && kind !== 'dog2' ? dark : mbe); hoof.position.y = -(P.leg + P.bh * .3); piv.add(hoof);
     legs.push(piv);
   }

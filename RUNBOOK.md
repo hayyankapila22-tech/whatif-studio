@@ -21,8 +21,12 @@ title (≤ 32 chars so it fits the bar), reel (last item = topic, ≤ 30 chars),
 Fact-check every number with a web search; keep the values exact (counter shows the real computed value).
 Safe zone: all text inside x 60–930, y 250–1440 (kit already places counter/captions/bubbles there). Keep Jeremy out from behind lamp posts (x = 21, 30, 39 on z = 4.8) and parked car (x = 26, z = 3.2): good spots x ≈ 34.5 or 21.5–23.
 
-## v3 look (from Ep10, 2026-11-09) — use in every new episode
-- Engine adds ink outlines, a painted gradient sky, depth of field and a colour grade automatically (`INK`, `DOF`, `GRADE`, `LOOK` in engine.js).
+## v4 realistic look (2026-11-10) — use in every new episode
+- Realism first: no ink outlines (INK.strength = 0), real HDRI lighting (`season2/assets/hdri`, CC0 Poly Haven via @pmndrs/assets; `setEnv(name)` or via `setSky`), screen-space ambient occlusion, soft filmic grade, depth of field.
+- NO low-poly shapes: foliage = `crown(radius, seed, k)` from foliage.js (alpha leaf cards), grass = `grassGeo/grassMat`, animals = `makeAnimal` (smooth, fur-textured). Never use flat-shaded icosahedrons or bare spheres for nature. New props: smooth geometry (enough segments, rounded edges via RoundedBoxGeometry), real-looking materials (canvas textures with noise/grime, correct roughness).
+- Render cost: ~4 s/frame on the street, ~10 s/frame in dense foliage — keep heavy foliage shots short.
+## v3 kit notes (still valid)
+- Engine adds a painted gradient sky, depth of field and a colour grade automatically (`INK`, `DOF`, `GRADE`, `LOOK` in engine.js).
 - Per shot: `focus(worldPos, amount, maxR)` on close/medium shots (subject sharp, background soft); `noFocus()` on wides.
 - `world.js`: `buildWorld(K)` once, then per shot `setSky('day'|'golden'|'dusk'|'night'|'overcast'|'ominous'|'winter')` and, for timeline topics, `setAge(years, t, {lights, lamps, snow})` (grass, vines, cracks, broken windows, rust, moss, wild trees). Also `makeAnimal('dog'|'dog2'|'wolf'|'deer'|'doe')`, `collapse(block,k)`, `flood(k)`, `towers(on,t)`, `poof(pos,k)`.
 - Call `mode('street')` BEFORE `hideAll()` (mode() re-shows Jeremy).
