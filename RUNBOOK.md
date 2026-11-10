@@ -21,7 +21,7 @@ title (≤ 32 chars so it fits the bar), reel (last item = topic, ≤ 30 chars),
 Fact-check every number with a web search; keep the values exact (counter shows the real computed value).
 Safe zone: all text inside x 60–930, y 250–1440 (kit already places counter/captions/bubbles there). Keep Jeremy out from behind lamp posts (x = 21, 30, 39 on z = 4.8) and parked car (x = 26, z = 3.2): good spots x ≈ 34.5 or 21.5–23.
 
-## v5 PREMIUM STUDIO LOOK (2026-11-10) — THE CHANNEL STYLE FROM NOW ON. Reference episode: season2/episodes/ep12 (popcorn)
+## v5 PREMIUM STUDIO LOOK (2026-11-10) — THE CHANNEL STYLE FROM NOW ON, for EVERY topic (history, science, biology, mind-bending). No more doubling episodes (owner rule). Reference episode: season2/episodes/ep12 (popcorn)
 - Look: clean infinite grey tiled floor, soft studio light (HDRI 'studio'), photoreal-ish objects, muted palette with ONE accent colour (orange `ACCENT`), soft shadows, no outlines, no cartoon effects, no flashes/shakes, no slot-machine intro.
 - One slow CONTINUOUS camera (studio.js `orbit(target, dist, {yaw, pitch, fov})`) that pulls back as things grow. The framing size must be a smooth function of time/value (see ep12 `refAt`) — never jumps. Hard cuts only for a change of world (e.g. ground -> space), done with a 0.3 s dip (`#v5fade`).
 - HUD (studio.js `setHUD`): tiny tracked brand line, the question at top-left with the key phrase in orange (`<b>`), small orange caps labels with white numbers, the big orange value, and an italic serif one-liner that changes at each milestone ("Minute 15: a full bathtub."). End card text centred (`end`) + "What should double next? 👇" (or a fitting question), data fades out.
@@ -30,7 +30,8 @@ Safe zone: all text inside x 60–930, y 250–1440 (kit already places counter/
 - Props in studio.js: `bathtub()`, `pool()`, `pyramid()`, `planets()` (real NASA Earth/Moon textures), plus `makeCar()`. Build new props smooth and real-scale.
 - Runner: the episode writes its own `window.SPEC` ({total, reel:1, ctaAt, subtle:true, beats:[], beds, sfx}) and `window.renderAt(t)`; see ep12. Values roll continuously (e.g. minute as an eased function of time), numbers exact.
 - Audio: music (Timeless from 0:12) + SUBTLE effects only: `subtle: true`, beds 'room' (ground) / 'space', a few soft `swell`s at milestones and object-specific one-shots (e.g. `kpop`/`pops` for popcorn). No voiceover.
-- Timeline topics use the same studio look: objects on the clean floor (or clean space) with the counter as time, tags and one-liners.
+- Timeline / history topics use the same studio look: build the subject as a clean real-scale diorama on the floor (e.g. a Roman city block, a coastline with tide marks, Earth-Moon in clean space), the counter is time (YEAR / DAY), tags label real things, italic one-liners carry the story. Speculative history: say "Speculation:" in the one-liner and keep real facts accurate.
+- HUD for non-number topics: l1/n1 = the time unit (e.g. YEAR 476), l2/n2 = a second stat that changes (e.g. POPULATION), l3/val = the headline stat; the question stays at the top.
 
 ## v4 realistic look (2026-11-10) — street episodes only (legacy)
 - Realism first: no ink outlines (INK.strength = 0), real HDRI lighting (`season2/assets/hdri`, CC0 Poly Haven via @pmndrs/assets; `setEnv(name)` or via `setSky`), screen-space ambient occlusion, soft filmic grade, depth of field.

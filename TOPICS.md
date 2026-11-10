@@ -7,30 +7,15 @@ Format: one thing doubles/grows every minute; beats = minute marks; ends in spac
 - Ep8 Jeremy doubles in height every minute (2026-11-09 16:00)
 - Ep9 pigeons double every minute (2026-11-09 19:00)
 - Ep10 What if all humans vanished? — owner's pick #1, timeline to 100 years, first v3-quality episode (2026-11-10 12:00)
+- Ep12 What if popcorn doubled every minute? — first v5 premium studio episode, LAST doubling episode (2026-11-11 12:00)
 - Ep11 What if everyone could read minds? — owner's pick #2, timeline to 100 years, v3 (2026-11-10 19:00)
 
-## Next up (take from the top, 3 per night)
+## Next up (take from the top, 2 per night)
+OWNER RULE (2026-11-10): NO MORE DOUBLING / "x doubles every minute" episodes — they got repetitive. Every topic (history, science, biology, mind-bending) is made in the v5 premium studio look.
 ### Owner's picks (do these first, in order)
 3. What if the Roman Empire never collapsed? — TIMELINE: counter = year AD from 476; steam/industry earlier, Roman space program, Latin everywhere. Label as speculation.
 4. What if the Moon disappeared? — TIMELINE: counter = time after it vanishes; tides shrink, night darker, axis wobble, climate swings over millions of years.
 5. What if gravity reversed for 10 seconds every day? — TIMELINE: counter = seconds of reversal (and day count); people/cars float, how fast you rise (g = 9.8 m/s² → 490 m in 10 s, you then fall from that height), what survives.
-
-### Doubling ideas
-- Jeremy's hair doubles in length every minute (0.1 m start; Burj, Everest, Kármán line, Moon)
-- It gets 1 °C hotter every minute (boiling, lead melts, Venus, Sun surface)
-- Gravity halves every minute (jumps, buildings sway, atmosphere leaks, Moon drifts)
-- Raindrops double in size every minute
-- Bugs double every minute (ants: mass vs humans already ~ comparable; carpet planet)
-- The Moon's distance halves every minute (tides, Roche limit ~18,000 km, rings)
-- Sound gets twice as loud every minute (dB +3 per double of power; pain threshold ~120–130 dB)
-- Jeremy's walking speed doubles every minute (sprinter, car, jet, Mach, orbit, escape velocity)
-- Earth's spin doubles every minute (day length halves; equator 465 m/s; breakup ~ 1.4 h day)
-- Money doubles every minute starting at $1 (house, Bezos, world GDP, all money)
-- Popcorn doubles every minute (kitchen, house, city, Earth)
-- Jeremy's phone screen time doubles every day (fun calendar version)
-- Snow falls twice as fast every minute
-- Trees grow twice as tall every minute
-- Cats double every minute
 
 ### Owner's 150-idea list (pick visual ones; mix categories ~30% science/Earth, 25% history, 25% biology, 20% mind-bending)
 - What if all humans disappeared overnight?
@@ -184,3 +169,22 @@ Format: one thing doubles/grows every minute; beats = minute marks; ends in spac
 - What if humanity had to restart civilisation from scratch?
 
 Skipped on purpose: 'What if Germany won World War II?' (too sensitive for the account).
+
+## Parked (owner stopped doubling episodes on 2026-11-10 — do not use)
+
+- Jeremy's hair doubles in length every minute (0.1 m start; Burj, Everest, Kármán line, Moon)
+- It gets 1 °C hotter every minute (boiling, lead melts, Venus, Sun surface)
+- Gravity halves every minute (jumps, buildings sway, atmosphere leaks, Moon drifts)
+- Raindrops double in size every minute
+- Bugs double every minute (ants: mass vs humans already ~ comparable; carpet planet)
+- The Moon's distance halves every minute (tides, Roche limit ~18,000 km, rings)
+- Sound gets twice as loud every minute (dB +3 per double of power; pain threshold ~120–130 dB)
+- Jeremy's walking speed doubles every minute (sprinter, car, jet, Mach, orbit, escape velocity)
+- Earth's spin doubles every minute (day length halves; equator 465 m/s; breakup ~ 1.4 h day)
+- Money doubles every minute starting at $1 (house, Bezos, world GDP, all money)
+- Popcorn doubles every minute (kitchen, house, city, Earth)
+- Jeremy's phone screen time doubles every day (fun calendar version)
+- Snow falls twice as fast every minute
+- Trees grow twice as tall every minute
+- Cats double every minute
+
