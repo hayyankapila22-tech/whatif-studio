@@ -57,7 +57,7 @@ let envRT = null;
 // ---------- v4: real HDRI environment lighting (CC0 Poly Haven via @pmndrs/assets, 512px) ----------
 import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
 const ENVS = {}; let envName = null;
-export async function loadEnvs(names = ['sky', 'city', 'park', 'sunset', 'sunrise', 'dawn', 'night', 'forest']) {
+export async function loadEnvs(names = ['sky', 'city', 'park', 'sunset', 'sunrise', 'dawn', 'night', 'forest', 'studio', 'warehouse']) {
   const L = new EXRLoader();
   for (const n of names) { try { const tex = await L.loadAsync(`./assets/hdri/${n}.exr`); tex.mapping = THREE.EquirectangularReflectionMapping; ENVS[n] = pmrem.fromEquirectangular(tex).texture; tex.dispose(); } catch (e) { console.log('[ep] hdri missing', n); } }
 }

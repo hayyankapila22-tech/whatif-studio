@@ -147,3 +147,21 @@ ONESHOT = dict(pop=pop, chips=chips, ding=ding, poof=poof, clatter=clatter, spla
                water_gush=water_gush, siren=siren, bark=bark, bark_hi=lambda: bark(560), howl=howl, crack=crack, pipe_burst=pipe_burst,
                crumble=crumble, wind_gust=wind_gust, rustle=rustle, bird=lambda: chirp_bird(3600), sparkle_rev=sparkle_rev)
 BEDS = dict(murmur=bed_murmur, city=bed_city, wind=bed_silence_wind, crickets=bed_crickets, birds=bed_birds, drip=bed_rain_drip, winter=bed_winter, drone=bed_drone)
+
+# ---- v5 premium (subtle) ----
+def kpop():      # a single popcorn kernel popping: tight bright snap with a tiny body
+    d = .12; t = tt(d); x = bp(noise(d), 1200, 6500) * np.exp(-t * 90) + np.sin(2 * np.pi * 420 * t) * np.exp(-t * 60) * .4
+    return norm(x)
+def pops(d=3.0, rate=10):  # a burst of popping that thins out
+    x = np.zeros(int(d * SR))
+    for o in np.sort(R.uniform(0, d - .15, int(d * rate))):
+        p = kpop(); i = int(o * SR); n = min(len(p), len(x) - i); x[i:i + n] += p[:n] * R.uniform(.3, 1) * (1 - o / d * .6)
+    return norm(x)
+def swell(d=1.6):  # soft low tonal swell for milestones
+    t = tt(d); f = 110
+    x = (np.sin(2 * np.pi * f * t) + .5 * np.sin(2 * np.pi * f * 1.5 * t) + .25 * np.sin(2 * np.pi * f * 2 * t)) * np.sin(np.pi * t / d) ** 2
+    return norm(lpf(x, 900) + bp(noise(d), 200, 900) * .05 * np.sin(np.pi * t / d))
+def bed_room(d): t = tt(d); return lpf(noise(d), 180) * .8 + bp(noise(d), 300, 1200) * .06
+def bed_space(d): t = tt(d); return (np.sin(2 * np.pi * 49 * t) + .5 * np.sin(2 * np.pi * 73.5 * t)) * .25 * (.8 + .2 * np.sin(2 * np.pi * .2 * t)) + lpf(noise(d), 120) * .3
+ONESHOT.update(kpop=kpop, pops=pops, swell=swell)
+BEDS.update(room=bed_room, space=bed_space)

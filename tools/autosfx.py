@@ -5,11 +5,13 @@ import sfxlib as L
 ep = sys.argv[1]; S = json.load(open(os.path.join(ep, 'spec.json')))
 T = S['total']; L.init(T); add = L.add
 n = S.get('reel', 7) - 1
-for k in range(1, n + 1): add(L.tick(), (1 - (1 - k / n) ** (1 / 3.2)) * 2.1, .9)
-add(L.riser(2.0), 0.1, .25); add(L.ding(1568), 2.1, .55); add(L.whoosh(.5), 2.75, .45)
+SUBTLE = S.get('subtle', False)  # v5 premium: no slot-intro ticks, no per-beat whoosh/pop/tick
+if not SUBTLE:
+    for k in range(1, n + 1): add(L.tick(), (1 - (1 - k / n) ** (1 / 3.2)) * 2.1, .9)
+    add(L.riser(2.0), 0.1, .25); add(L.ding(1568), 2.1, .55); add(L.whoosh(.5), 2.75, .45)
 def thud(f=60):
     t = L.tt(.6); return np.sin(2 * np.pi * np.cumsum(f + 40 * np.exp(-t * 20)) / L.SR) * np.exp(-t * 8)
-beats = S['beats']; cta = S.get('ctaAt', T - 5)
+beats = [] if S.get('subtle') else S['beats']; cta = S.get('ctaAt', T - 5)
 for i, b in enumerate(beats):
     t0 = b['t']; prev = beats[i - 1] if i else None
     add(L.whoosh(.35), max(0, t0 - .18), .32, pan=(-.3 if i % 2 else .3))
@@ -22,7 +24,7 @@ for i, b in enumerate(beats):
     if b.get('bubble'): add(L.pop(1500), t0 + .2, .5); add(L.pop(1900), t0 + .26, .3)
     nb = beats[i + 1]['t'] if i + 1 < len(beats) else T
     if nb - t0 > 2 and i + 1 < len(beats) and beats[i + 1].get('big'): add(L.riser(1.4), nb - 1.4, .28)
-add(L.ding(1318), cta, .5); add(L.chaching(), cta + 2.3, .4)
+if not S.get('subtle'): add(L.ding(1318), cta, .5); add(L.chaching(), cta + 2.3, .4)
 # v3: episode-specific sound design (spec.sfx one-shots + spec.beds ambience), synthesized in sfx2.py
 import sfx2 as X
 for bd in S.get('beds', []):

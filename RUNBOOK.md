@@ -21,7 +21,18 @@ title (≤ 32 chars so it fits the bar), reel (last item = topic, ≤ 30 chars),
 Fact-check every number with a web search; keep the values exact (counter shows the real computed value).
 Safe zone: all text inside x 60–930, y 250–1440 (kit already places counter/captions/bubbles there). Keep Jeremy out from behind lamp posts (x = 21, 30, 39 on z = 4.8) and parked car (x = 26, z = 3.2): good spots x ≈ 34.5 or 21.5–23.
 
-## v4 realistic look (2026-11-10) — use in every new episode
+## v5 PREMIUM STUDIO LOOK (2026-11-10) — THE CHANNEL STYLE FROM NOW ON. Reference episode: season2/episodes/ep12 (popcorn)
+- Look: clean infinite grey tiled floor, soft studio light (HDRI 'studio'), photoreal-ish objects, muted palette with ONE accent colour (orange `ACCENT`), soft shadows, no outlines, no cartoon effects, no flashes/shakes, no slot-machine intro.
+- One slow CONTINUOUS camera (studio.js `orbit(target, dist, {yaw, pitch, fov})`) that pulls back as things grow. The framing size must be a smooth function of time/value (see ep12 `refAt`) — never jumps. Hard cuts only for a change of world (e.g. ground -> space), done with a 0.3 s dip (`#v5fade`).
+- HUD (studio.js `setHUD`): tiny tracked brand line, the question at top-left with the key phrase in orange (`<b>`), small orange caps labels with white numbers, the big orange value, and an italic serif one-liner that changes at each milestone ("Minute 15: a full bathtub."). End card text centred (`end`) + "What should double next? 👇" (or a fitting question), data fades out.
+- Callout tags (`tag3(title, detail, worldPos)`): dark rounded boxes, orange caps title + italic detail, e.g. "JEREMY · 1.75 m", "OLYMPIC POOL · 2,500 m³". Max 3-4 at once; anchor them so they never cover the HUD (they clamp to y ≥ 880).
+- Jeremy is the scale reference ("JEREMY 1.75 m") via `jeremy(pos, ry, pose)`; keep him small in frame, beside/behind the subject, never covering the HUD.
+- Props in studio.js: `bathtub()`, `pool()`, `pyramid()`, `planets()` (real NASA Earth/Moon textures), plus `makeCar()`. Build new props smooth and real-scale.
+- Runner: the episode writes its own `window.SPEC` ({total, reel:1, ctaAt, subtle:true, beats:[], beds, sfx}) and `window.renderAt(t)`; see ep12. Values roll continuously (e.g. minute as an eased function of time), numbers exact.
+- Audio: music (Timeless from 0:12) + SUBTLE effects only: `subtle: true`, beds 'room' (ground) / 'space', a few soft `swell`s at milestones and object-specific one-shots (e.g. `kpop`/`pops` for popcorn). No voiceover.
+- Timeline topics use the same studio look: objects on the clean floor (or clean space) with the counter as time, tags and one-liners.
+
+## v4 realistic look (2026-11-10) — street episodes only (legacy)
 - Realism first: no ink outlines (INK.strength = 0), real HDRI lighting (`season2/assets/hdri`, CC0 Poly Haven via @pmndrs/assets; `setEnv(name)` or via `setSky`), screen-space ambient occlusion, soft filmic grade, depth of field.
 - NO low-poly shapes: foliage = `crown(radius, seed, k)` from foliage.js (alpha leaf cards), grass = `grassGeo/grassMat`, animals = `makeAnimal` (smooth, fur-textured). Never use flat-shaded icosahedrons or bare spheres for nature. New props: smooth geometry (enough segments, rounded edges via RoundedBoxGeometry), real-looking materials (canvas textures with noise/grime, correct roughness).
 - Render cost: ~4 s/frame on the street, ~10 s/frame in dense foliage — keep heavy foliage shots short.

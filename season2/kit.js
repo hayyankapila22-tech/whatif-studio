@@ -19,12 +19,12 @@ export function fmtBig(v, unit = '', dec = 1) {
 }
 
 // ---------- sets ----------
-export async function boot(title, ep) {
+export async function boot(title, ep, opts = {}) {
   await document.fonts.load('80px IDB'); await document.fonts.load('80px IDBo'); await document.fonts.load('40px IM'); await loadFont();
   setTitle(title, ep);
   setSun(34, 215, 3.5, 1.2);
   await loadEnvs(); setEnv('sky');
-  K.street = buildStreet(scene);
+  K.street = opts.street === false ? { group: new THREE.Group(), userData: {} } : buildStreet(scene);
   K.J = makeJeremy2(); scene.add(K.J); K.J.scale.setScalar(.75); rimLight(K.J);
   K.hands = makePOVHands(); camera.add(K.hands); scene.add(camera);
   K.fog = scene.fog;
