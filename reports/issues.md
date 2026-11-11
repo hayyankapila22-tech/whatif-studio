@@ -21,4 +21,5 @@
   2. **Moire waves on the far floor**: thin dark tile seams were baked into the floor texture. Removed; analytic grid lines now fade per axis well before they crowd (<~6 px apart); floor grain is softer (fine high-contrast specks boil after compression).
   3. **Grid pops when the tile size changes** (Ep12 switched 1→10→100→1000 m tiles in one frame). studio.js grid is now multi-level (tile, 10x, 100x…), each level cross-fading in as the finer one fades; Ep12 now uses a fixed `floorScale(1, sc)`.
   4. Shadow frustum is snapped to shadow-map texels in `shadowFit` so soft shadow edges do not crawl while the camera glides.
-- Re-rendered Ep12 and Ep13 with the fixes and swapped the video on their Buffer posts (new files `*-v2.mp4` in whatif-media).
+- Re-rendered Ep12 and Ep13 with the fixes (checked: segment-boundary jumps gone, durations 42.5 s / 49.1 s, audio present) and swapped the video on all 6 Buffer posts to `*-v2.mp4`. Ep12 v2 went out at 12:00 on TikTok, Instagram and YouTube. Ep13 v2 is scheduled for 19:00.
+- The cloud container restarted once during the Ep12 re-render; render_ep.sh resumed from the finished segments.
