@@ -17,6 +17,12 @@ const TYPES = { ".exr": "application/octet-stream", '.html': 'text/html', '.js':
   });
   await page.goto('http://app/index.html');
   await page.waitForFunction('window.READY === true', null, { timeout: 120000 });
+  // warm-up: the first frame after boot renders before late textures / env map / shadow map have settled,
+  // which put a one-frame glitch at the start of every 5 s segment (visible as a flicker every 5 s). Render and discard a few frames first.
+  if (mode === 'stills' || mode === 'video') {
+    const t0 = mode === 'video' ? +args[0] : +args[0];
+    for (let k = 0; k < 3; k++) { await page.evaluate(t => window.renderAt(t), Math.max(0, t0 - (2 - k) / 30)); await page.waitForTimeout(400); }
+  }
   if (mode === 'spec') { fs.writeFileSync(path.join(ROOT, 'spec.json'), JSON.stringify(await page.evaluate(() => window.SPEC))); console.log('spec written'); }
   if (mode === 'stills') {
     for (const t of args) {

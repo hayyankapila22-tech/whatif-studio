@@ -13,3 +13,12 @@
 ## 2026-11-10 evening (owner session)
 - Ep13: v5.1 render is ~9 s/frame per worker (MSAA + DOF) -> ~105 min for 49 s. The container restarted once mid-render; re-running render_ep.sh resumed. Final shot re-rendered (2 segments) because Jeremy was cut by the frame edge.
 - Ep12 (popcorn, Wed 12:00) still has the old aliased floor and no voiceover.
+
+## 2026-11-11 (nightly run, 07:22 Asia/Shanghai) — floor "tweaking" fix
+- Both slots today were already booked (Ep12 12:00, Ep13 19:00; all 6 Buffer posts confirmed `scheduled`), so no new episodes were made.
+- Owner reported the floor "still tweaking". Causes found and fixed:
+  1. **One-frame glitch at the start of every 5 s render segment** (frames 150, 300, 450… — a flicker every 5 s). The first frame after page boot rendered before lighting/textures settled. `render.cjs` now renders and discards 3 warm-up frames before stills/segments (test: first-frame jump 6.4 → 0.25).
+  2. **Moire waves on the far floor**: thin dark tile seams were baked into the floor texture. Removed; analytic grid lines now fade per axis well before they crowd (<~6 px apart); floor grain is softer (fine high-contrast specks boil after compression).
+  3. **Grid pops when the tile size changes** (Ep12 switched 1→10→100→1000 m tiles in one frame). studio.js grid is now multi-level (tile, 10x, 100x…), each level cross-fading in as the finer one fades; Ep12 now uses a fixed `floorScale(1, sc)`.
+  4. Shadow frustum is snapped to shadow-map texels in `shadowFit` so soft shadow edges do not crawl while the camera glides.
+- Re-rendered Ep12 and Ep13 with the fixes and swapped the video on their Buffer posts (new files `*-v2.mp4` in whatif-media).

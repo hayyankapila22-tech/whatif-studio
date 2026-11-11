@@ -33,8 +33,8 @@ function floor() {
   const T = canvasTex(1024, 1024, (ctx, w, h) => {
     const r = rand(5); ctx.fillStyle = '#9b968f'; ctx.fillRect(0, 0, w, h);
     for (let ty = 0; ty < 4; ty++) for (let tx = 0; tx < 4; tx++) {
-      const v = (r() - .5) * 14; ctx.fillStyle = `rgb(${155 + v},${150 + v},${143 + v})`; ctx.fillRect(tx * 256 + 2, ty * 256 + 2, 252, 252);
-      for (let i = 0; i < 900; i++) { const g = 120 + r() * 70; ctx.fillStyle = `rgba(${g},${g - 3},${g - 8},${.06 + r() * .1})`; const s = 1 + r() * 5; ctx.fillRect(tx * 256 + r() * 256, ty * 256 + r() * 256, s, s); }
+      const v = (r() - .5) * 14; ctx.fillStyle = `rgb(${155 + v},${150 + v},${143 + v})`; ctx.fillRect(tx * 256, ty * 256, 256, 256); // no baked seams: thin texture lines alias into moire waves at grazing angles
+      for (let i = 0; i < 900; i++) { const g = 120 + r() * 70; ctx.fillStyle = `rgba(${g},${g - 3},${g - 8},${.03 + r() * .05})`; const s = 2 + r() * 5; /* soft, low-contrast grain: fine high-contrast specks boil after compression */ ctx.fillRect(tx * 256 + r() * 256, ty * 256 + r() * 256, s, s); }
       const gr = ctx.createLinearGradient(tx * 256, ty * 256, tx * 256 + 256, ty * 256 + 256); gr.addColorStop(0, 'rgba(255,255,255,.05)'); gr.addColorStop(1, 'rgba(0,0,0,.05)'); ctx.fillStyle = gr; ctx.fillRect(tx * 256, ty * 256, 256, 256);
     }
   }).tex;
@@ -45,12 +45,18 @@ function floor() {
   m.material.onBeforeCompile = sh => { sh.uniforms.uTile = GRID.tile;
     sh.vertexShader = 'varying vec3 vWp;\n' + sh.vertexShader.replace('#include <project_vertex>', '#include <project_vertex>\n vWp = (modelMatrix * vec4(transformed, 1.)).xyz;');
     sh.fragmentShader = 'varying vec3 vWp; uniform float uTile;\n' + sh.fragmentShader.replace('#include <map_fragment>', `#include <map_fragment>
-      { vec2 g = vWp.xz / uTile; vec2 fw = max(fwidth(g), vec2(1e-6)); vec2 d = abs(fract(g - .5) - .5);
-        float lw = .011; vec2 dw = max(vec2(lw), fw * .75);
-        vec2 a = 1. - smoothstep(dw - fw * .75, dw + fw * .75, d);
-        a *= clamp(lw / dw, vec2(0.), vec2(1.));
-        float fade = 1. - smoothstep(.25, .6, max(fw.x, fw.y));
-        float line = max(a.x, a.y) * fade;
+      { // multi-level grid (tile, 10x, 100x ...): each level fades out on its own when it gets too dense, so pulling back never pops
+        float line = 0.; float L = uTile; vec2 show = vec2(1.);
+        for (int k = 0; k < 5; k++) {
+          vec2 g = vWp.xz / L; vec2 fw = max(fwidth(g), vec2(1e-6)); vec2 d = abs(fract(g - .5) - .5);
+          float lw = .011; vec2 dw = max(vec2(lw), fw * .75);
+          vec2 a = 1. - smoothstep(dw - fw * .75, dw + fw * .75, d);
+          a *= clamp(lw / dw, vec2(0.), vec2(1.));
+          vec2 fade = 1. - smoothstep(vec2(.06), vec2(.16), fw); // per axis: lines fade out well before they crowd closer than ~6 px (no moire / crawling)
+          vec2 v = a * fade * show; line = max(line, max(v.x, v.y));
+          show = 1. - fade; // the next (10x) level only appears as this one fades, so line width and density stay continuous
+          L *= 10.;
+        }
         diffuseColor.rgb = mix(diffuseColor.rgb, vec3(.86, .845, .815), line * .9); }`); };
   m.rotation.x = -Math.PI / 2; m.receiveShadow = true; m.scale.setScalar(1); return m;
 }
@@ -63,7 +69,11 @@ export function shadowFit(center, size) {
   const c = key.shadow.camera, s = Math.max(4, size * 1.6);
   c.left = -s; c.right = s; c.top = s; c.bottom = -s; c.near = .5; c.far = s * 6 + 50; c.updateProjectionMatrix();
   const dir = V(.45, 1, .35).normalize();
-  key.target.position.copy(center); key.position.copy(center).addScaledVector(dir, s * 3 + 20); key.target.updateMatrixWorld();
+  // snap the shadow frustum to whole shadow-map texels so soft shadow edges do not crawl while the camera/subject glides
+  const tx = 2 * s / key.shadow.mapSize.x, u = V(0, 1, 0).cross(dir).normalize(), w = dir.clone().cross(u);
+  const cu = Math.round(center.dot(u) / tx) * tx, cw = Math.round(center.dot(w) / tx) * tx, cd = center.dot(dir);
+  const snapped = u.multiplyScalar(cu).addScaledVector(w, cw).addScaledVector(dir, cd);
+  key.target.position.copy(snapped); key.position.copy(snapped).addScaledVector(dir, s * 3 + 20); key.target.updateMatrixWorld();
   key.shadow.bias = -.0004; key.shadow.normalBias = .02 * s / 4;
 }
 

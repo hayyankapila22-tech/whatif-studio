@@ -127,7 +127,7 @@ window.renderAt = (t) => {
     const size = Math.max(subj * 1.5, ref);
     const dist = size * 2.9 + .35, tgt = V(0, Math.max(Hh * .55, .015) + size * .32, 0);
     orbit(tgt, dist, { yaw: -.55 + t * .012, pitch: lerp(.4, .3, clamp(m / 40)), fov: 36 });
-    floorScale(m < 24 ? 1 : m < 36 ? 10 : m < 46 ? 100 : 1000, Math.max(1, dist / 400));
+    floorScale(1, Math.max(1, dist / 400)); // fixed 1 m base: studio.js grid blends 10x levels itself (no pop at scale changes)
     shadowFit(V(0, 0, 0), size * 1.4);
     DOF.on = m < 12; DOF.focus = camera.position.distanceTo(V(0, Hh * .5, 0)); DOF.aperture = .9; DOF.maxR = 10;
     scene.background = null;
