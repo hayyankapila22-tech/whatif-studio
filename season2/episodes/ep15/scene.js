@@ -89,11 +89,12 @@ window.renderAt = (t) => {
     orbit(tgt, dist, { yaw: -.55 + t * .008, pitch: lerp(.38, .3, clamp(m / 40)), fov: 36 });
     camera.near = Math.max(.02, dist * .05); camera.far = dist * 14 + 80; camera.updateProjectionMatrix(); sky.scale.setScalar(camera.far * .9);
     // references stand in front of the ball (towards the camera, a little to one side)
-    const place = (o, mRef, w, ang) => { const dd = diam(mRef) / 2 * 1.1 + w * .5; o.position.set(Math.cos(ang) * dd, 0, Math.sin(ang) * dd); o.visible = R < dd - w * .1; return o.position; };
-    if (m > 16 && m < 25) { const p = place(tub, 22, 1.5, 1.35); tub.rotation.y = -.55; if (tub.visible && m > 20) tag3('BATHTUB', '~200 litres', p.clone().add(V(0, .8, 0)), clamp((m - 20) * 2)); }
-    if (m > 29 && m < 42) { const p = place(olympic, 36, 30, 2.12); olympic.rotation.y = -.55; if (olympic.visible && m > 33) tag3('OLYMPIC POOL', '2,500 m³', p.clone().add(V(0, 2, 0)), clamp((m - 33) * 2)); }
-    if (m > 46 && m < 58) { const p = place(burj, 53, 60, 1.48); if (burj.visible && m > 50) tag3('BURJ KHALIFA', '828 m', p.clone().add(V(0, 850, 0)), clamp((m - 50) * 2)); }
-    if (m > 58) { const p = place(everest, 63, 6000, 1.76); if (everest.visible && m > 61) tag3('MOUNT EVEREST', '8,849 m tall', p.clone().add(V(0, 9000, 0)), clamp((m - 61) * 2) * clamp(66 - m)); }
+    const place = (o, mRef, w, ang) => { const dd = diam(mRef) / 2 * 1.1 + w * .5, k = eOut(clamp((dist / (dd * 1.6 + w) - 1) * 3)); // grows in only once the camera has pulled back well past it (never inside the camera)
+      o.scale.setScalar(Math.max(k, 1e-3)); o.userData.k = k; o.position.set(Math.cos(ang) * dd, o.userData.lift ? o.userData.lift * k : 0, Math.sin(ang) * dd); o.visible = k > 0 && R < dd - w * .1; return o.position; };
+    if (m > 16 && m < 25) { const p = place(tub, 22, 1.5, 1.35); tub.rotation.y = -.55; if (tub.visible && tub.userData.k > .7 && m > 20) tag3('BATHTUB', '~200 litres', p.clone().add(V(0, .8, 0)), clamp((m - 20) * 2)); }
+    if (m > 29 && m < 42) { const p = place(olympic, 36, 30, 2.12); olympic.rotation.y = -.55; if (olympic.visible && olympic.userData.k > .7 && m > 33) tag3('OLYMPIC POOL', '2,500 m³', p.clone().add(V(0, 2, 0)), clamp((m - 33) * 2)); }
+    if (m > 46 && m < 58) { const p = place(burj, 53, 60, 1.48); if (burj.visible && burj.userData.k > .7 && m > 50) tag3('BURJ KHALIFA', '828 m', p.clone().add(V(0, 850, 0)), clamp((m - 50) * 2)); }
+    if (m > 58) { const p = place(everest, 63, 6000, 1.76); if (everest.visible && everest.userData.k > .7 && m > 61) tag3('MOUNT EVEREST', '8,849 m tall', p.clone().add(V(0, 9000, 0)), clamp((m - 61) * 2) * clamp(66 - m)); }
     const jd = R + .75; if (m > 23.5 && m < 31) jeremy(V(Math.cos(3.39) * jd, 0, Math.sin(3.39) * jd), -.1, { expr: m > 25.3 ? 'shocked' : 'happy', look: .5, armL: m > 25.3 ? 2.3 : .2, armR: m > 25.3 ? 2.3 : .2, blink: (t % 3.1) < .1 }); else K.J.visible = false;
     if (m > 24.2 && m < 30) tag3('JEREMY', '1.75 m', K.J.position.clone().add(V(0, 2.25, 0)), clamp((m - 24.2) * 2) * clamp((30 - m) / 1.5));
     tag3(m < .5 ? 'ONE DROP' : 'WATER', m < .5 ? '0.05 mL' : fmtW(d) + ' wide', V(0, d * 1.05, 0), clamp((t - T0[1] - .3) / .4));

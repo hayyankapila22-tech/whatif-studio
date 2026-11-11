@@ -56,7 +56,7 @@ const everest = (() => { const H = 8849, B = 6000, g = new THREE.ConeGeometry(B,
     const rk = .15 + hf * .03 + n * .02; col[i * 3] = lerp(rk * 1.12, 1, snow); col[i * 3 + 1] = lerp(rk, 1, snow); col[i * 3 + 2] = lerp(rk * .9, 1.02, snow); }
   g.setAttribute('color', new THREE.BufferAttribute(col, 3)); g.computeVertexNormals();
   const m = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .95, flatShading: true })); m.castShadow = m.receiveShadow = true; return m; })();
-[bball, burj, everest].forEach(o => scene.add(o));
+bball.userData.lift = .12; [bball, burj, everest].forEach(o => scene.add(o));
 
 // ---------- space references (all to scale; positions in metres above the black hole's top) ----------
 const SPACE = planets(); scene.add(SPACE); const E = SPACE.userData.earth, Mo = SPACE.userData.moon;
@@ -109,10 +109,11 @@ window.renderAt = (t) => {
     orbit(tgt, dist, { yaw: -.55 + t * .012, pitch: lerp(.38, .3, clamp(m / 20)), fov: 36 });
     camera.near = Math.max(.02, dist * .05); camera.far = dist * 14 + 80; camera.updateProjectionMatrix(); sky.scale.setScalar(camera.far * .9); // tight depth range: a 2 cm sphere must not z-fight the floor
     // references stand in FRONT of the hole (towards the camera, a little to one side): lit objects against the black read instantly
-    const place = (o, mRef, w, ang) => { const dd = diam(mRef) / 2 * 1.1 + w * .5; o.position.set(Math.cos(ang) * dd, o === bball ? .12 : 0, Math.sin(ang) * dd); o.visible = R < dd - w * .1; return o.position; };
-    if (m > 2.2 && m < 6.5) { const p = place(bball, 4, .3, 1.02); bball.rotation.y = 1; if (bball.visible && m > 3) tag3('BASKETBALL', '24 cm wide', p.clone().add(V(0, .15, 0)), clamp((m - 3) * 2)); }
-    if (m > 12.5 && m < 18) { const p = place(burj, 16, 60, 1.48); if (burj.visible && m > 14.5) tag3('BURJ KHALIFA', '828 m', p.clone().add(V(0, 850, 0)), clamp((m - 14.5) * 2)); }
-    if (m > 16.6) { const p = place(everest, 19, 6000, 1.76); if (everest.visible && m > 18) tag3('MOUNT EVEREST', '8,849 m tall', p.clone().add(V(0, 9000, 0)), clamp((m - 18) * 2) * clamp((21.5 - m))); }
+    const place = (o, mRef, w, ang) => { const dd = diam(mRef) / 2 * 1.1 + w * .5, k = eOut(clamp((dist / (dd * 1.6 + w) - 1) * 3)); // grows in only once the camera has pulled back well past it (never inside the camera)
+      o.scale.setScalar(Math.max(k, 1e-3)); o.userData.k = k; o.position.set(Math.cos(ang) * dd, o.userData.lift ? o.userData.lift * k : 0, Math.sin(ang) * dd); o.visible = k > 0 && R < dd - w * .1; return o.position; };
+    if (m > 2.2 && m < 6.5) { const p = place(bball, 4, .3, 1.02); bball.rotation.y = 1; if (bball.visible && bball.userData.k > .7 && m > 3) tag3('BASKETBALL', '24 cm wide', p.clone().add(V(0, .15, 0)), clamp((m - 3) * 2)); }
+    if (m > 12.5 && m < 18) { const p = place(burj, 16, 60, 1.48); if (burj.visible && burj.userData.k > .7 && m > 14.5) tag3('BURJ KHALIFA', '828 m', p.clone().add(V(0, 850, 0)), clamp((m - 14.5) * 2)); }
+    if (m > 16.6) { const p = place(everest, 19, 6000, 1.76); if (everest.visible && everest.userData.k > .7 && m > 18) tag3('MOUNT EVEREST', '8,849 m tall', p.clone().add(V(0, 9000, 0)), clamp((m - 18) * 2) * clamp((21.5 - m))); }
     const jd = R + .6; if (m > 5 && m < 13) jeremy(V(Math.cos(2.42) * jd, 0, Math.sin(2.42) * jd), .15, { expr: m > 6.5 ? 'shocked' : 'happy', look: .5, armL: m > 6.5 ? 2.3 : .2, armR: m > 6.5 ? 2.3 : .2, blink: (t % 3.1) < .1 }); else K.J.visible = false;
     if (m > 5.6 && m < 11) tag3('JEREMY', '1.75 m', K.J.position.clone().add(V(0, 2.25, 0)), clamp((m - 5.6) * 2) * clamp((11 - m) / 1.5));
     tag3('BLACK HOLE', m < .5 ? 'the size of a marble' : fmtW(d) + ' wide', V(0, d * 1.04, 0), clamp((t - T0[1] - .3) / .4));
