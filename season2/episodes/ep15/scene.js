@@ -98,7 +98,7 @@ window.renderAt = (t) => {
     const jd = R + .75; if (m > 23.5 && m < 31) jeremy(V(Math.cos(3.39) * jd, 0, Math.sin(3.39) * jd), -.1, { expr: m > 25.3 ? 'shocked' : 'happy', look: .5, armL: m > 25.3 ? 2.3 : .2, armR: m > 25.3 ? 2.3 : .2, blink: (t % 3.1) < .1 }); else K.J.visible = false;
     if (m > 24.2 && m < 30) tag3('JEREMY', '1.75 m', K.J.position.clone().add(V(0, 2.25, 0)), clamp((m - 24.2) * 2) * clamp((30 - m) / 1.5));
     tag3(m < .5 ? 'ONE DROP' : 'WATER', m < .5 ? '0.05 mL' : fmtW(d) + ' wide', V(0, d * 1.05, 0), clamp((t - T0[1] - .3) / .4));
-    floorScale(1, Math.max(1, dist / 400)); shadowFit(V(0, 0, 0), size * 1.4);
+    floorScale(1, Math.max(.01, dist / 400)); // small floor for close-ups: a 20 km quad flickers (clips) when the camera is centimetres above it shadowFit(V(0, 0, 0), size * 1.4);
     DOF.on = m < 18; DOF.focus = camera.position.distanceTo(V(0, R, 0)); DOF.aperture = .9; DOF.maxR = 10;
   } else {
     // ---- space: to scale, drawn in "frame units" (the framed height is always 10 units)

@@ -23,3 +23,9 @@
   4. Shadow frustum is snapped to shadow-map texels in `shadowFit` so soft shadow edges do not crawl while the camera glides.
 - Re-rendered Ep12 and Ep13 with the fixes (checked: segment-boundary jumps gone, durations 42.5 s / 49.1 s, audio present) and swapped the video on all 6 Buffer posts to `*-v2.mp4`. Ep12 v2 went out at 12:00 on TikTok, Instagram and YouTube. Ep13 v2 is scheduled for 19:00.
 - The cloud container restarted once during the Ep12 re-render; render_ep.sh resumed from the finished segments.
+
+## 2026-11-11 evening (owner session) — Ep14 black hole, Ep15 water drop
+- Owner direction changed: doubling episodes are back (grey studio floor + scale); regular what-ifs go back to the street look (Ep10/11); every episode narrated with voice 1 (Kokoro af_heart). Owner asked for a Trump / Andrew Tate AI voice — declined (no imitating real people).
+- Could not update the nightly scheduled task's prompt from this session (permission denied); RUNBOOK "OWNER DIRECTION 2026-11-11" carries the new rules. The owner should edit the task prompt (it still says "no doubling / studio look only").
+- Bugs found and fixed while making Ep14/15: (1) tiny subjects vanished into the floor (20 km floor quad depth error) -> floor drawn without depth write; (2) floor flickered on/off in extreme close-ups -> `floorScale(1, Math.max(.01, dist/400))`; (3) references placed in front of the subject sat inside the camera during fast pull-backs -> they now grow in only once the camera is past them; (4) tags were projected with the previous frame's camera -> call orbit() before tag3().
+- Ep14 was first scheduled with a version that still had the close-up floor flicker; replaced by `-v2.mp4` on all 3 posts the same evening.

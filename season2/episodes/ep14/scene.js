@@ -117,7 +117,7 @@ window.renderAt = (t) => {
     const jd = R + .6; if (m > 5 && m < 13) jeremy(V(Math.cos(2.42) * jd, 0, Math.sin(2.42) * jd), .15, { expr: m > 6.5 ? 'shocked' : 'happy', look: .5, armL: m > 6.5 ? 2.3 : .2, armR: m > 6.5 ? 2.3 : .2, blink: (t % 3.1) < .1 }); else K.J.visible = false;
     if (m > 5.6 && m < 11) tag3('JEREMY', '1.75 m', K.J.position.clone().add(V(0, 2.25, 0)), clamp((m - 5.6) * 2) * clamp((11 - m) / 1.5));
     tag3('BLACK HOLE', m < .5 ? 'the size of a marble' : fmtW(d) + ' wide', V(0, d * 1.04, 0), clamp((t - T0[1] - .3) / .4));
-    floorScale(1, Math.max(1, dist / 400)); shadowFit(V(0, 0, 0), size * 1.4);
+    floorScale(1, Math.max(.01, dist / 400)); // small floor for close-ups: a 20 km quad flickers (clips) when the camera is centimetres above it shadowFit(V(0, 0, 0), size * 1.4);
     DOF.on = m < 5; DOF.focus = camera.position.distanceTo(V(0, R, 0)); DOF.aperture = .9; DOF.maxR = 10;
   } else {
     // ---- space: everything to scale, drawn in "frame units" (the framed height is always 10 units) so nothing gets numerically huge
