@@ -21,6 +21,13 @@ title (≤ 32 chars so it fits the bar), reel (last item = topic, ≤ 30 chars),
 Fact-check every number with a web search; keep the values exact (counter shows the real computed value).
 Safe zone: all text inside x 60–930, y 250–1440 (kit already places counter/captions/bubbles there). Keep Jeremy out from behind lamp posts (x = 21, 30, 39 on z = 4.8) and parked car (x = 26, z = 3.2): good spots x ≈ 34.5 or 21.5–23.
 
+## OWNER DIRECTION 2026-11-11 (overrides older notes below where they conflict)
+- Doubling episodes are allowed again and use the grey studio floor + scale references (reference: season2/episodes/ep14 black hole, ep15 water drop: narrated, sphere on the floor, references placed IN FRONT of the subject, then space in "frame units").
+- Regular (non-doubling) what-ifs use the original STREET look (reference: ep10 / ep11), with a voiceover added (vo_lines.json + narrate.py, time the beats to vo.json).
+- Every episode is narrated with Kokoro `af_heart`. Never clone or imitate a real person's voice.
+- Tiny subjects (< 5 cm): the floor is a single 20 km quad whose depth is only accurate to ~1 cm, so it hides them. Use `S.floor.material.depthWrite = false; S.floor.renderOrder = -10; sky.renderOrder = -20;` and a tight camera near/far (see ep14).
+- Call `orbit()` BEFORE `tag3()` in a frame: tags project with the current camera.
+
 ## v5.1 NARRATED EPISODES (2026-11-10) — every new episode has an AI voiceover. Reference: season2/episodes/ep13 (Rome)
 - Write `season2/episodes/epN/vo_lines.json`: 9-12 short lines, ~110-130 words, 45-55 s. Each `{"say": "...", "show": "..."}`; in `say` write numbers as words ("four seventy-six"), in `show` as digits. Hook question first, facts, a twist, then a question to the viewer. Speculation must be called speculation in the voice AND on screen (HUD "THIS PART IS: FACT / SPECULATION").
 - `tools/new_episode.sh` runs `tools/narrate.py` (Kokoro open-source voice `af_heart`, auto-installs kokoro-onnx and downloads the model from GitHub releases) -> `vo.wav` + `vo.json` (line start/end times). Re-run narrate.py after any text change.

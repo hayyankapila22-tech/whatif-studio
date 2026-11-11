@@ -11,8 +11,14 @@ Format: one thing doubles/grows every minute; beats = minute marks; ends in spac
 - Ep12 What if popcorn doubled every minute? — first v5 premium studio episode, LAST doubling episode (2026-11-11 12:00)
 - Ep11 What if everyone could read minds? — owner's pick #2, timeline to 100 years, v3 (2026-11-10 19:00)
 
+- Ep14 What if a black hole doubled every minute? — viewer idea (@Xamiar), narrated doubling episode (2026-11-12 12:00)
+- Ep15 What if a drop of water doubled every minute? — narrated doubling episode (2026-11-12 19:00)
+
 ## Next up (take from the top, 2 per night)
-OWNER RULE (2026-11-10): NO MORE DOUBLING / "x doubles every minute" episodes — they got repetitive. Every topic (history, science, biology, mind-bending) is made in the v5 premium studio look.
+OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
+- TWO formats. (1) DOUBLING episodes ("x doubles every minute") are back: grey studio floor + real scale references, like Ep12 popcorn / Ep14 black hole. (2) REGULAR what-ifs use the ORIGINAL STREET look of Ep10/Ep11 (city street with Jeremy), NOT the Rome gallery look.
+- EVERY episode has a voiceover of the on-screen text (Kokoro `af_heart`, "voice 1"), natural pacing. No imitations of real people's voices.
+- Viewer comment ideas get priority for doubling topics.
 ### Owner's picks (do these first, in order)
 4. What if the Moon disappeared? — TIMELINE: counter = time after it vanishes; tides shrink, night darker, axis wobble, climate swings over millions of years.
 5. What if gravity reversed for 10 seconds every day? — TIMELINE: counter = seconds of reversal (and day count); people/cars float, how fast you rise (g = 9.8 m/s² → 490 m in 10 s, you then fall from that height), what survives.
