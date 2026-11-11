@@ -1,0 +1,12 @@
+[
+ {"say": "What if a nuclear bomb went off near your city, today?", "show": ""},
+ {"say": "First, a flash brighter than the Sun. Don't look at it. It can blind you from miles away.", "show": "A flash brighter than the Sun. Don't look at it.", "pre": 0.3},
+ {"say": "The fireball is hotter than the surface of the Sun.", "show": "The fireball: hotter than the surface of the Sun."},
+ {"say": "Seconds later, the blast wave arrives. It moves faster than sound, and shatters windows for miles.", "show": "Seconds later: a blast wave faster than sound."},
+ {"say": "Now the clock is ticking. You have about ten minutes before the fallout comes down.", "show": "About 10 minutes until the fallout comes down."},
+ {"say": "So get inside. Brick or concrete. The basement, or the middle of the building.", "show": "Get inside. Brick or concrete. Basement or middle."},
+ {"say": "And stay there. Here's the surprising part. Fallout radiation fades fast.", "show": "Stay inside. Fallout radiation fades fast."},
+ {"say": "After seven hours, it has dropped by ninety percent. After two days, by ninety-nine.", "show": "After 7 hours: 90% gone. After 2 days: 99% gone."},
+ {"say": "That's why the official advice is so simple. Get inside. Stay inside. Stay tuned.", "show": "The official advice is simple:"},
+ {"say": "Would you have known what to do?", "show": "Would YOU have known what to do? 👇"}
+]

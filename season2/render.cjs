@@ -28,7 +28,7 @@ const TYPES = { ".exr": "application/octet-stream", '.html': 'text/html', '.js':
     for (const t of args) {
       const t0 = Date.now();
       await page.evaluate(t => window.renderAt(t), +t);
-      await page.screenshot({ path: path.join(ROOT, `still_${t}.jpg`), type: 'jpeg', quality: 90 });
+      await page.screenshot({ path: path.join(ROOT, `still_${t}.jpg`), type: 'jpeg', quality: 90, timeout: 180000 });
       console.log('still', t, Date.now() - t0, 'ms');
     }
   } else if (mode === 'video') {
