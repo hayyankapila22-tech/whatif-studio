@@ -1,7 +1,7 @@
 [
  {"say": "What if robots took every single job on Earth?", "show": ""},
  {"say": "Right now, about three and a half billion people have a job.", "show": "Today, about 3.5 billion people have a job.", "pre": 0.35},
- {"say": "And about five million robots already work in factories.", "show": "About 5 million robots already work in factories."},
+ {"say": "And about five million robots already work in factories.", "show": "5 million robots already work in factories."},
  {"say": "Now imagine they take over everything. A robot makes your coffee, drives your bus, and builds your house.", "show": "Now imagine robots take EVERY job."},
  {"say": "Shops never close. Nobody ever calls in sick.", "show": "Shops never close. Nobody calls in sick."},
  {"say": "But if nobody earns a paycheck, who buys the coffee?", "show": "No paycheck... so who buys the coffee?"},

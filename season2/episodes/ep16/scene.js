@@ -234,7 +234,7 @@ run({
       setSky('golden'); setAge(0, t, { lamps: 0 });
       jer(JX + .4, JZ, Math.PI - .1, { expr: 'happy', armL: .3 + Math.abs(Math.sin(t * 5)) * 2.3, bob: bob(t) });
       rput(R[0], JX + 1.75, JZ + .3, Math.PI + .12, { armR: 0, look: -.2, bob: bob(t, 1, .005) }); R[0].arms[0].rotation.z = -2.3 + Math.sin(t * 5 + 1) * .35;
-      dolly(V(JX + 1.2, 1.5, JZ - 4.6), V(JX + 1.3, 1.6, JZ - 5.2), V(JX + 1.05, 1.38, JZ), V(JX + 1.05, 1.38, JZ), eInOut(k), 0, 50); focus(V(JX + 1, 1.4, JZ), .8, 10);
+      dolly(V(JX + 1.45, 1.5, JZ - 4.6), V(JX + 1.5, 1.6, JZ - 5.2), V(JX + 1.3, 1.38, JZ), V(JX + 1.3, 1.38, JZ), eInOut(k), 0, 50); focus(V(JX + 1, 1.4, JZ), .8, 10);
     }
     R.forEach(r => { if (i !== 8) { r.arms[0].rotation.z = -.1; r.arms[1].rotation.z = .1; } });
     const sm = document.getElementById('small'); sm.style.top = '1378px'; sm.style.fontSize = '36px'; sm.style.fontFamily = 'IDB'; sm.style.color = '#ffe08a'; sm.style.webkitTextStroke = '5px #0a0b18'; sm.style.paintOrder = 'stroke fill'; sm.style.left = '60px'; sm.style.right = '150px';
