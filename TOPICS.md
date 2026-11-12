@@ -13,6 +13,8 @@ Format: one thing doubles/grows every minute; beats = minute marks; ends in spac
 
 - Ep14 What if a black hole doubled every minute? — viewer idea (@Xamiar), narrated doubling episode (2026-11-12 12:00)
 - Ep15 What if a drop of water doubled every minute? — narrated doubling episode (2026-11-12 19:00)
+- Ep16 What if robots took every job? — owner request, street look, narrated (2026-11-13 12:00)
+- Ep17 What if a nuclear bomb went off near your city? — owner request, street look, narrated, FEMA/Ready.gov survival framing (2026-11-13 19:00)
 
 ## Next up (take from the top, 2 per night)
 OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
@@ -144,7 +146,6 @@ OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
 - What if everyone suddenly lost their sense of direction?
 - What if the world had no concept of money?
 - What if AI became smarter than every human?
-- What if robots replaced every human job?
 - What if every household had a humanoid robot?
 - What if humans uploaded their minds to computers?
 - What if self-driving cars became mandatory?
@@ -176,7 +177,7 @@ OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
 
 Skipped on purpose: 'What if Germany won World War II?' (too sensitive for the account).
 
-## Parked (owner stopped doubling episodes on 2026-11-10 — do not use)
+## Doubling ideas (allowed again since 2026-11-11: grey studio floor + scale, narrated)
 
 - Jeremy's hair doubles in length every minute (0.1 m start; Burj, Everest, Kármán line, Moon)
 - It gets 1 °C hotter every minute (boiling, lead melts, Venus, Sun surface)

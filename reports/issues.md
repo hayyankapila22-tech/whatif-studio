@@ -29,3 +29,10 @@
 - Could not update the nightly scheduled task's prompt from this session (permission denied); RUNBOOK "OWNER DIRECTION 2026-11-11" carries the new rules. The owner should edit the task prompt (it still says "no doubling / studio look only").
 - Bugs found and fixed while making Ep14/15: (1) tiny subjects vanished into the floor (20 km floor quad depth error) -> floor drawn without depth write; (2) floor flickered on/off in extreme close-ups -> `floorScale(1, Math.max(.01, dist/400))`; (3) references placed in front of the subject sat inside the camera during fast pull-backs -> they now grow in only once the camera is past them; (4) tags were projected with the previous frame's camera -> call orbit() before tag3().
 - Ep14 was first scheduled with a version that still had the close-up floor flicker; replaced by `-v2.mp4` on all 3 posts the same evening.
+
+## 2026-11-12 (owner session) — Ep16 robots, Ep17 nuclear explosion
+- Street-look episodes with narration: beats are built from vo.json (`T = LN.map(l => l.t0 - .12)`, line 0 is spoken over the intro, line 1 needs `"pre": 0.3` so it starts after the 3.2 s intro). Reference: season2/episodes/ep16 and ep17.
+- Street renders were slow in this container: ~17 s/frame per worker (2 workers) -> about 3 hours per 45 s episode. Start early.
+- Look targets at y ~1.55 (not 2.0) keep faces above the captions (capY 1225). Hide the parked car at (26, 3.2) unless it is the subject: it blocks the usual camera.
+- rimLight() breaks on unlit (MeshBasicMaterial) parts: set `material.userData.rim = true` on them first.
+- Ep17 is framed as preparedness education (FEMA / Ready.gov), no casualties shown.
