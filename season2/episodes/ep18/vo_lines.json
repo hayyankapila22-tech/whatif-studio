@@ -1,0 +1,13 @@
+[
+ {"say": "What if the Moon disappeared tonight?", "show": "What if the Moon disappeared tonight?"},
+ {"say": "First, the tides. The Sun pulls on the oceans too, but less than half as hard as the Moon.", "show": "First, the tides. The Sun pulls on the oceans too, but less than half as hard as the Moon.", "pre": 0.3},
+ {"say": "So the tides would shrink to about a third of their size.", "show": "So the tides would shrink to about a third of their size."},
+ {"say": "Then, the nights. A full Moon is over a hundred times brighter than a moonless sky.", "show": "Then, the nights. A full Moon is over 100 times brighter than a moonless sky."},
+ {"say": "And corals that spawn by moonlight would lose their clock.", "show": "And corals that spawn by moonlight would lose their clock."},
+ {"say": "Now the slow part. The Moon keeps Earth's tilt steady, between twenty-two and twenty-four and a half degrees.", "show": "Now the slow part. The Moon keeps Earth's tilt steady, between 22° and 24.5°."},
+ {"say": "Without it, models suggest the tilt could wander between ten and forty degrees. That part is speculation.", "show": "Without it, models suggest the tilt could wander between 10° and 40°. That part is speculation."},
+ {"say": "Over millions of years, the seasons could swing to extremes.", "show": "Over millions of years, the seasons could swing to extremes."},
+ {"say": "But here's the twist. The Moon is already leaving.", "show": "But here's the twist. The Moon is already leaving.", "pre": 0.25},
+ {"say": "It drifts three point eight centimetres further away every year. About as fast as your fingernails grow.", "show": "It drifts 3.8 cm further away every year. About as fast as your fingernails grow."},
+ {"say": "Would you miss it?", "show": "Would you miss it?", "pre": 0.2}
+]

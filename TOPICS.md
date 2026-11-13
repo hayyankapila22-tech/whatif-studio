@@ -15,6 +15,7 @@ Format: one thing doubles/grows every minute; beats = minute marks; ends in spac
 - Ep15 What if a drop of water doubled every minute? — narrated doubling episode (2026-11-12 19:00)
 - Ep16 What if robots took every job? — owner request, street look, narrated (2026-11-13 12:00)
 - Ep17 What if a nuclear bomb went off near your city? — owner request, street look, narrated, FEMA/Ready.gov survival framing (2026-11-13 19:00)
+- Ep18 What if the Moon disappeared? — owner pick #4, v5.1 studio gallery (orrery, tide tank, reef, tilt globe, laser ranging), narrated (2026-11-14 12:00)
 
 ## Next up (take from the top, 2 per night)
 OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
@@ -22,7 +23,6 @@ OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
 - EVERY episode has a voiceover of the on-screen text (Kokoro `af_heart`, "voice 1"), natural pacing. No imitations of real people's voices.
 - Viewer comment ideas get priority for doubling topics.
 ### Owner's picks (do these first, in order)
-4. What if the Moon disappeared? — TIMELINE: counter = time after it vanishes; tides shrink, night darker, axis wobble, climate swings over millions of years.
 5. What if gravity reversed for 10 seconds every day? — TIMELINE: counter = seconds of reversal (and day count); people/cars float, how fast you rise (g = 9.8 m/s² → 490 m in 10 s, you then fall from that height), what survives.
 
 ### Owner's 150-idea list (pick visual ones; mix categories ~30% science/Earth, 25% history, 25% biology, 20% mind-bending)

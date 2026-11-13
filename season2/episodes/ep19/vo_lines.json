@@ -1,0 +1,12 @@
+[
+ {"say": "What if gravity flipped upside down, for ten seconds, every single day?", "show": "What if gravity flipped upside down, for 10 seconds, every single day?"},
+ {"say": "The moment it flips, everything that isn't bolted down falls up. Including you.", "show": "The moment it flips, everything that isn't bolted down falls up. Including you.", "pre": 0.3},
+ {"say": "Air resistance caps your speed at about fifty metres per second.", "show": "Air resistance caps your speed at about 50 m/s."},
+ {"say": "After ten seconds, you're three hundred and forty metres up. Higher than the Eiffel Tower.", "show": "After 10 seconds, you're 340 m up. Higher than the Eiffel Tower."},
+ {"say": "Then gravity switches back. You coast up to about four hundred and thirty metres.", "show": "Then gravity switches back. You coast up to about 430 m."},
+ {"say": "And then you fall, hitting the ground at about one hundred and ninety kilometres per hour.", "show": "And then you fall, hitting the ground at about 190 km/h."},
+ {"say": "So, our guess: every day, at the same second, eight billion people would have to hold on.", "show": "Our guess: every day, at the same second, 8 billion people would have to hold on.", "pre": 0.2},
+ {"say": "Cars, boats, anything loose would lift off, and crash back down.", "show": "Cars, boats, anything loose would lift off, and crash back down."},
+ {"say": "But here's the twist. Gravity is the weakest force we know. A tiny fridge magnet beats the pull of the entire planet.", "show": "But here's the twist. Gravity is the weakest force we know. A tiny fridge magnet beats the pull of the entire planet.", "pre": 0.25},
+ {"say": "What would you hold on to?", "show": "What would you hold on to?", "pre": 0.2}
+]
