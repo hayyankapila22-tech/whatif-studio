@@ -36,3 +36,13 @@
 - Look targets at y ~1.55 (not 2.0) keep faces above the captions (capY 1225). Hide the parked car at (26, 3.2) unless it is the subject: it blocks the usual camera.
 - rimLight() breaks on unlit (MeshBasicMaterial) parts: set `material.userData.rim = true` on them first.
 - Ep17 is framed as preparedness education (FEMA / Ready.gov), no casualties shown.
+
+## 2026-11-14 (nightly run, 02:18 Asia/Shanghai) — Ep18 Moon, Ep19 gravity flip
+- Both slots were free (0 rows for 2026-11-14 in posts.csv, nothing in Buffer for the day). Made Ep18 (12:00) and Ep19 (19:00), both v5.1 premium studio look, narrated (Kokoro af_heart), Timeless from 0:12 via mix3.py.
+- Rule conflict noted: RUNBOOK "OWNER DIRECTION 2026-11-11" / TOPICS.md say regular what-ifs use the street look, but tonight's scheduled-task prompt says v5.1 studio look for everything and street is legacy. Followed the task prompt (studio). The owner may want to make RUNBOOK/TOPICS and the task prompt agree.
+- Ep19 physics uses quadratic air drag (terminal ~53 m/s): 338 m after 10 s (not the 490 m vacuum number in TOPICS.md), peak 431 m, touchdown ~186 km/h. Touchdown is never shown (dip to black ~13 m up).
+- render_ep.sh gotcha: when re-rendering a segment, do NOT keep the old file as seg_N_old.mp4 in the folder — the concat list is `ls seg_*.mp4`, so it was spliced in (caught in the frame check before upload). Move old segments to a subfolder.
+- 2-pass upload encode overshoots the 9.3 MB target by ~5-7% (Ep18 9.36 MB, Ep19 first try 9.93 MB). Ep19 re-encoded at an 8.6 MB target (8.68 MB). Consider lowering the target in render_ep.sh.
+- Renders: ~8.5-10 s/frame per worker in the gallery, ~5 s/frame in the flight shots; Ep18 took ~2 h, Ep19 ~1 h 15 min (run after Ep18, not in parallel; 2 CPUs).
+- Ep19 transitional frames: the 330 m tower enters/leaves through the left frame edge during the pull-back and the descent (continuous camera); its tag fades out on the way down so it never sits on the HUD text.
+- Earth globes (earth_atmos texture) read dark when the Pacific faces the camera; set the spin offset so land faces the camera (tested with stills).

@@ -159,7 +159,7 @@ window.renderAt = (t) => {
   const A = (t0, t1) => clamp((t - t0) / .35) * clamp((t1 - t) / .3);
   if (i === 0) tag3('JEREMY', '1.75 m', V(-1.05, 1.5, 0), A(.6, tFlip));
   if (!B && tau > 0) tag3(tau < 10 ? 'GRAVITY ↑ REVERSED' : 'GRAVITY BACK ↓', 'Jeremy · ' + Math.round(alt) + ' m up', V(0, alt + 1, 0).addScaledVector(V(0, 1, 0), dist * .03), A(tFlip + .6, tCut - .35));
-  if (!B && aS > 120) tag3('EIFFEL TOWER', '330 m', V(TX, 336, -40), clamp((aS - 120) / 40) * A(T0[3] + .8, tCut - .35));
+  if (!B && aS > 120) tag3('EIFFEL TOWER', '330 m', V(TX, 336, -40), clamp((aS - 120) / 40) * (t > tPeak ? clamp((aS - 260) / 40) : 1) * A(T0[3] + .8, tCut - .35));
   if (i === 6) tag3('SPECULATION', 'bolted down = safe', V(BX - .7, 2.6, -.25), A(T0[6] + .9, T0[7] - .3));
   if (i === 7) tag3('SPECULATION', 'loose = airborne', V(BX - 1.2, 1.7 + d2 * .4, -9.5), A(T0[7] + .5, T1[7]));
   if (i === 8) tag3('FRIDGE MAGNET', 'beats the whole Earth', V(MX - .3, 1.0, .5), A(T0[8] + 2.6, T0[9] - .2));
