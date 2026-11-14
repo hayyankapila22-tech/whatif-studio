@@ -46,3 +46,12 @@
 - Renders: ~8.5-10 s/frame per worker in the gallery, ~5 s/frame in the flight shots; Ep18 took ~2 h, Ep19 ~1 h 15 min (run after Ep18, not in parallel; 2 CPUs).
 - Ep19 transitional frames: the 330 m tower enters/leaves through the left frame edge during the pull-back and the descent (continuous camera); its tag fades out on the way down so it never sits on the HUD text.
 - Earth globes (earth_atmos texture) read dark when the Pacific faces the camera; set the spin offset so land faces the camera (tested with stills).
+
+## 2026-11-15 (nightly run, 02:18 Asia/Shanghai) — Ep20 Earth stops spinning, Ep21 oceans disappear
+- Both slots were free (0 rows for 2026-11-15 in posts.csv, nothing in Buffer for the day). Made Ep20 (12:00) and Ep21 (19:00), v5.1 studio gallery, narrated (Kokoro af_heart), Timeless from 0:12 via mix3.py. Both checked: audio present (mean ≈ -16 dB), durations match vo.json (56.3 s / 57.1 s), no jumps at segment boundaries.
+- Same rule conflict as 2026-11-14: RUNBOOK "OWNER DIRECTION 2026-11-11" / TOPICS.md say street look for regular what-ifs; the nightly task prompt says v5.1 studio for everything. Followed the task prompt again. Please make them agree.
+- TOPICS.md backlog still listed topics that were already made (all humans disappeared = Ep10, Moon vanished = Ep18, read minds = Ep11). Removed them so the next run doesn't repeat them.
+- VO came out a bit long (56-57 s vs the 45-55 s target) after trimming once; renders ~2 h each sequentially (~10 s/frame per worker).
+- Ep21 frame check caught the CHALLENGER DEEP tag covering the "Everest fits in the trench" ghost and Jeremy behind it; moved Jeremy/tag and re-rendered segments 2-5 only (old segments moved to old_segs/, per the 2026-11-14 note).
+- Upload encodes again overshoot 9.3 MB slightly (9.35 / 9.37 MB); Buffer accepted them. The target in render_ep.sh could be lowered to ~8.6 MB.
+- ep21 drain shader detects ocean pixels by colour (blue-dominant) in earth_atmos_2048.jpg; a few dark land pixels near coasts also turn sea-floor brown. Not noticeable at globe size.

@@ -183,7 +183,7 @@ window.renderAt = (t) => {
   // ---- Jeremys
   const bl = p => (t % p) < .1;
   putJ(J1, X.globe + 1.15, -.5, -.7, { expr: i === 2 ? 'shocked' : 'happy', look: -.4, armL: .25, armR: i === 1 ? 1.2 : .25, blink: bl(2.7) });
-  putJ(J2, X.prof + 1.55, -.55, -.6, { expr: i === 4 ? 'shocked' : 'happy', look: -.6, armL: .25, armR: i === 3 ? 1.2 : .25, blink: bl(2.9) });
+  putJ(J2, X.prof + 1.85, -.95, -.6, { expr: i === 4 ? 'shocked' : 'happy', look: -.6, armL: .25, armR: i === 3 ? 1.2 : .25, blink: bl(2.9) });
   putJ(J3, X.tank - .15, -1.05, -.45, { expr: i === 6 ? 'worried' : 'happy', look: -.5, armL: .25, armR: i === 5 ? 1.1 : .25, blink: bl(3.1) });
   putJ(J4, X.ball + .55, -.9, -.4, { expr: i >= 9 ? 'confused' : i === 8 && wk > .5 ? 'shocked' : 'happy', look: -.4, armL: .25, armR: i === 9 ? 1.3 : .25, tilt: i >= 9 ? .1 : 0, blink: bl(2.3) });
   // ---- camera
@@ -195,7 +195,7 @@ window.renderAt = (t) => {
   const A = (t0, t1) => clamp((t - t0) / .35) * clamp((t1 - t) / .3);
   if (i === 0) tag3('JEREMY', '1.75 m', V(X.globe + 1.15, 2.3, -.5), A(.6, T0[1] - .7));
   if (i === 2) tag3('SEA FLOOR', 'avg. 3.7 km down', V(X.globe - .25, GY + .1, GR * .8), A(tDrainA1 - .6, T0[3] - .7));
-  if (i === 3) { tag3('EVEREST', '8,849 m', V(X.prof - 1.1, SL + 8.849 * KM + .05, 0), A(T0[3] + 1.0, T0[4] - .7)); tag3('CHALLENGER DEEP', '10,935 m deep', V(X.prof + 1.1, SL - 10.935 * KM + .05, PD / 2), A(T0[3] + 2.2, T0[4] - .7)); }
+  if (i === 3) { tag3('EVEREST', '8,849 m', V(X.prof - 1.1, SL + 8.849 * KM + .05, 0), A(T0[3] + 1.0, T0[4] - .7)); tag3('CHALLENGER DEEP', '10,935 m deep', V(X.prof + 1.1, .3, PD / 2 + .2), A(T0[3] + 2.2, T0[4] - .7)); }
   if (i === 4) { tag3('MAUNA KEA', '10,210 m base to peak', V(X.prof + .28, SL + 4.207 * KM + .06, 0), A(T0[4] + 1.6, T0[5] - .7)); tag3('EVEREST', '8,849 m', V(X.prof - 1.1, SL + 8.849 * KM + .05, 0), A(T0[4] + .3, T0[5] - .7)); }
   if (i === 5) tag3('PLANKTON', '≈ half our oxygen', V(X.tank - .75, 1.0, .3), A(T0[5] + 1.0, T0[6] - .5));
   if (i === 6) tag3('SPECULATION', 'little rain left', V(X.tank + .75, 1.2, .3), A(T0[6] + 1.0, T0[7] - .6));
