@@ -17,6 +17,8 @@ Format: one thing doubles/grows every minute; beats = minute marks; ends in spac
 - Ep17 What if a nuclear bomb went off near your city? — owner request, street look, narrated, FEMA/Ready.gov survival framing (2026-11-13 19:00)
 - Ep18 What if the Moon disappeared? — owner pick #4, v5.1 studio gallery (orrery, tide tank, reef, tilt globe, laser ranging), narrated (2026-11-14 12:00)
 - Ep19 What if gravity reversed for 10 seconds every day? — owner pick #5, v5.1 studio: flight vs 330 m Eiffel Tower with real drag physics (340 m after 10 s, peak 431 m, lands ~186 km/h), bolted-rail 'every day' set, fridge-magnet twist (2026-11-14 19:00)
+- Ep20 What if Earth stopped spinning for 5 seconds? — owner list, v5.1 studio gallery (spinning globe, slow-motion fly-off vs bolted bollard, tornado/sound/wind bars, latitude-speed globe, ocean surge tank, 24 h clock + 70 Myr fossil clam), narrated (2026-11-15 12:00)
+- Ep21 What if the oceans disappeared? — owner list, v5.1 studio gallery (draining globe, true-vertical-scale cross-section with Everest/Mauna Kea/Challenger Deep, plankton tank + rain cloud, Earth vs all-its-water ball vs Moon), narrated (2026-11-15 19:00)
 
 ## Next up (take from the top, 2 per night)
 OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
@@ -26,10 +28,6 @@ OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
 ### Owner's picks (do these first, in order)
 
 ### Owner's 150-idea list (pick visual ones; mix categories ~30% science/Earth, 25% history, 25% biology, 20% mind-bending)
-- What if all humans disappeared overnight?
-- What if Earth stopped spinning for 5 seconds?
-- What if the oceans disappeared?
-- What if the Moon suddenly vanished?
 - What if Earth had two moons?
 - What if Earth had two suns?
 - What if gravity suddenly became twice as strong?
@@ -49,7 +47,6 @@ OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
 - What if humans could live for 500 years?
 - What if humans never needed sleep?
 - What if humans could breathe underwater?
-- What if everyone could read minds?
 - What if humans could regenerate lost limbs?
 - What if humans had wings?
 - What if humans could photosynthesise?

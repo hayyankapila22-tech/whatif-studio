@@ -1,0 +1,47 @@
+[
+ {
+  "say": "What if Earth stopped spinning, for just five seconds?",
+  "show": "What if Earth stopped spinning, for just 5 seconds?"
+ },
+ {
+  "say": "Right now, you're spinning with it. At the equator, the ground moves at about sixteen hundred and seventy kilometres per hour.",
+  "show": "Right now, you're spinning with it. At the equator, the ground moves at about 1,670 km/h.",
+  "pre": 0.3
+ },
+ {
+  "say": "That's faster than the speed of sound. You don't feel it, because everything moves with you.",
+  "show": "That's faster than the speed of sound. You don't feel it, because everything moves with you."
+ },
+ {
+  "say": "Now the planet stops. The ground stops. But you, and everything not bolted down, keep flying east.",
+  "show": "Now the planet stops. The ground stops. But you, and everything not bolted down, keep flying east.",
+  "pre": 0.25
+ },
+ {
+  "say": "So does the air. A wind more than three times faster than the strongest tornado ever measured.",
+  "show": "So does the air. A wind more than 3 times faster than the strongest tornado ever measured."
+ },
+ {
+  "say": "Near the poles, you'd barely notice. Up there, the ground hardly moves at all.",
+  "show": "Near the poles, you'd barely notice. Up there, the ground hardly moves at all."
+ },
+ {
+  "say": "Our guess: the oceans would surge onto the coasts. And when the spin restarts, it happens again. That part is speculation.",
+  "show": "Our guess: the oceans would surge onto the coasts. And when the spin restarts, it happens again. That part is speculation.",
+  "pre": 0.2
+ },
+ {
+  "say": "But here's the twist. Earth's spin is already slowing down.",
+  "show": "But here's the twist. Earth's spin is already slowing down.",
+  "pre": 0.25
+ },
+ {
+  "say": "Seventy million years ago, in the age of the dinosaurs, a day lasted only about twenty-three and a half hours.",
+  "show": "70 million years ago, in the age of the dinosaurs, a day lasted only about 23.5 hours."
+ },
+ {
+  "say": "Where would you want to be standing?",
+  "show": "Where would you want to be standing?",
+  "pre": 0.2
+ }
+]

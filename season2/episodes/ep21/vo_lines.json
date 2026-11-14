@@ -1,0 +1,46 @@
+[
+ {
+  "say": "What if all the oceans disappeared?",
+  "show": "What if all the oceans disappeared?"
+ },
+ {
+  "say": "They cover seventy-one percent of the planet, and hold about ninety-seven percent of all Earth's water.",
+  "show": "They cover 71% of the planet, and hold about 97% of all Earth's water.",
+  "pre": 0.3
+ },
+ {
+  "say": "Drain them, and a hidden world appears, from under an average of three point seven kilometres of water.",
+  "show": "Drain them, and a hidden world appears, from under an average of 3.7 km of water."
+ },
+ {
+  "say": "The deepest point is nearly eleven kilometres down. Mount Everest would fit inside, with two kilometres to spare.",
+  "show": "The deepest point is nearly 11 km down. Mount Everest would fit inside, with 2 km to spare."
+ },
+ {
+  "say": "And the tallest mountain wouldn't be Everest. It's Mauna Kea, over ten kilometres from base to peak.",
+  "show": "And the tallest mountain wouldn't be Everest. It's Mauna Kea, over 10 km from base to peak."
+ },
+ {
+  "say": "Then, the air. Tiny ocean plankton make about half of the oxygen we breathe.",
+  "show": "Then, the air. Tiny ocean plankton make about half of the oxygen we breathe.",
+  "pre": 0.2
+ },
+ {
+  "say": "Our guess: with almost nothing left to evaporate, rain would nearly stop. That part is speculation.",
+  "show": "Our guess: with almost nothing left to evaporate, rain would nearly stop. That part is speculation."
+ },
+ {
+  "say": "But here's the twist. Earth isn't really a water world.",
+  "show": "But here's the twist. Earth isn't really a water world.",
+  "pre": 0.25
+ },
+ {
+  "say": "Gather every drop, oceans, ice, rivers and clouds, into one ball. It's just thirteen hundred and eighty-five kilometres wide. Smaller than the Moon.",
+  "show": "Gather every drop, oceans, ice, rivers and clouds, into one ball. It's just 1,385 km wide. Smaller than the Moon."
+ },
+ {
+  "say": "Where would you walk first?",
+  "show": "Where would you walk first?",
+  "pre": 0.2
+ }
+]
