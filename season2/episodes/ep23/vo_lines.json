@@ -1,0 +1,41 @@
+[
+ {
+  "say": "What if Earth had two suns?",
+  "show": "What if Earth had two suns?"
+ },
+ {
+  "say": "It's not just science fiction. Almost half of all Sun-like stars have at least one companion star.",
+  "show": "It's not just science fiction. Almost half of all Sun-like stars have at least one companion star.",
+  "pre": 0.3
+ },
+ {
+  "say": "Our nearest neighbours, Alpha Centauri A and B, circle each other every eighty years.",
+  "show": "Our nearest neighbours, Alpha Centauri A and B, circle each other every 80 years."
+ },
+ {
+  "say": "And planets can orbit both stars at once. Kepler sixteen b does, about two hundred light-years away.",
+  "show": "And planets can orbit both stars at once. Kepler-16b does, about 200 light-years away."
+ },
+ {
+  "say": "So give Earth a second Sun, just like ours. That's double the sunlight.",
+  "show": "So give Earth a second Sun, just like ours. That's double the sunlight."
+ },
+ {
+  "say": "Our guess: Earth would get dozens of degrees hotter, and the oceans would start to boil away. That part is speculation.",
+  "show": "Our guess: dozens of degrees hotter, oceans boiling away. That part is speculation."
+ },
+ {
+  "say": "But here's the twist. Our one Sun is already getting brighter, about ten percent every billion years.",
+  "show": "But here's the twist. Our one Sun is already getting brighter: about 10% every billion years.",
+  "pre": 0.25
+ },
+ {
+  "say": "In roughly a billion years, that alone should be enough to boil Earth's oceans away.",
+  "show": "In roughly a billion years, that alone should be enough to boil Earth's oceans away."
+ },
+ {
+  "say": "Would you want to live under two suns?",
+  "show": "Would you want to live under two suns?",
+  "pre": 0.2
+ }
+]

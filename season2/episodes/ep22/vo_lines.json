@@ -1,0 +1,11 @@
+[
+ {"say": "What if Earth had two moons?", "show": "What if Earth had two moons?"},
+ {"say": "Our Moon is three thousand four hundred and seventy-four kilometres wide, and about three hundred and eighty-four thousand kilometres away.", "show": "Our Moon is 3,474 km wide, and about 384,400 km away.", "pre": 0.3},
+ {"say": "Now add a twin, at half that distance. Its pull on the oceans would be eight times stronger, because tides grow with the cube of closeness.", "show": "Now add a twin, at half that distance. Its pull on the oceans would be 8 times stronger."},
+ {"say": "In the sky, it would look four times bigger, and nights would be much brighter.", "show": "In the sky, it would look 4 times bigger, and nights would be much brighter."},
+ {"say": "Our guess: far bigger tides, flooding coasts every single day. That part is speculation.", "show": "Our guess: far bigger tides, flooding coasts every single day. That part is speculation."},
+ {"say": "But here's the twist. Earth may already have had two moons.", "show": "But here's the twist. Earth may already have had two moons.", "pre": 0.25},
+ {"say": "One theory says a second moon, about twelve hundred kilometres wide, slowly crashed into ours, and became its bumpy far side.", "show": "One theory: a second moon, about 1,200 km wide, slowly crashed into ours and became its bumpy far side."},
+ {"say": "And in twenty twenty-four, a ten-metre space rock tagged along with Earth for two months, as a mini-moon.", "show": "And in 2024, a 10 m space rock tagged along with Earth for two months, as a mini-moon."},
+ {"say": "What would you name the second moon?", "show": "What would you name the second moon?", "pre": 0.2}
+]
