@@ -63,3 +63,10 @@
 - Jeremy at scale is about as tall as the globe stands: placing him at negative x (camera side, yaw < 0) makes him huge and cut off; behind and to the +x side (x0 + 1.4…2, z -0.9…-1.8) works.
 - Upload encodes re-done at an 8.6 MB target (9.46 / 9.36 MB from render_ep.sh); final 8.76 / 8.66 MB.
 - Renders ~12 s/frame per worker (2 workers); running stills or a second episode at the same time slows everything down proportionally.
+
+## 2026-11-17 (nightly run, 02:19 Asia/Shanghai) — HOW DOES IT WORK? day 1: HIW01, HIW02, HIW03
+- All 3 slots were free (no 2026-11-17 rows in posts.csv, nothing scheduled in Buffer). 12:00 = HIW01 blackheads, 15:30 = HIW02 wrinkly fingers (both from ready/, queue now empty), 19:00 = new HIW03 brain freeze.
+- **Yesterday's Ep22 (two moons) Instagram post failed** in Buffer: "issue with the media attached… check it meets all specifications" (post 6afa3611a869c35e5b9f8236, still in error state). TikTok/YouTube went out. Ep22's file has the same specs as Ep21, which posted fine, so it may be a one-off on Instagram's side. I left it alone; it can be retried from Buffer ("Share now" or reschedule).
+- ready/ is now empty, so tomorrow's run must build all 3 episodes from scratch (~25-30 min each including research and stills). Consider pre-building a buffer of episodes.
+- HIW03: Kokoro's word timings for "In 2012," / "In 2002," are short (weights barely change them), so the year captions build a little early. Not noticeable at speed.
+- HIW03 build: 4.5 min on this machine; upload 8.87 MB, -14.4 LUFS, peak -1.3 dBFS, music/voice -27 dB (very quiet as asked).
