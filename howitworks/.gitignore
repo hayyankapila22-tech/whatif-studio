@@ -1,0 +1,6 @@
+episodes/*/*.png
+episodes/*/parts/
+episodes/*/ln.json
+episodes/*/list.txt
+episodes/*/pores.json
+episodes/*/__pycache__/

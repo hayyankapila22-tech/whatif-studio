@@ -1,3 +1,9 @@
+# ⚠️ OWNER DIRECTION 2026-11-16 — OVERRIDES EVERYTHING BELOW
+The channel now posts **3 "HOW DOES IT WORK?" videos a day at 12:00, 15:30 and 19:00 Asia/Shanghai**, fully automated via Buffer
+to TikTok, Instagram and YouTube. **Jeremy / WHAT IF episodes are paused.** Follow **`howitworks/RUNBOOK_HIW.md`** (pipeline,
+topics in `howitworks/TOPICS.md`, ready-made videos in `howitworks/ready/`). The Timeless instrumental stays, but very quiet.
+The sections below are kept for reference (Buffer IDs, media repo, logging) and for when WHAT IF episodes return.
+
 # Nightly runbook: 2 new episodes a day (v3 quality)
 
 Runs as a scheduled task every night at ~02:17 Asia/Shanghai. Posts go out at **12:00 and 19:00 Asia/Shanghai (+08:00)** the same day. Fill only the free slots (an episode may already be booked at 12:00 or 19:00). Each v3 episode renders in ~95 min, so start the first render as early as possible and run the second while checking the first.
