@@ -19,6 +19,8 @@ Format: one thing doubles/grows every minute; beats = minute marks; ends in spac
 - Ep19 What if gravity reversed for 10 seconds every day? — owner pick #5, v5.1 studio: flight vs 330 m Eiffel Tower with real drag physics (340 m after 10 s, peak 431 m, lands ~186 km/h), bolted-rail 'every day' set, fridge-magnet twist (2026-11-14 19:00)
 - Ep20 What if Earth stopped spinning for 5 seconds? — owner list, v5.1 studio gallery (spinning globe, slow-motion fly-off vs bolted bollard, tornado/sound/wind bars, latitude-speed globe, ocean surge tank, 24 h clock + 70 Myr fossil clam), narrated (2026-11-15 12:00)
 - Ep21 What if the oceans disappeared? — owner list, v5.1 studio gallery (draining globe, true-vertical-scale cross-section with Everest/Mauna Kea/Challenger Deep, plankton tank + rain cloud, Earth vs all-its-water ball vs Moon), narrated (2026-11-15 19:00)
+- Ep22 What if Earth had two moons? — owner list, v5.1 studio gallery (Earth-Moon orrery + twin at half distance with 1x/8x tidal-pull bars, coastal tide tank with speculative flood, slow companion-moon collision (Jutzi & Asphaug 2011 theory), 2024 PT5 mini-moon loop), narrated (2026-11-16 12:00)
+- Ep23 What if Earth had two suns? — owner list, v5.1 studio gallery (13-star census with 6 companions, Alpha Centauri A+B orrery, Kepler-16 circumbinary planet, Earth between two suns + thermometer, brightening Sun with 1-billion-year gauge), narrated (2026-11-16 19:00)
 
 ## Next up (take from the top, 2 per night)
 OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
@@ -28,8 +30,6 @@ OWNER RULES (updated 2026-11-11, replaces the 2026-11-10 "no doubling" rule):
 ### Owner's picks (do these first, in order)
 
 ### Owner's 150-idea list (pick visual ones; mix categories ~30% science/Earth, 25% history, 25% biology, 20% mind-bending)
-- What if Earth had two moons?
-- What if Earth had two suns?
 - What if gravity suddenly became twice as strong?
 - What if the entire world flooded?
 - What if it rained continuously for one year?

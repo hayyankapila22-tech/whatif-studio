@@ -167,7 +167,7 @@ window.renderAt = (t) => {
   const bl = p => (t % p) < .1;
   putJ(J1, X.A + 1.75, -1.6, -.5, { expr: i === 1 && t > tPair0 ? 'shocked' : 'happy', look: -.5, armL: .25, armR: i === 1 ? 1.2 : .25, blink: bl(2.7) });
   putJ(J2, X.B + 1.75, -1.3, -.5, { expr: 'happy', look: -.5, armL: .25, armR: i === 2 ? 1.2 : .25, blink: bl(2.9) });
-  putJ(J3, X.C + 1.9, -1.9, -.5, { expr: i === 3 ? 'shocked' : 'happy', look: -.5, armL: .25, armR: .25, blink: bl(3.1) });
+  putJ(J3, X.C + 2.15, -1.5, -.5, { expr: i === 3 ? 'shocked' : 'happy', look: -.5, armL: .25, armR: .25, blink: bl(3.1) });
   putJ(J4, X.D - 1.7, -.45, .45, { expr: hk > .3 ? 'worried' : s2 > .5 ? 'shocked' : 'happy', look: .5, armL: .25, armR: i === 4 ? 1.2 : .25, sweatK: hk > .2 ? t * .8 : 0, blink: bl(2.5) });
   putJ(J5, X.E - .95, -1.7, .35, { expr: i >= 8 ? 'confused' : i === 7 ? 'worried' : 'happy', look: .5, armL: .25, armR: i === 8 ? 1.3 : .25, tilt: i >= 8 ? .1 : 0, blink: bl(2.3) });
   // ---- camera
@@ -180,7 +180,7 @@ window.renderAt = (t) => {
   if (i === 0) tag3('JEREMY', '1.75 m', V(X.A + 1.75, 2.3, -1.6), Al(.6, T0[1] - .7));
   if (i === 1) { tag3('SUN-LIKE STAR', 'like ours', census[3].s.position.clone().add(V(0, .12, 0)), Al(T0[1] + .3, tPair0 + .2)); tag3('6 OF 13', 'have a partner', census[5].s.position.clone().add(V(0, .16, 0)), Al(tPair1 - .4, T0[2] - .4)); }
   if (i === 2) tag3('ALPHA CENTAURI A + B', '4.37 light-years away', V(X.B, BY + .32, 0), Al(T0[2] + .5, T1[2] - .3));
-  if (i === 3) { tag3('KEPLER-16b', 'Saturn-sized', k16planet.position.clone().add(V(0, .2, 0)), Al(T0[3] + 1.0, T0[4] - .5)); tag3('TWO STARS', '69% + 20% of the Sun', V(X.C, CY + .2, 0), Al(T0[3] + 2.6, T0[4] - .5)); }
+  if (i === 3) { tag3('KEPLER-16b', 'Saturn-sized', k16planet.position.clone().add(V(0, .2, 0)), Al(T0[3] + 1.0, T0[3] + 3.6)); tag3('TWO STARS', '69% + 20% of the Sun', V(X.C, CY + .2, 0), Al(T0[3] + 3.8, T0[4] - .5)); }
   if (i === 4) { tag3('SUN', 'ours', sun1.position.clone().add(V(0, .32, 0)), Al(T0[4] + .3, T0[5] - .2)); tag3('SUN #2', 'just like ours', sun2.position.clone().add(V(0, .32, 0)), Al(tSun2b - .3, T0[5] - .2)); }
   if (i === 5) tag3('SPECULATION', 'oceans start to boil', V(X.D + .1, DY + DR + .02, 0), Al(tHeat0 + .8, T0[6] - .5));
   if (i === 6) tag3('THE SUN', '≈25% brighter than at birth', V(X.E, EY + .62, 0), Al(T0[6] + 1.0, T0[7] - .3));

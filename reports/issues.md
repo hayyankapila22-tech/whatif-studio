@@ -55,3 +55,11 @@
 - Ep21 frame check caught the CHALLENGER DEEP tag covering the "Everest fits in the trench" ghost and Jeremy behind it; moved Jeremy/tag and re-rendered segments 2-5 only (old segments moved to old_segs/, per the 2026-11-14 note).
 - Upload encodes again overshoot 9.3 MB slightly (9.35 / 9.37 MB); Buffer accepted them. The target in render_ep.sh could be lowered to ~8.6 MB.
 - ep21 drain shader detects ocean pixels by colour (blue-dominant) in earth_atmos_2048.jpg; a few dark land pixels near coasts also turn sea-floor brown. Not noticeable at globe size.
+
+## 2026-11-16 (nightly run, 02:18 Asia/Shanghai) — Ep22 two moons, Ep23 two suns
+- Both slots were free (0 rows for 2026-11-16 in posts.csv, no scheduled posts in Buffer). Made Ep22 (12:00) and Ep23 (19:00), v5.1 studio gallery, narrated (Kokoro af_heart), Timeless from 0:12 via mix3.py. Checked: audio present (mean ≈ -16 dB), durations match vo.json (51.7 s / 48.3 s), no jumps at segment boundaries (big frame diffs only inside camera glides), no dark frames.
+- Same rule conflict as before: RUNBOOK "OWNER DIRECTION 2026-11-11" / TOPICS.md say street look for regular what-ifs; tonight's task prompt says v5.1 studio for everything. Followed the task prompt.
+- Frame checks of rendered segments caught problems the stills missed (stills are only one moment per line): Ep22 Jeremy cut at the frame edge at the tide tank, the companion moon flying across Jeremy's face, two tags overlapping at the mini-moon; Ep23 two tags overlapping at Kepler-16. Fixed and re-rendered those segments only (old ones in old_segs/). Lesson: render stills at 2-3 moments per line, especially during animations that move objects across the frame.
+- Jeremy at scale is about as tall as the globe stands: placing him at negative x (camera side, yaw < 0) makes him huge and cut off; behind and to the +x side (x0 + 1.4…2, z -0.9…-1.8) works.
+- Upload encodes re-done at an 8.6 MB target (9.46 / 9.36 MB from render_ep.sh); final 8.76 / 8.66 MB.
+- Renders ~12 s/frame per worker (2 workers); running stills or a second episode at the same time slows everything down proportionally.
