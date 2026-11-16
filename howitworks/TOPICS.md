@@ -5,8 +5,8 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
-- HIW01 How does a blackhead form? (blackheads, sebaceous filaments) — built 2026-11-16, in ready/
-- HIW02 Why do your fingers wrinkle in water? (nerves, vessels, 2013 vs 2014 grip studies) — built 2026-11-16, in ready/
+- HIW01 How does a blackhead form? (blackheads, sebaceous filaments) — built 2026-11-16, posted 2026-11-17
+- HIW02 Why do your fingers wrinkle in water? (nerves, vessels, 2013 vs 2014 grip studies) — built 2026-11-16, posted 2026-11-17
 
 ## Next up
 1. Why do you get brain freeze? (cold palate → blood vessel dilation, referred pain)
