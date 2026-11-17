@@ -5,7 +5,8 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
-- HIW07 Why do you jerk awake as you fall asleep? — built 2026-11-17, in ready/
+- HIW08 Why do you see stars when you stand up too fast? — built 2026-11-17, booked 2026-11-19 15:30
+- HIW07 Why do you jerk awake as you fall asleep? — built 2026-11-17, booked 2026-11-19 12:00
 - HIW06 Why does orange juice taste awful after brushing? — built 2026-11-17, booked 2026-11-18 19:00
 - HIW05 What is this? (tiny jeans pocket) — built 2026-11-17, booked 2026-11-18 15:30
 - HIW04 What is this? (dandruff) — FIRST standard-format video, built 2026-11-17, booked 2026-11-18 12:00
@@ -18,7 +19,6 @@ OWNER RULE (2026-11-17): topics must be SUPER common — things almost everyone 
 something odd about them that people genuinely question. "I've always wondered that!" is the test. Hook = the weird
 moment itself (mystery close-up or a relatable "why does this happen?"), then simple useful answers, no studies.
 
-3. Why do you see stars when you stand up too fast?
 4. Why do you get a static shock off car doors and trolleys?
 5. Why can't you tickle yourself?
 6. Why do onions make you cry?
