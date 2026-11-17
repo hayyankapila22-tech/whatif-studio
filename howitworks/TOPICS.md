@@ -12,19 +12,26 @@ ingredients not brands. Debated science is presented as debated.
 - HIW03 Why do you get brain freeze? (palate vessels, trigeminal, referred pain, 2012 artery study, 2002 BMJ trial) — built and posted 2026-11-17 19:00
 
 ## Next up
-(standard "What is this?" format — the mystery close-up first, reveal at 2 s)
-NEXT (2026-11-18 19:00): The tiny hole in a plane window (owner rejected the padlock-hole topic — do not make it)
-D. The bumps on the F and J keys
-E. The black dots around the edge of a car windscreen
-F. The hole in a pen cap
-G. The white half-moon at the bottom of your nails
-H. The squiggly things floating in your vision (eye floaters)
-I. The "stars" you see when you rub your eyes
-J. Earwax — what it's actually for
-K. The ridges around the edge of a coin
-L. The square patch with two slits on a backpack
-M. Why the hook on a tape measure is loose
-N. The dip above your top lip
+OWNER RULE (2026-11-17): topics must be SUPER common — things almost everyone has experienced or seen — but with
+something odd about them that people genuinely question. "I've always wondered that!" is the test. Hook = the weird
+moment itself (mystery close-up or a relatable "why does this happen?"), then simple useful answers, no studies.
+
+1. Why does orange juice taste awful after you brush your teeth?   ← NEXT (2026-11-18 19:00)
+2. Why do you suddenly jerk awake just as you're falling asleep?
+3. Why do you see stars when you stand up too fast?
+4. Why do you get a static shock off car doors and trolleys?
+5. Why can't you tickle yourself?
+6. Why do onions make you cry?
+7. Why does your voice sound weird on recordings?
+8. What actually happens when you crack your knuckles?
+9. Why do your ears pop on a plane?
+10. Why does metal spark in the microwave?
+11. What are the squiggly things floating in your vision?
+12. Why does your foot "fall asleep"?
+13. Why does a cut apple turn brown?
+14. Why does spinach make your teeth feel squeaky?
+15. Why do you get goosebumps?
+(do NOT make: padlock hole — owner rejected it)
 (then the older list below, rewritten in the same mystery-hook style)
 1. Why can't you tickle yourself? (brain predicts your own touch; cerebellum)
 2. Why do onions make you cry? (cutting releases an irritant gas; how to stop it)

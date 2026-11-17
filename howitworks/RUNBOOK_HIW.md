@@ -17,7 +17,7 @@ under the voice (owner wants it subtle). Everything renders here in the cloud.
   identical to frame 1 (make the hook shot's motion periodic in DUR, like `macro_flake_pose()`). Build with
   `HIW_LOOP=1 HIW_HEAD=0.12 HIW_TAIL=0.18` (no music fades, tiny head/tail silence):
   `HIW_SPEED=0.96 HIW_HEAD=0.12 HIW_TAIL=0.18 python3 ../../tools/tts.py` then `HIW_LOOP=1 howitworks/tools/build.sh …`.
-- Topics: everyday objects and body mysteries people have personally noticed (see TOPICS.md, top of "Next up").
+- Topics: SUPER common everyday experiences with something odd people genuinely question (see the owner rule at the top of TOPICS.md). Hook can be the mystery close-up OR the relatable weird moment as a question ("Why does orange juice taste awful after brushing?"), shown in the first second.
 - **Owner direction 2026-11-17 (evening): NO studies at all.** Only basic, useful facts people can use or repeat
   (what it is, why it happens, what to do). No "in one study", no scientists, no study numbers, no source footnotes on
   screen (still research + fact-check, and keep sources as comments at the top of episode.py). Quality of the visuals
