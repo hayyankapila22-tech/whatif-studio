@@ -1,0 +1,20 @@
+# HIW03b — brain freeze, remade in the standard format: simple words, clean visuals, a change every ~2 s, "So," loop.
+SENTENCES = [
+    dict(cap="Why does ice cream || hurt your *head*?", gap=0.35),
+    dict(cap="It's not your brain *freezing*.", gap=0.3),
+    dict(cap="The cold hits the *roof* of your mouth.", gap=0.2),
+    dict(cap="The blood vessels there *shrink*...", gap=0.15),
+    dict(cap="then suddenly *rush open* again.", gap=0.3),
+    dict(cap="A nerve in your face || sends an *alarm*.", gap=0.2),
+    dict(cap="But your brain gets the *address* wrong.", gap=0.2),
+    dict(cap="So the pain shows up || in your *forehead*.", gap=0.4),
+    dict(cap="Eating fast makes it *worse*.", gap=0.15),
+    dict(cap="In one study, || fast eaters got it about *twice* as often.", gap=0.4),
+    dict(cap="So is it the *cold* that hurts?", gap=0.3),
+    dict(cap="Not *exactly*.", gap=0.2),
+    dict(cap="Scientists think it's the *warm-up*, || as the vessels rush open.", gap=0.4),
+    dict(cap="The fix? || Press your *tongue* || to the roof of your mouth.", gap=0.2),
+    dict(cap="It warms it up, || and the pain *fades*.", gap=0.2),
+    dict(cap="Usually in under a *minute*.", gap=0.4),
+    dict(cap="So,", gap=0.0),
+]
