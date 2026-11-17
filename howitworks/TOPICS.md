@@ -5,6 +5,7 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- HIW05 What is this? (tiny jeans pocket) — built 2026-11-17, booked 2026-11-18 15:30
 - HIW04 What is this? (dandruff) — FIRST standard-format video, built 2026-11-17, booked 2026-11-18 12:00
 - HIW01 How does a blackhead form? (blackheads, sebaceous filaments) — built 2026-11-16, posted 2026-11-17
 - HIW02 Why do your fingers wrinkle in water? (nerves, vessels, 2013 vs 2014 grip studies) — built 2026-11-16, posted 2026-11-17
@@ -12,7 +13,6 @@ ingredients not brands. Debated science is presented as debated.
 
 ## Next up
 (standard "What is this?" format — the mystery close-up first, reveal at 2 s)
-A. The tiny pocket inside your jeans pocket
 B. The little hole at the bottom of a padlock
 C. The tiny hole in a plane window
 D. The bumps on the F and J keys

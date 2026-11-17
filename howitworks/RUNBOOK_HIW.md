@@ -18,6 +18,15 @@ under the voice (owner wants it subtle). Everything renders here in the cloud.
   `HIW_LOOP=1 HIW_HEAD=0.12 HIW_TAIL=0.18` (no music fades, tiny head/tail silence):
   `HIW_SPEED=0.96 HIW_HEAD=0.12 HIW_TAIL=0.18 python3 ../../tools/tts.py` then `HIW_LOOP=1 howitworks/tools/build.sh …`.
 - Topics: everyday objects and body mysteries people have personally noticed (see TOPICS.md, top of "Next up").
+- **Owner direction 2026-11-17 (evening): NO studies at all.** Only basic, useful facts people can use or repeat
+  (what it is, why it happens, what to do). No "in one study", no scientists, no study numbers, no source footnotes on
+  screen (still research + fact-check, and keep sources as comments at the top of episode.py). Quality of the visuals
+  stays premium: detailed, good-looking objects and textures (see hiw05 denim/rivets/pocket watch).
+- **App UI safe area** (TikTok "Following/For You" bar, Reels/Shorts header, right-hand like/comment/share/follow
+  column, bottom username/description/sound): captions now sit lower automatically (engine: 1 line at y 400,
+  2 lines from y 362). Keep every pill/number/key object inside x 60–920 and y 300–1440 (`SAFE_*` in engine.py).
+  Check with `python3 howitworks/tools/safezone.py still.png` (overlay is for checking only — never render UI into a video).
+- **Music:** the Timeless bed is now clearly audible under the voice (`HIW_MUSIC_DB` default -11, lighter ducking).
 - **Owner direction 2026-11-17: less "sciencey", smoother, cleaner.** Plain everyday words (no study names, Latin or
   anatomy terms on screen or in the voice; say "in one study" not "Kaczorowski 2002"). Clean, simple, smooth shapes on
   soft gradient backgrounds (see `episodes/hiw03b_brain_freeze`), ONE short pill at a time, no HUD, max 2 tiny footnotes
@@ -25,6 +34,7 @@ under the voice (owner wants it subtle). Everything renders here in the cloud.
 
 Reference episodes (copy the closest one; hiw04 is the template for the standard format):
 - `episodes/hiw01_blackheads` — cut-away skin block, macro skin surface, split-screen, apple inset, white-studio "fix" chapter.
+- `episodes/hiw05_jeans_pocket` — **newest reference** (no studies, object topic): denim macro hook, tiny pocket, phone too big, pocket watch + chain, 1870s sepia, wristwatch, rivets, 4th-pocket twist, coins/keys/pick, loop.
 - `episodes/hiw03b_brain_freeze` — **cleanest reference** (owner's preferred look): ice-cream hook, smooth head profile with camera moves, simple bar chart, white-studio twist, tongue fix, loop.
 - `episodes/hiw04_dandruff` — **standard format**: mystery macro → zoom-out reveal, flake cell mosaic, scalp block with travelling cells, 1-in-2 grid, yeast macro, white-studio fix (shampoo + timer), loop back to frame 1.
 - `episodes/hiw02_wrinkly_fingers` — underwater fingertip pad with growing wrinkles, side cross-section with nerve pulses

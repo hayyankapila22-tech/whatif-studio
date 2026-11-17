@@ -3,6 +3,10 @@ import math, random, json
 import skia
 
 W, H, FPS = 1080, 1920, 30
+# Platform safe area (TikTok / Instagram Reels / YouTube Shorts on 1080x1920), owner direction 2026-11-17:
+#   top tabs/header end ~y 300 · right action column (avatar/follow, like, comment, save, share) x > 920 from y ~700 down
+#   bottom username / description / sound / Subscribe from y ~1440. Keep ALL text and key subjects inside.
+SAFE_TOP, SAFE_BOTTOM, SAFE_LEFT, SAFE_RIGHT = 300, 1440, 60, 920
 import os
 A = os.environ.get("HIW_ASSETS", "/home/claude/hiw_assets").rstrip("/") + "/"
 FONT = "/usr/share/fonts/opentype/inter/"
@@ -150,14 +154,14 @@ def footnote(c, t, text, tin, tout, light=False):
     a = window(t, tin, tout, 0.3, 0.3)
     if a <= 0:
         return
-    c.drawString(text, 64, 1500, skia.Font(TF_REG, 22), paint(INK if light else "#FFFFFF", 0.5 * a))
+    c.drawString(text, 64, 1400, skia.Font(TF_REG, 22), paint(INK if light else "#FFFFFF", 0.5 * a))
 
 
 def hud(c, t, label, value, dot_col, a, light=False):
     if a <= 0:
         return
     f1 = skia.Font(TF_MONO_M, 22); f2 = skia.Font(TF_MONO, 32)
-    x, y = 64, 430
+    x, y = 64, 500
     fg = INK if light else "#FFFFFF"
     w = max(f1.measureText(label) + 40, f2.measureText(value) + 64)
     rr = skia.RRect.MakeRectXY(skia.Rect.MakeXYWH(x, y, w, 92), 16, 16)
@@ -196,16 +200,16 @@ class Captions:
         for w in words:
             trial = cur + [w]
             wid = sum(CAP_FONT.measureText(x["w"]) for x in trial) + SPACE * (len(trial) - 1)
-            if cur and (len(trial) > 5 or wid > 840):
+            if cur and (len(trial) > 5 or wid > 800):
                 lines.append(cur); cur = [w]
             else:
                 cur = trial
         lines.append(cur)
         out = []
-        y0 = 250 if len(lines) == 1 else 215
+        y0 = 400 if len(lines) == 1 else 362
         for li, ln in enumerate(lines):
             wid = sum(CAP_FONT.measureText(x["w"]) for x in ln) + SPACE * (len(ln) - 1)
-            x = 515 - wid / 2
+            x = 495 - wid / 2
             for w in ln:
                 ww = CAP_FONT.measureText(w["w"])
                 out.append(dict(w=w, x=x, y=y0 + li * 84, ww=ww, line=li))

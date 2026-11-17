@@ -16,7 +16,7 @@ N = int(DUR * SR)
 rng = np.random.default_rng(1)
 TRACK = os.environ.get("WHATIF_TRACK", "/home/claude/whatif-studio/assets/music/main_track.mp3")
 MUSIC_START = float(os.environ.get("HIW_MUSIC_START", "12"))
-MUSIC_LEVEL = float(os.environ.get("HIW_MUSIC_DB", "-22"))   # music RMS relative to voice RMS (dB)
+MUSIC_LEVEL = float(os.environ.get("HIW_MUSIC_DB", "-11"))   # music RMS relative to voice RMS (dB)
 
 
 def lp(x, f):
@@ -67,7 +67,7 @@ for i in range(0, N, 48):
     x = e[i]
     y = att * y + (1 - att) * x if x > y else rel * y + (1 - rel) * x
     g[i:i + 48] = y
-duck = 1 - 0.5 * np.clip(g / (g.max() * 0.35 + 1e-9), 0, 1)
+duck = 1 - 0.35 * np.clip(g / (g.max() * 0.35 + 1e-9), 0, 1)
 m *= duck
 
 # ---- sfx ----
