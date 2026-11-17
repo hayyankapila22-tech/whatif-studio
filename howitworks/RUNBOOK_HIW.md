@@ -18,9 +18,14 @@ under the voice (owner wants it subtle). Everything renders here in the cloud.
   `HIW_LOOP=1 HIW_HEAD=0.12 HIW_TAIL=0.18` (no music fades, tiny head/tail silence):
   `HIW_SPEED=0.96 HIW_HEAD=0.12 HIW_TAIL=0.18 python3 ../../tools/tts.py` then `HIW_LOOP=1 howitworks/tools/build.sh …`.
 - Topics: everyday objects and body mysteries people have personally noticed (see TOPICS.md, top of "Next up").
+- **Owner direction 2026-11-17: less "sciencey", smoother, cleaner.** Plain everyday words (no study names, Latin or
+  anatomy terms on screen or in the voice; say "in one study" not "Kaczorowski 2002"). Clean, simple, smooth shapes on
+  soft gradient backgrounds (see `episodes/hiw03b_brain_freeze`), ONE short pill at a time, no HUD, max 2 tiny footnotes
+  (source + "not medical advice"). **Every ~2 s a new frame or a new element must appear** — never hold a static shot.
 
 Reference episodes (copy the closest one; hiw04 is the template for the standard format):
 - `episodes/hiw01_blackheads` — cut-away skin block, macro skin surface, split-screen, apple inset, white-studio "fix" chapter.
+- `episodes/hiw03b_brain_freeze` — **cleanest reference** (owner's preferred look): ice-cream hook, smooth head profile with camera moves, simple bar chart, white-studio twist, tongue fix, loop.
 - `episodes/hiw04_dandruff` — **standard format**: mystery macro → zoom-out reveal, flake cell mosaic, scalp block with travelling cells, 1-in-2 grid, yeast macro, white-studio fix (shampoo + timer), loop back to frame 1.
 - `episodes/hiw02_wrinkly_fingers` — underwater fingertip pad with growing wrinkles, side cross-section with nerve pulses
   and vessels, white-studio experiment (race bars, counter, tyre), "well, not exactly" debate, pattern-match finale.
