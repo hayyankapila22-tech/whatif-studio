@@ -13,8 +13,7 @@ ingredients not brands. Debated science is presented as debated.
 
 ## Next up
 (standard "What is this?" format — the mystery close-up first, reveal at 2 s)
-B. The little hole at the bottom of a padlock
-C. The tiny hole in a plane window
+NEXT (2026-11-18 19:00): The tiny hole in a plane window (owner rejected the padlock-hole topic — do not make it)
 D. The bumps on the F and J keys
 E. The black dots around the edge of a car windscreen
 F. The hole in a pen cap
