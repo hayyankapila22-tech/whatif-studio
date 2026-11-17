@@ -5,11 +5,28 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- HIW04 What is this? (dandruff) — FIRST standard-format video, built 2026-11-17, booked 2026-11-18 12:00
 - HIW01 How does a blackhead form? (blackheads, sebaceous filaments) — built 2026-11-16, posted 2026-11-17
 - HIW02 Why do your fingers wrinkle in water? (nerves, vessels, 2013 vs 2014 grip studies) — built 2026-11-16, posted 2026-11-17
 - HIW03 Why do you get brain freeze? (palate vessels, trigeminal, referred pain, 2012 artery study, 2002 BMJ trial) — built and posted 2026-11-17 19:00
 
 ## Next up
+(standard "What is this?" format — the mystery close-up first, reveal at 2 s)
+A. The tiny pocket inside your jeans pocket
+B. The little hole at the bottom of a padlock
+C. The tiny hole in a plane window
+D. The bumps on the F and J keys
+E. The black dots around the edge of a car windscreen
+F. The hole in a pen cap
+G. The white half-moon at the bottom of your nails
+H. The squiggly things floating in your vision (eye floaters)
+I. The "stars" you see when you rub your eyes
+J. Earwax — what it's actually for
+K. The ridges around the edge of a coin
+L. The square patch with two slits on a backpack
+M. Why the hook on a tape measure is loose
+N. The dip above your top lip
+(then the older list below, rewritten in the same mystery-hook style)
 1. Why can't you tickle yourself? (brain predicts your own touch; cerebellum)
 2. Why do onions make you cry? (cutting releases an irritant gas; how to stop it)
 3. What actually happens when you crack your knuckles? (gas bubble / cavitation, MRI study 2015)

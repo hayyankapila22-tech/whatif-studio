@@ -54,7 +54,11 @@ m = m[:N]
 m_rms = np.sqrt(np.mean(m ** 2)) + 1e-9
 m = m / m_rms * v_rms * 10 ** (MUSIC_LEVEL / 20)
 t_all = np.arange(N) / SR
-m *= np.minimum(t_all / 0.6, 1) * np.minimum(1, np.maximum(0, (DUR - t_all) / 1.2))
+if os.environ.get("HIW_LOOP") == "1":   # seamless loop: no fades, short crossfade of the music tail into its head
+    xf = int(0.25 * SR)
+    m[-xf:] = m[-xf:] * np.linspace(1, 0, xf) + m[:xf] * np.linspace(0, 1, xf)
+else:
+    m *= np.minimum(t_all / 0.6, 1) * np.minimum(1, np.maximum(0, (DUR - t_all) / 1.2))
 # duck a further ~6 dB while the voice is talking
 e = np.convolve(np.abs(v), np.ones(480) / 480, "same")
 g = np.zeros(N); y = 0.0

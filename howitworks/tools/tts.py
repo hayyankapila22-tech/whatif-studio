@@ -5,7 +5,7 @@ from kokoro_onnx import Kokoro
 from script import SENTENCES
 
 VOICE = "af_heart"
-SPEED = 0.9
+SPEED = float(os.environ.get("HIW_SPEED", "0.9"))
 SR = 24000
 k = Kokoro(A + "kokoro.onnx", A + "voices.bin")
 
@@ -41,8 +41,9 @@ def voiced_mask(x, hop=240):
     return out, hop
 
 
-audio = [np.zeros(int(0.25 * SR), np.float32)]
-t = 0.25
+HEAD = float(os.environ.get("HIW_HEAD", "0.25"))
+audio = [np.zeros(int(HEAD * SR), np.float32)]
+t = HEAD
 phrases = []
 for s in SENTENCES:
     say = s.get("say") or s["cap"].replace("*", "").replace("||", "")
@@ -93,7 +94,7 @@ for s in SENTENCES:
     audio.append(g)
     t += s["gap"]
 
-audio.append(np.zeros(int(1.0 * SR), np.float32))
+audio.append(np.zeros(int(float(os.environ.get("HIW_TAIL", "1.0")) * SR), np.float32))
 y = np.concatenate(audio)
 sf.write("vo_raw.wav", y, SR)
 json.dump(dict(duration=len(y) / SR, phrases=phrases), open("timings.json", "w"), indent=1)
