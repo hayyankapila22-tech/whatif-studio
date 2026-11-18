@@ -70,3 +70,11 @@
 - ready/ is now empty, so tomorrow's run must build all 3 episodes from scratch (~25-30 min each including research and stills). Consider pre-building a buffer of episodes.
 - HIW03: Kokoro's word timings for "In 2012," / "In 2002," are short (weights barely change them), so the year captions build a little early. Not noticeable at speed.
 - HIW03 build: 4.5 min on this machine; upload 8.87 MB, -14.4 LUFS, peak -1.3 dBFS, music/voice -27 dB (very quiet as asked).
+
+## 2026-11-19 (nightly run, 02:18 Asia/Shanghai) — HIW09 static shock
+- Run started after midnight Shanghai time, so "today" = 2026-11-19. 12:00 (HIW07) and 15:30 (HIW08) were already booked and still `scheduled` in Buffer on all 3 channels (raw URLs return 200); only 19:00 was free. ready/ queue was empty, so built HIW09 from the top of TOPICS "Next up" (static shock off car doors / trolleys).
+- No `error` posts in Buffer for 2026-11-17/18.
+- HIW09: 27.3 s, standard "So," loop (frame 1 ≈ last frame), build ~3 min, upload 8.9 MB, -14.6 LUFS, peak -1.4 dBFS, audio track present. Media pushed to whatif-media (as the task prompt says); the last runs had put media in whatif-studio/howitworks/media instead — both work, maybe pick one.
+- Music level: task prompt says Timeless "VERY quiet / subtle", RUNBOOK_HIW (2026-11-17 evening) says "clearly audible, HIW_MUSIC_DB -11". Kept the engine default (-11, music/voice measured -14.4 dB, ducked further under speech) for consistency with HIW04-08. Please make the prompt and runbook agree.
+- HIW07/HIW08 folders had no prompt.md; HIW09 has one.
+- Tomorrow's run: ready/ is still empty, so all 3 slots need new episodes.
