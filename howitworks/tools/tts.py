@@ -4,10 +4,13 @@ A = os.environ.get("HIW_ASSETS", "/home/claude/hiw_assets").rstrip("/") + "/"
 from kokoro_onnx import Kokoro
 from script import SENTENCES
 
-VOICE = "af_heart"
+VOICE = os.environ.get("HIW_VOICE", "af_heart")  # e.g. af_bella, or "af_heart+af_bella" (50/50 blend)
 SPEED = float(os.environ.get("HIW_SPEED", "0.9"))
 SR = 24000
 k = Kokoro(A + "kokoro.onnx", A + "voices.bin")
+if "+" in VOICE:
+    _vs = VOICE.split("+")
+    VOICE = sum(k.get_voice_style(v) for v in _vs) / len(_vs)
 
 
 def syl(w):
