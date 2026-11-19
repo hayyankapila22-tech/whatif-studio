@@ -78,3 +78,24 @@
 - Music level: task prompt says Timeless "VERY quiet / subtle", RUNBOOK_HIW (2026-11-17 evening) says "clearly audible, HIW_MUSIC_DB -11". Kept the engine default (-11, music/voice measured -14.4 dB, ducked further under speech) for consistency with HIW04-08. Please make the prompt and runbook agree.
 - HIW07/HIW08 folders had no prompt.md; HIW09 has one.
 - Tomorrow's run: ready/ is still empty, so all 3 slots need new episodes.
+
+## 2026-11-20 (nightly run, 02:18 Asia/Shanghai) — HIW12 tickle, HIW13 onions, HIW14 voice on recordings
+- All 3 slots were free (no 2026-11-20 rows in posts.csv, nothing scheduled in Buffer for the day). ready/ queue was empty,
+  so built HIW12–14 from the top of TOPICS "Next up" (tickle yourself, onions, voice on recordings). HIW10 (find the C) and
+  HIW11 (fork in the microwave) exist from the owner session but were never put in ready/, so I did not post them.
+  TOPICS "Next up" #10 (metal sparks in the microwave) is the same topic as HIW11 — skip it or post HIW11.
+- **Buffer limits YouTube to 2 scheduled posts per day, counted in the account time zone (America/Los_Angeles).**
+  12:00 and 15:30 Shanghai fall on the same LA day as the previous night's 19:00 post, so HIW13's YouTube post at 15:30
+  was refused ("maximum number of posts YouTube allows in a day (2)"). Booked HIW13 YouTube at 16:30 +08:00 instead
+  (= 00:30 LA, next LA day); TikTok/Instagram at 15:30. With 3 posts/day this will keep happening: each LA day gets
+  12:00 + 15:30 (Shanghai, day N) + 19:00 (day N-1) = 3 YouTube posts. Options: post only 2 YouTube Shorts a day, move
+  one slot after 16:00 Shanghai (00:00 LA), or switch the Buffer account time zone to Asia/Shanghai (then 3/day still
+  exceeds 2 — YouTube via Buffer seems capped at 2/day regardless).
+- **2026-11-19 YouTube posts for HIW07 (12:00) and HIW08 (15:30) failed in Buffer** ("An unknown error has occurred",
+  posts 6afc5b9dddb326928b5e347a / 6afc5b9f685aa7614ba642c7); TikTok/Instagram went out. Possibly the same 2/day cap.
+  Left in error state; can be retried from Buffer.
+- Voice: Chatterbox Liam installed fine (~5 min setup). Videos are short: 22.4 s / 25.6 s / 25.8 s (Liam speaks fast).
+- Music: kept the engine default (-11 dB, measured music/voice -14.4/-14.5 dB) for consistency with HIW04–11, although
+  the task prompt says "VERY quiet". Same conflict as 2026-11-19 — please make prompt and runbook agree.
+- Uploads: 8.9 / 8.7 / 8.9 MB, -15.2…-15.3 LUFS, audio track present on all three, loop end ≈ frame 1.
+- HIW14 hook: the memo scrubber loops 3× per video so the loop seam is a natural restart (0:06 → 0:00).

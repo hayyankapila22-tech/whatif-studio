@@ -5,6 +5,9 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- HIW14 Why does your voice sound weird on recordings? (air + skull routes, mic hears only air) — built 2026-11-20, booked 2026-11-20 19:00
+- HIW13 Why do onions make you cry? (cells burst, gas, tears; sharp knife / chill 30 min / root last) — built 2026-11-20, booked 2026-11-20 15:30
+- HIW12 Why can't you tickle yourself? (brain predicts your own touch and turns it down) — built 2026-11-20, booked 2026-11-20 12:00
 - HIW09 Why do car doors shock you? (static shock, trolleys, dry air, hold-the-metal / key trick) — built 2026-11-19, booked 2026-11-19 19:00
 - HIW08 Why do you see stars when you stand up too fast? — built 2026-11-17, booked 2026-11-19 15:30
 - HIW07 Why do you jerk awake as you fall asleep? — built 2026-11-17, booked 2026-11-19 12:00
@@ -20,9 +23,6 @@ OWNER RULE (2026-11-17): topics must be SUPER common — things almost everyone 
 something odd about them that people genuinely question. "I've always wondered that!" is the test. Hook = the weird
 moment itself (mystery close-up or a relatable "why does this happen?"), then simple useful answers, no studies.
 
-5. Why can't you tickle yourself?
-6. Why do onions make you cry?
-7. Why does your voice sound weird on recordings?
 8. What actually happens when you crack your knuckles?
 9. Why do your ears pop on a plane?
 10. Why does metal spark in the microwave?
@@ -33,10 +33,7 @@ moment itself (mystery close-up or a relatable "why does this happen?"), then si
 15. Why do you get goosebumps?
 (do NOT make: padlock hole — owner rejected it)
 (then the older list below, rewritten in the same mystery-hook style)
-1. Why can't you tickle yourself? (brain predicts your own touch; cerebellum)
-2. Why do onions make you cry? (cutting releases an irritant gas; how to stop it)
 3. What actually happens when you crack your knuckles? (gas bubble / cavitation, MRI study 2015)
-4. Why does your voice sound weird on recordings? (bone conduction vs air)
 5. Why doesn't your stomach digest itself? (mucus layer, cell turnover)
 6. How do mosquitoes find you? (CO₂, body heat, skin smell)
 7. How does a plane actually stay up? (lift — the "equal transit time" myth is wrong)
