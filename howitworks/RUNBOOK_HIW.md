@@ -5,6 +5,14 @@
 under the voice (owner wants it subtle). Everything renders here in the cloud.
 
 
+## ★ VOICE (owner direction 2026-11-19): Chatterbox "Liam", NOT Kokoro
+Owner: Kokoro is "WAY too fake and AI generated" and the voice must be free (no ElevenLabs). `setup.sh` now installs
+Chatterbox (open-source, MIT) in `/home/claude/cbx` and `tts.py` uses it automatically (male voice cloned from the
+synthetic reference `assets/voices/liam_ref.wav`, exaggeration 0.7, cfg 0.4). ~8x slower than real time on 2 CPUs
+(~4 min per episode). Write scripts in a bubbly, casual, talking-to-a-friend tone ("Okay!", "Relax!", "yep"). Kokoro is
+only a fallback if Chatterbox can't be installed — log that in issues.md. `HIW_SPEED` does not apply to Chatterbox.
+Reference: `episodes/hiw10_find_the_c` (challenge hook "If you can find the C in 5 seconds… you might be a genius!").
+
 ## ★ STANDARD FORMAT from 2026-11-17 (owner approved, reference: `episodes/hiw04_dandruff`)
 **"What is this?"** — every video now follows this shape (it overrides the older 55 s structure):
 - **Hook 0–2 s:** an extreme, unrecognisable close-up of something everyday, boxed with a Figma selection box, voice

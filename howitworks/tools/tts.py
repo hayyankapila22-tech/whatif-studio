@@ -7,6 +7,11 @@ from script import SENTENCES
 VOICE = os.environ.get("HIW_VOICE", "af_heart")  # e.g. af_bella, or "af_heart+af_bella" (50/50 blend)
 SPEED = float(os.environ.get("HIW_SPEED", "0.9"))
 SR = 24000
+# chatterbox (default, human-sounding Liam, owner pick 2026-11-19) | kokoro (old fallback)
+_CBPY = os.environ.get("HIW_CB_PY", "/home/claude/cbx/bin/python")
+ENGINE = os.environ.get("HIW_TTS", "chatterbox" if os.path.exists(_CBPY) else "kokoro")
+if ENGINE == "kokoro":
+    print("NOTE: using Kokoro (Chatterbox venv missing) - owner said Kokoro sounds too fake; log this in reports/issues.md")
 k = Kokoro(A + "kokoro.onnx", A + "voices.bin")
 if "+" in VOICE:
     _vs = VOICE.split("+")
@@ -44,14 +49,47 @@ def voiced_mask(x, hop=240):
     return out, hop
 
 
+CB = {}
+if ENGINE == "chatterbox":
+    import subprocess
+    here = os.path.dirname(os.path.abspath(__file__))
+    os.makedirs("cb_wav", exist_ok=True)
+    items = []
+    for i, s in enumerate(SENTENCES):
+        say = re.sub(r"\s+", " ", s.get("say") or s["cap"].replace("*", "").replace("||", "")).strip()
+        out = os.path.abspath(f"cb_wav/s{i:02d}.wav")
+        CB[i] = out
+        if not os.path.exists(out) or os.environ.get("HIW_CB_FORCE"):
+            items.append(dict(text=say, out=out))
+    if items:
+        job = dict(ref=os.environ.get("HIW_CB_REF", os.path.join(here, "..", "..", "assets", "voices", "liam_ref.wav")),
+                   exaggeration=float(os.environ.get("HIW_CB_EXAG", "0.7")), cfg=float(os.environ.get("HIW_CB_CFG", "0.4")),
+                   items=items)
+        json.dump(job, open("cb_jobs.json", "w"))
+        py = _CBPY
+        subprocess.run([py, os.path.join(here, "cb_gen.py"), "cb_jobs.json"], check=True, stderr=subprocess.DEVNULL)
+
+
+def synth(i, say):
+    if ENGINE == "chatterbox":
+        x, sr = sf.read(CB[i], dtype="float32")
+        if x.ndim > 1:
+            x = x[:, 0]
+        if sr != SR:
+            import scipy.signal as ss
+            x = ss.resample_poly(x, SR, sr).astype(np.float32)
+        return x, SR
+    return k.create(say, voice=VOICE, speed=SPEED, lang="en-us")
+
+
 HEAD = float(os.environ.get("HIW_HEAD", "0.25"))
 audio = [np.zeros(int(HEAD * SR), np.float32)]
 t = HEAD
 phrases = []
-for s in SENTENCES:
+for si, s in enumerate(SENTENCES):
     say = s.get("say") or s["cap"].replace("*", "").replace("||", "")
     say = re.sub(r"\s+", " ", say).strip()
-    x, sr = k.create(say, voice=VOICE, speed=SPEED, lang="en-us")
+    x, sr = synth(si, say)
     assert sr == SR
     x = trim(x.astype(np.float32))
     # map words onto voiced time
