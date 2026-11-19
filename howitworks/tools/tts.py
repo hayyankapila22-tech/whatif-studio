@@ -59,8 +59,11 @@ if ENGINE == "chatterbox":
         say = re.sub(r"\s+", " ", s.get("say") or s["cap"].replace("*", "").replace("||", "")).strip()
         out = os.path.abspath(f"cb_wav/s{i:02d}.wav")
         CB[i] = out
-        if not os.path.exists(out) or os.environ.get("HIW_CB_FORCE"):
+        side = out[:-4] + ".txt"
+        stale = not os.path.exists(side) or open(side).read() != say
+        if not os.path.exists(out) or stale or os.environ.get("HIW_CB_FORCE"):
             items.append(dict(text=say, out=out))
+        open(side, "w").write(say)
     if items:
         job = dict(ref=os.environ.get("HIW_CB_REF", os.path.join(here, "..", "..", "assets", "voices", "liam_ref.wav")),
                    exaggeration=float(os.environ.get("HIW_CB_EXAG", "0.7")), cfg=float(os.environ.get("HIW_CB_CFG", "0.4")),
