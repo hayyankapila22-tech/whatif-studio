@@ -5,6 +5,9 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- HIW17 What are the squiggly things floating in your eyes? (jelly threads clump, shadows on the back of the eye; warning signs) — built 2026-11-21, booked 2026-11-21 19:00
+- HIW16 Why do your ears pop on a plane? (air pocket, 2,400 m cabin, eardrum out/in, tube opens; yawn/swallow/gum) — built 2026-11-21, booked 2026-11-21 15:30
+- HIW15 What actually happens when you crack your knuckles? (fluid bag, pressure drop, gas bubble, ~20 min, probably harmless) — built 2026-11-21, booked 2026-11-21 12:00
 - HIW14 Why does your voice sound weird on recordings? (air + skull routes, mic hears only air) — built 2026-11-20, booked 2026-11-20 19:00
 - HIW13 Why do onions make you cry? (cells burst, gas, tears; sharp knife / chill 30 min / root last) — built 2026-11-20, booked 2026-11-20 15:30
 - HIW12 Why can't you tickle yourself? (brain predicts your own touch and turns it down) — built 2026-11-20, booked 2026-11-20 12:00
@@ -23,17 +26,13 @@ OWNER RULE (2026-11-17): topics must be SUPER common — things almost everyone 
 something odd about them that people genuinely question. "I've always wondered that!" is the test. Hook = the weird
 moment itself (mystery close-up or a relatable "why does this happen?"), then simple useful answers, no studies.
 
-8. What actually happens when you crack your knuckles?
-9. Why do your ears pop on a plane?
-10. Why does metal spark in the microwave?
-11. What are the squiggly things floating in your vision?
+10. Why does metal spark in the microwave? (SAME topic as the finished HIW11 fork-in-the-microwave video — skipped; post HIW11 instead if the owner approves)
 12. Why does your foot "fall asleep"?
 13. Why does a cut apple turn brown?
 14. Why does spinach make your teeth feel squeaky?
 15. Why do you get goosebumps?
 (do NOT make: padlock hole — owner rejected it)
 (then the older list below, rewritten in the same mystery-hook style)
-3. What actually happens when you crack your knuckles? (gas bubble / cavitation, MRI study 2015)
 5. Why doesn't your stomach digest itself? (mucus layer, cell turnover)
 6. How do mosquitoes find you? (CO₂, body heat, skin smell)
 7. How does a plane actually stay up? (lift — the "equal transit time" myth is wrong)
@@ -42,11 +41,9 @@ moment itself (mystery close-up or a relatable "why does this happen?"), then si
 10. How does caffeine keep you awake? (blocks adenosine receptors)
 11. Why do we get goosebumps? (tiny muscles at each hair, leftover reflex)
 12. How do noise-cancelling headphones work? (anti-noise, phase inversion)
-13. Why does your foot "fall asleep"? (pressure on nerves and blood flow)
 14. How do microwaves heat food? (water molecules spinning; "inside-out" myth)
 15. Why do cats purr? (2023 study: special pads in the voice box)
 16. Why do we hiccup? (diaphragm spasm + vocal cords snapping shut)
-17. Why do your ears pop on a plane? (pressure, Eustachian tubes)
 18. How does a touchscreen know it's your finger? (capacitive sensing)
 19. How do fireflies glow? (luciferin + luciferase, cold light)
 20. Why is the sky blue but sunsets red? (Rayleigh scattering)

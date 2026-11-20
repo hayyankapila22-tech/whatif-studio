@@ -105,3 +105,26 @@
 - Retried both with shareNow (media copied to whatif-media @8e87f92): HIW07 posted (youtube.com/watch?v=c7SDUyR5rJk); HIW08 failed again: "The daily posting limit for this channel has been reached". YouTube caps uploads per channel in a rolling 24 h window; 3 a day is at/over the cap for this (likely unverified) channel. That probably also explains yesterday's failures.
 - Fix: owner to phone-verify the channel at youtube.com/verify (vendor docs say this raises the limit). Runbook now has a retry step that respects the 24 h window.
 - Today's YouTube posts (12:00 tickle, 16:30 onions, 19:00 voice) may hit the cap because the HIW07 retry used one upload.
+
+## 2026-11-21 (nightly run, 02:18 Asia/Shanghai) — HIW15 knuckles, HIW16 ears pop, HIW17 eye floaters
+- All 3 slots were free (no 2026-11-21 rows in posts.csv, nothing scheduled in Buffer). ready/ queue was empty, so built
+  HIW15–17 from TOPICS "Next up" (knuckles, ears on a plane, floaters). Skipped #10 "metal sparks in the microwave": it is the
+  same topic as the finished HIW11 fork video (not in ready/, so not posted — owner can approve HIW11 instead).
+- All 9 Buffer posts accepted as `scheduled` (12:00 / 15:30 / 19:00 +08:00, TikTok + Instagram + YouTube). Buffer did NOT
+  refuse the 2nd YouTube post this time.
+- **Failed YouTube posts NOT retried this run** (runbook retry step): HIW08 (6afc5b9f685aa7614ba642c7), HIW12
+  (6aff41a589881169f7274e40), HIW13 (6aff428fba0fb292d517f522), HIW14 (6aff437bfeda52ccd01f0ed0) are all in `error` with
+  "daily posting limit for this channel has been reached". Only 1 YouTube upload went out in the last 24 h (HIW07 retry,
+  2026-11-20 01:09 UTC), yet HIW12 failed with just 2 uploads in its 24 h window — the channel looks capped at ~2 uploads
+  per rolling 24 h. Today's 3 new YouTube posts already need that budget, so retrying old ones now would make today's fail.
+  **Likely result: today's 19:00 (HIW17) YouTube post may also fail.** Fix is still owner-side: verify the channel at
+  youtube.com/verify, or drop YouTube to 2 posts/day (e.g. skip YouTube for the 19:00 slot) and use the spare slot for the
+  backlog of 4 failed Shorts.
+- Music level: used HIW_MUSIC_DB=-17 this time (measured music/voice -20.6 dB) because the task prompt says "VERY quiet,
+  subtle"; previous runs used the -11 default. If the owner prefers the louder bed, rebuild with the default.
+- Captions: engine wraps >5 words per line, so phrases of 11+ words spill onto a 3rd line and collide with the pill at
+  y 560 (HIW16 "the air can be as thin as on a 2,400 metre mountain", HIW17 "and the clumps cast shadows…"). Added a
+  caption-only `split_long()` helper in hiw16/hiw17 episode.py; worth moving into engine.Captions.
+- Uploads: HIW15 23.5 s / 8.9 MB / -15.5 LUFS; HIW16 29.8 s / 8.8 MB / -14.9 LUFS; HIW17 29.0 s / 8.9 MB / -15.3 LUFS;
+  all have an audio track, loop end ≈ frame 1. Media in whatif-media (raw URLs 200).
+- Tomorrow: ready/ still empty, 3 new episodes needed (next topics: foot falls asleep, cut apple browns, spinach teeth).
