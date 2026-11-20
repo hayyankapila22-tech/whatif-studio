@@ -5,6 +5,16 @@
 under the voice (owner wants it subtle). Everything renders here in the cloud.
 
 
+## ★ RETRY FAILED POSTS (owner direction 2026-11-20) — do this FIRST every run
+List Buffer posts from the last 2 days with status `error` and retry each one (edit_post with the same assets,
+`mode: shareNow`), then re-check its status a minute later.
+- Generic "unknown error": just retry (worked for HIW07 YouTube on 2026-11-20).
+- YouTube "The daily posting limit for this channel has been reached": YouTube allows only a few uploads per channel
+  in a ROLLING 24 h window (unverified/new channels get fewer; 3 posts/day sits right at the limit). Do NOT shareNow —
+  it eats tomorrow's budget. Instead reschedule it (customScheduled) ~5 min after the oldest YouTube upload in the
+  last 24 h turns 24 h old, and only if that doesn't push a scheduled post over. Otherwise skip it and log it.
+- Log every retry and result in reports/issues.md.
+
 ## ★ VOICE (owner direction 2026-11-19): Chatterbox "Liam", NOT Kokoro
 Owner: Kokoro is "WAY too fake and AI generated" and the voice must be free (no ElevenLabs). `setup.sh` now installs
 Chatterbox (open-source, MIT) in `/home/claude/cbx` and `tts.py` uses it automatically (male voice cloned from the

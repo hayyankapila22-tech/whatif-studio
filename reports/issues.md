@@ -99,3 +99,9 @@
   the task prompt says "VERY quiet". Same conflict as 2026-11-19 — please make prompt and runbook agree.
 - Uploads: 8.9 / 8.7 / 8.9 MB, -15.2…-15.3 LUFS, audio track present on all three, loop end ≈ frame 1.
 - HIW14 hook: the memo scrubber loops 3× per video so the loop seam is a natural restart (0:06 → 0:00).
+
+## 2026-11-20 (owner session, 09:10 Asia/Shanghai) — failed YouTube posts
+- 2026-11-19: HIW07 (12:00) and HIW08 (15:30) failed on YouTube only ("unknown error"); TikTok/Instagram fine; HIW09 19:00 fine on all 3.
+- Retried both with shareNow (media copied to whatif-media @8e87f92): HIW07 posted (youtube.com/watch?v=c7SDUyR5rJk); HIW08 failed again: "The daily posting limit for this channel has been reached". YouTube caps uploads per channel in a rolling 24 h window; 3 a day is at/over the cap for this (likely unverified) channel. That probably also explains yesterday's failures.
+- Fix: owner to phone-verify the channel at youtube.com/verify (vendor docs say this raises the limit). Runbook now has a retry step that respects the 24 h window.
+- Today's YouTube posts (12:00 tickle, 16:30 onions, 19:00 voice) may hit the cap because the HIW07 retry used one upload.
