@@ -6,3 +6,6 @@ seg_*
 *.mp3
 !assets/music/main_track.mp3
 __pycache__/
+cb_jobs.json
+cb_wav/
+tts.log
