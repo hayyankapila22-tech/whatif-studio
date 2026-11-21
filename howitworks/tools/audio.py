@@ -48,8 +48,15 @@ v_rms = np.sqrt(np.mean(v[np.abs(v) > 0.01] ** 2))
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(MUSIC_START), "-i", TRACK, "-t", str(DUR + 1),
                 "-ar", str(SR), "-ac", "1", "music_seg.wav"], check=True)
 m, _ = sf.read("music_seg.wav")
-if len(m) < N:  # loop if the track is shorter than the episode
-    m = np.tile(m, int(np.ceil(N / max(len(m), 1))))
+if len(m) < N:  # loop if the track is shorter than the episode (2 s crossfade at each seam, for long-form)
+    full, _ = sf.read("music_seg.wav")
+    xf = int(2.0 * SR)
+    out = full.copy()
+    while len(out) < N:
+        fade = np.linspace(0, 1, xf)
+        out[-xf:] = out[-xf:] * (1 - fade) + full[:xf] * fade
+        out = np.concatenate([out, full[xf:]])
+    m = out
 m = m[:N]
 m_rms = np.sqrt(np.mean(m ** 2)) + 1e-9
 m = m / m_rms * v_rms * 10 ** (MUSIC_LEVEL / 20)
