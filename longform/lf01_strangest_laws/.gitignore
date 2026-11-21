@@ -1,0 +1,7 @@
+cb_wav/
+cb_jobs.json
+parts/
+*.mp4
+*.wav
+still_*
+grain*.png
