@@ -128,3 +128,25 @@
 - Uploads: HIW15 23.5 s / 8.9 MB / -15.5 LUFS; HIW16 29.8 s / 8.8 MB / -14.9 LUFS; HIW17 29.0 s / 8.9 MB / -15.3 LUFS;
   all have an audio track, loop end ≈ frame 1. Media in whatif-media (raw URLs 200).
 - Tomorrow: ready/ still empty, 3 new episodes needed (next topics: foot falls asleep, cut apple browns, spinach teeth).
+
+## 2026-11-22 (nightly run, 02:18 Asia/Shanghai) — HIW18 foot asleep, HIW19 apple browns, HIW20 spinach teeth
+- All 3 slots were free (no 2026-11-22 rows in posts.csv, nothing scheduled in Buffer). ready/ queue empty, so built HIW18–20
+  from TOPICS "Next up" (#10 microwave sparks still skipped: same topic as the unposted HIW11 fork video).
+- All 9 Buffer posts accepted as `scheduled`. **YouTube times shifted +5 min (12:05, 15:35)** so each lands just after
+  yesterday's YouTube upload at the same slot turns 24 h old (HIW15 sent 04:00:17 UTC, HIW16 07:30:08 UTC). TikTok/Instagram
+  at exactly 12:00 / 15:30 / 19:00.
+- **Expect the 19:00 YouTube post (HIW20) to fail** with "daily posting limit": yesterday the 3rd YouTube upload (HIW17 19:00)
+  failed again, so the channel is capped at ~2 uploads per rolling 24 h. Fix is owner-side: verify the channel at
+  youtube.com/verify, or drop YouTube to 2 posts/day.
+- **Failed YouTube posts not retried** (runbook retry rule: any retry inside the 24 h window would push today's scheduled
+  YouTube posts over the cap): HIW08 6afc5b9f685aa7614ba642c7, HIW12 6aff41a589881169f7274e40, HIW13 6aff428fba0fb292d517f522,
+  HIW14 6aff437bfeda52ccd01f0ed0, HIW17 6b0096f773831df0147c2536 (new, 2026-11-21 19:00) — all "daily posting limit".
+  Backlog is now 5 Shorts that never reached YouTube.
+- HIW20 script: dropped the planned "Rhubarb can do it too" line (couldn't find a reputable source saying rhubarb causes the
+  teeth feeling); replaced with "spinach has more of that acid than almost any other veggie" (Live Science). The closing
+  visual is a spinach leaf with a crown, with no invented bar-chart numbers.
+- Music at HIW_MUSIC_DB=-17 again (measured music/voice ≈ -20.4 dB) per the task prompt's "VERY quiet". Runbook still says
+  -11 default — same conflict as before.
+- Uploads: HIW18 32.4 s / 9.0 MB / -15.3 LUFS; HIW19 29.9 s / 8.9 MB / -15.3 LUFS; HIW20 28.0 s / 8.9 MB / -15.2 LUFS; audio
+  track present on all three, loop end = hook scene. Media in whatif-media (raw URLs 200).
+- Tomorrow: ready/ still empty, 3 new episodes needed (next topics: goosebumps, then the older list).

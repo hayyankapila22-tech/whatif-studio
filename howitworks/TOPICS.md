@@ -5,6 +5,9 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- HIW20 Why does spinach make your teeth feel squeaky? (natural acid + calcium in spit = crystals that stick; no damage; dairy worse, lemon helps) — built 2026-11-22, booked 2026-11-22 19:00
+- HIW19 Why does a cut apple turn brown? (helper enzyme + colour chemicals kept apart, knife mixes them, oxygen, tan-like colour; lemon / fridge) — built 2026-11-22, booked 2026-11-22 15:30
+- HIW18 Why does your foot fall asleep? (squished nerve + less blood = numb, pins and needles on waking, 1–2 min; warning signs) — built 2026-11-22, booked 2026-11-22 12:00
 - HIW17 What are the squiggly things floating in your eyes? (jelly threads clump, shadows on the back of the eye; warning signs) — built 2026-11-21, booked 2026-11-21 19:00
 - HIW16 Why do your ears pop on a plane? (air pocket, 2,400 m cabin, eardrum out/in, tube opens; yawn/swallow/gum) — built 2026-11-21, booked 2026-11-21 15:30
 - HIW15 What actually happens when you crack your knuckles? (fluid bag, pressure drop, gas bubble, ~20 min, probably harmless) — built 2026-11-21, booked 2026-11-21 12:00
@@ -27,9 +30,6 @@ something odd about them that people genuinely question. "I've always wondered t
 moment itself (mystery close-up or a relatable "why does this happen?"), then simple useful answers, no studies.
 
 10. Why does metal spark in the microwave? (SAME topic as the finished HIW11 fork-in-the-microwave video — skipped; post HIW11 instead if the owner approves)
-12. Why does your foot "fall asleep"?
-13. Why does a cut apple turn brown?
-14. Why does spinach make your teeth feel squeaky?
 15. Why do you get goosebumps?
 (do NOT make: padlock hole — owner rejected it)
 (then the older list below, rewritten in the same mystery-hook style)
