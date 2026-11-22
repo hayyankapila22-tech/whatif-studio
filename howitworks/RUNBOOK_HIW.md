@@ -5,14 +5,25 @@
 under the voice (owner wants it subtle). Everything renders here in the cloud.
 
 
+## ★ YOUTUBE 19:00 GOES THROUGH METRICOOL (owner approved 2026-11-22) — read this before booking
+Buffer's FREE plan caps YouTube Shorts at **2 per channel per rolling 24 h** (a Buffer "fair use" limit, not YouTube's;
+support.buffer.com/article/646-daily-posting-limits). The 3rd YouTube post of the day ALWAYS fails in Buffer with
+"The daily posting limit for this channel has been reached". The YouTube channel itself is verified.
+- Book TikTok + Instagram for all 3 slots in Buffer as before, and YouTube for 12:00 and 15:30 in Buffer
+  (keep the +5 min offset only if a YouTube upload from Buffer at the same slot yesterday is < 24 h old).
+- Book the **19:00 YouTube post in Metricool**: `createScheduledPost`, blogId `7912984`, providers `[{"network":"youtube"}]`,
+  `publicationDate {dateTime:"YYYY-MM-DDT19:00:00", timezone:"Asia/Shanghai"}`, `autoPublish: true`, media = the raw
+  whatif-media URL, `youtubeData {title:"… #shorts", type:"short", privacy:"public", category:"EDUCATION", madeForKids:false}`.
+  Put the Metricool post id in the YouTube column of posts.csv as `metricool:<id>`.
+- **Never retry a YouTube "daily posting limit" error in Buffer** — book that Short in Metricool instead (an evening slot,
+  e.g. 21:00 / 22:30) and note it in issues.md. Backlog already moved 2026-11-22 (see issues.md).
+
 ## ★ RETRY FAILED POSTS (owner direction 2026-11-20) — do this FIRST every run
 List Buffer posts from the last 2 days with status `error` and retry each one (edit_post with the same assets,
 `mode: shareNow`), then re-check its status a minute later.
 - Generic "unknown error": just retry (worked for HIW07 YouTube on 2026-11-20).
-- YouTube "The daily posting limit for this channel has been reached": YouTube allows only a few uploads per channel
-  in a ROLLING 24 h window (unverified/new channels get fewer; 3 posts/day sits right at the limit). Do NOT shareNow —
-  it eats tomorrow's budget. Instead reschedule it (customScheduled) ~5 min after the oldest YouTube upload in the
-  last 24 h turns 24 h old, and only if that doesn't push a scheduled post over. Otherwise skip it and log it.
+- YouTube "The daily posting limit for this channel has been reached": this is Buffer's free-plan cap (2 Shorts / 24 h).
+  Do NOT retry it in Buffer — re-book that Short in Metricool (see the section above) and log it.
 - Log every retry and result in reports/issues.md.
 
 ## ★ VOICE (owner direction 2026-11-19): Chatterbox "Liam", NOT Kokoro

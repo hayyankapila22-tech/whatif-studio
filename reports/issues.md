@@ -150,3 +150,16 @@
 - Uploads: HIW18 32.4 s / 9.0 MB / -15.3 LUFS; HIW19 29.9 s / 8.9 MB / -15.3 LUFS; HIW20 28.0 s / 8.9 MB / -15.2 LUFS; audio
   track present on all three, loop end = hook scene. Media in whatif-media (raw URLs 200).
 - Tomorrow: ready/ still empty, 3 new episodes needed (next topics: goosebumps, then the older list).
+
+## 2026-11-22 (owner session, ~20:15 Asia/Shanghai) — YouTube backlog moved to Metricool
+- Root cause corrected: the "daily posting limit" is **Buffer's free-plan cap of 2 YouTube Shorts per channel per 24 h**
+  (support.buffer.com/article/646-daily-posting-limits), not YouTube's — the channel is already verified.
+- Today's 19:00 HIW20 YouTube post failed in Buffer as expected; someone also retried the 5 old ones in Buffer ~19:42 and
+  they failed again.
+- Owner approved moving YouTube posts to Metricool (already connected, YouTube channel linked). Booked in Metricool:
+  HIW20 spinach 22 Nov 21:00 (437507078), HIW17 floaters 22 Nov 22:30 (437507334), HIW08 stars 23 Nov 21:00 (437507343),
+  HIW12 tickle 23 Nov 22:30 (437507359), HIW13 onions 24 Nov 21:00 (437507380), HIW14 voice 24 Nov 22:30 (437507402).
+- Deleted the failed Buffer YouTube copies of HIW20, HIW12, HIW13. Deleting HIW17 (6b0096f773831df0147c2536), HIW08
+  (6afc5b9f685aa7614ba642c7) and HIW14 (6aff437bfeda52ccd01f0ed0) was blocked by a permission check — they stay in Buffer
+  in `error`; **do NOT retry them in Buffer** (they're already booked in Metricool → duplicate risk).
+- Runbook updated: 19:00 YouTube goes through Metricool from now on; never retry the Buffer YouTube limit error.
