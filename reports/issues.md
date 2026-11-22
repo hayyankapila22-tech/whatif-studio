@@ -163,3 +163,24 @@
   (6afc5b9f685aa7614ba642c7) and HIW14 (6aff437bfeda52ccd01f0ed0) was blocked by a permission check — they stay in Buffer
   in `error`; **do NOT retry them in Buffer** (they're already booked in Metricool → duplicate risk).
 - Runbook updated: 19:00 YouTube goes through Metricool from now on; never retry the Buffer YouTube limit error.
+
+## 2026-11-23 (nightly run, 02:18 Asia/Shanghai) — HIW21 goosebumps, HIW22 stomach, HIW23 mosquitoes
+- All 3 slots were free (no 2026-11-23 rows in posts.csv, nothing due today in Buffer). ready/ queue empty, so built
+  HIW21–23 from TOPICS "Next up" (#10 microwave still skipped; #15 goosebumps, then older #5 stomach, #6 mosquitoes).
+  Removed the duplicate older "#11 goosebumps" line from Next up.
+- Retry check: only Buffer `error` post in the last 2 days is HIW17 YouTube (6b0096f773831df0147c2536, daily-limit) —
+  NOT retried (runbook rule; HIW17 already reached YouTube via Metricool, sent 22 Nov 22:31).
+- Booked: TikTok + Instagram at 12:00 / 15:30 / 19:00 in Buffer; YouTube in Buffer at **12:10 and 15:40** (yesterday's
+  Buffer YouTube uploads went out at 12:05:02 and 15:35:02, so +5 min would have landed 2 s inside the 24 h window —
+  used +10 min); YouTube 19:00 via Metricool (437846050). Metricool already has HIW08 (21:00) and HIW12 (22:30) today.
+- Unknown: whether Buffer counts the Metricool YouTube uploads (they show in Buffer as `via: network`, 22 Nov 21:04 and
+  22:31) toward its 2-per-24 h cap. If the 12:10 or 15:40 YouTube post fails with "daily posting limit", re-book that
+  Short in Metricool tonight (do not retry in Buffer).
+- Music at HIW_MUSIC_DB=-17 (measured music/voice ≈ -20.6 dB) per the task prompt's "VERY quiet" (runbook default -11 conflict persists).
+- HIW22: rebuilt once after the first render — the mucus layer had hard square edges and a grey stripe showed between the
+  acid and the wall for ~1.5 s; now smooth. Health footnote drawn at y 1492 (engine footnote() at y 1400 overlapped the
+  diagram).
+- Uploads: HIW21 27.2 s / 9.0 MB / -15.1 LUFS; HIW22 26.6 s / 8.8 MB / -15.2 LUFS; HIW23 25.9 s / 9.0 MB / -15.2 LUFS;
+  audio track present on all three, loop end = hook scene. Media in whatif-media (raw URLs 200).
+- Tomorrow: ready/ still empty and "Next up" is down to the older list (next: plane lift, bruise colours, stomach growl,
+  caffeine…) — the owner may want to add fresh "super common" topics.

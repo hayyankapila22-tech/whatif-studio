@@ -5,6 +5,9 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- HIW23 How does a mosquito find you in the dark? (breath CO2 ~15 m, skin-germ smell, body heat up close, only females bite for eggs; loose clothes) — built 2026-11-23, booked 2026-11-23 19:00
+- HIW22 Why doesn't your stomach digest itself? (acid dissolves metal, mucus + baking-soda-like base, lining renews every few days, ulcer when the shield breaks; painkillers / germ) — built 2026-11-23, booked 2026-11-23 15:30
+- HIW21 Why do you get goosebumps? (tiny muscle per hair, cold / big rush, furry ancestors: warm air + look bigger, scared cat puff) — built 2026-11-23, booked 2026-11-23 12:00
 - HIW20 Why does spinach make your teeth feel squeaky? (natural acid + calcium in spit = crystals that stick; no damage; dairy worse, lemon helps) — built 2026-11-22, booked 2026-11-22 19:00
 - HIW19 Why does a cut apple turn brown? (helper enzyme + colour chemicals kept apart, knife mixes them, oxygen, tan-like colour; lemon / fridge) — built 2026-11-22, booked 2026-11-22 15:30
 - HIW18 Why does your foot fall asleep? (squished nerve + less blood = numb, pins and needles on waking, 1–2 min; warning signs) — built 2026-11-22, booked 2026-11-22 12:00
@@ -30,16 +33,12 @@ something odd about them that people genuinely question. "I've always wondered t
 moment itself (mystery close-up or a relatable "why does this happen?"), then simple useful answers, no studies.
 
 10. Why does metal spark in the microwave? (SAME topic as the finished HIW11 fork-in-the-microwave video — skipped; post HIW11 instead if the owner approves)
-15. Why do you get goosebumps?
 (do NOT make: padlock hole — owner rejected it)
 (then the older list below, rewritten in the same mystery-hook style)
-5. Why doesn't your stomach digest itself? (mucus layer, cell turnover)
-6. How do mosquitoes find you? (CO₂, body heat, skin smell)
 7. How does a plane actually stay up? (lift — the "equal transit time" myth is wrong)
 8. Why do bruises change colour? (haemoglobin → biliverdin → bilirubin)
 9. Why does your stomach growl? (muscle waves pushing gas and fluid)
 10. How does caffeine keep you awake? (blocks adenosine receptors)
-11. Why do we get goosebumps? (tiny muscles at each hair, leftover reflex)
 12. How do noise-cancelling headphones work? (anti-noise, phase inversion)
 14. How do microwaves heat food? (water molecules spinning; "inside-out" myth)
 15. Why do cats purr? (2023 study: special pads in the voice box)
