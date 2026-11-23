@@ -46,11 +46,11 @@ def scene(c, t, f):
     elif b == 2:  # gas floats up to the eyes
         s0 = S[2]
         stk(c, 'onion_half', W/2 + jx, 1500 + jy, 0.95, jr, 1, maxd=560)
-        stk(c, 'eye', W/2 + jx*.5, 700 + jy*.5, 0.9 + 0.03*math.sin(tq*6), jr, f.k(s0 + 1.4, s0 + 1.7), maxd=520)
+        stk(c, 'eye', W/2 + jx*.5, 840 + jy*.5, 0.9 + 0.03*math.sin(tq*6), jr, f.k(s0 + 1.4, s0 + 1.7), maxd=520)
         for i in range(9):
             tp = B[2] + 0.2 + i*0.22; ph = tq - tp
             if ph <= 0: continue
-            ph = ph % 2.4; y = lerp(1380, 820, eo(min(1, ph/2.0))); x = W/2 + 120*math.sin(i*1.7 + ph*2)
+            ph = ph % 2.4; y = lerp(1380, 900, eo(min(1, ph/2.0))); x = W/2 + 120*math.sin(i*1.7 + ph*2)
             cloud(c, x + jx, y, 70 + (i % 3)*18, GAS, min(1, ph*3), seed=i, a=max(0, 1 - max(0, ph - 1.7)*2))
         label(c, "a GAS floats UP", W/2, 330, 92, -2 + jr*.5, k=f.k(s0 + 0.6, s0 + 0.85), seed=5)
         label(c, "into your EYES", W/2 + 15, 470, 92, 3 - jr*.5, bgcol=GAS, k=f.k(s0 + 2.0, s0 + 2.25), seed=6)

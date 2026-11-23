@@ -1,3 +1,9 @@
+# ★★ OWNER DIRECTION 2026-11-23 — NEW FORMAT: PAPER CUTOUT. Read `howitworks/paper/README.md` FIRST.
+Every NEW episode is made with the paper-cutout kit (`howitworks/paper/`, reference `paper/episodes/p01_onions`), voice 2
+"bubbly presenter", funk music bed + lots of sound effects, real Pixabay photo props fetched automatically by the GitHub
+Action (no human needed). Episode ids P01, P02… The "2.5D lab" look below is retired for new episodes; everything about
+slots, the ready/ queue, Buffer + Metricool booking, retries and logging below still applies.
+
 # HOW DOES IT WORK? — nightly runbook (owner direction 2026-11-16, overrides the WHAT IF / Jeremy notes)
 
 **3 videos a day**, posted at **12:00, 15:30 and 19:00 Asia/Shanghai (+08:00)** on TikTok, Instagram and YouTube via Buffer.
