@@ -48,18 +48,6 @@
     "must": "refrigerator"
   },
   {
-    "name": "airplane",
-    "q": "airplane jet isolated",
-    "must": "airplane",
-    "avoid": "toy,model,cartoon",
-    "cutout": true
-  },
-  {
-    "name": "paper_plane",
-    "q": "paper plane",
-    "must": "paper"
-  },
-  {
     "name": "car",
     "q": "red car isolated",
     "must": "car",
@@ -89,31 +77,14 @@
     "avoid": "bunch,split,smoothie"
   },
   {
-    "name": "ice_pack",
-    "q": "ice pack",
-    "must": "ice",
-    "cutout": true
-  },
-  {
     "name": "crayons",
     "q": "crayons",
     "must": "crayons"
   },
   {
-    "name": "plaster",
-    "q": "band aid plaster",
-    "must": "plaster"
-  },
-  {
     "name": "calendar",
     "q": "calendar",
     "must": "calendar"
-  },
-  {
-    "name": "vacuum",
-    "q": "vacuum cleaner",
-    "must": "vacuum",
-    "cutout": true
   },
   {
     "name": "lion",
@@ -125,17 +96,6 @@
     "name": "toothpaste",
     "q": "toothpaste tube",
     "must": "toothpaste",
-    "cutout": true
-  },
-  {
-    "name": "burger",
-    "q": "hamburger",
-    "must": "hamburger"
-  },
-  {
-    "name": "water_glass",
-    "q": "glass of water",
-    "must": "glass water",
     "cutout": true
   },
   {
@@ -153,5 +113,53 @@
     "name": "clock",
     "q": "alarm clock",
     "must": "clock"
+  },
+  {
+    "name": "airplane",
+    "q": "passenger airplane flying",
+    "must": "airplane",
+    "avoid": "drawing,3d,model,toy,cartoon,wireframe",
+    "type": "photo",
+    "cutout": true
+  },
+  {
+    "name": "paper_plane",
+    "q": "paper airplane",
+    "must": "airplane",
+    "avoid": "torn,ripped"
+  },
+  {
+    "name": "plaster",
+    "q": "adhesive bandage",
+    "must": "bandage",
+    "avoid": "cat,animal"
+  },
+  {
+    "name": "burger",
+    "q": "hamburger isolated",
+    "must": "hamburger",
+    "avoid": "chef,figure,man,person",
+    "cutout": true
+  },
+  {
+    "name": "water_glass",
+    "q": "glass of water",
+    "must": "glass water",
+    "avoid": "wine,splash,pouring",
+    "type": "photo",
+    "cutout": true
+  },
+  {
+    "name": "vacuum",
+    "q": "vacuum cleaner isolated",
+    "must": "vacuum cleaner",
+    "avoid": "nozzle,robot",
+    "cutout": true
+  },
+  {
+    "name": "towel",
+    "q": "folded towel",
+    "must": "towel",
+    "cutout": true
   }
 ]
