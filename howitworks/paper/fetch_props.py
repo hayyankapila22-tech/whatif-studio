@@ -29,7 +29,15 @@ for r in reqs:
         else:
             hits=[]
             for t in ([r['type']] if r.get('type') else ['photo','illustration','vector']):
-                hits+=api(q=r['q'],image_type=t,colors='transparent').get('hits',[])
+                hits+=api(q=r['q'],image_type=t,colors='transparent',per_page=40).get('hits',[])
+        # relevance: every query word must appear in the tags; best = first tag is the subject
+        words=[w for w in (r.get('must') or r.get('q','')).lower().split() if len(w)>2]
+        def score(h):
+            tags=[t.strip().lower() for t in h['tags'].split(',')]
+            if r.get('id'): return 9
+            if not all(any(w in t for t in tags) for w in words): return -1
+            return (3 if any(w in tags[0] for w in words) else 0)+(2 if h['type']=='photo' else 0)+(1 if all(any(w==t for t in tags) for w in words) else 0)
+        hits=sorted([h for h in hits if score(h)>=0],key=score,reverse=True)
         saved=False
         for h in hits[:15]:
             data=get(h['largeImageURL'])

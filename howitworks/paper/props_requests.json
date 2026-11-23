@@ -1,11 +1,13 @@
 [
   {
     "name": "onion",
-    "q": "onion"
+    "q": "red onion",
+    "must": "onion"
   },
   {
     "name": "onion_half",
-    "q": "onion half cut"
+    "q": "onion sliced",
+    "must": "onion"
   },
   {
     "name": "knife",
@@ -17,7 +19,8 @@
   },
   {
     "name": "ice_cube",
-    "q": "ice cube"
+    "q": "ice cube",
+    "must": "ice"
   },
   {
     "name": "rabbit",
@@ -29,11 +32,13 @@
   },
   {
     "name": "eye",
-    "q": "eye",
-    "type": "illustration"
+    "q": "human eye",
+    "type": "photo",
+    "must": "eye"
   },
   {
     "name": "fridge",
-    "q": "refrigerator"
+    "q": "refrigerator",
+    "must": "refrigerator"
   }
 ]
