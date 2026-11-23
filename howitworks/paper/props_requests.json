@@ -1,13 +1,17 @@
 [
   {
     "name": "onion",
-    "q": "red onion",
-    "must": "onion"
+    "q": "onion isolated white",
+    "must": "onion",
+    "avoid": "rings,soup,salad,dish,garlic",
+    "cutout": true
   },
   {
     "name": "onion_half",
-    "q": "onion sliced",
-    "must": "onion"
+    "q": "onion cut half white",
+    "must": "onion",
+    "avoid": "rings,soup,salad,dish,garlic,chopped",
+    "cutout": true
   },
   {
     "name": "knife",
@@ -19,8 +23,10 @@
   },
   {
     "name": "ice_cube",
-    "q": "ice cube",
-    "must": "ice"
+    "q": "ice cubes",
+    "must": "ice",
+    "avoid": "iceberg,glacier,drink,cocktail",
+    "cutout": true
   },
   {
     "name": "rabbit",
