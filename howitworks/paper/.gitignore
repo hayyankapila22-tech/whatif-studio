@@ -1,0 +1,4 @@
+.cache/
+episodes/*/*.mp4
+episodes/*/*.wav
+episodes/*/still_*.png
