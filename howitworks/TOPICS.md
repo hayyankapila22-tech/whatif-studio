@@ -5,6 +5,9 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- P05 Why does your stomach growl? (PAPER; gut muscles squeeze all day, empty = no muffling, clean-up wave ~2 h after eating; snack / water) — built 2026-11-24, booked 2026-11-24 19:00
+- P04 Why do bruises change colour? (PAPER; vessels break + leak, red→purple/blue→green→yellow→brown, clean-up cells, ~2 weeks; ice pack in a towel) — built 2026-11-24, booked 2026-11-24 15:30
+- P03 How does a giant plane actually stay up? (PAPER; 'catch-up' myth, tilted/curved wing shoves air down, hand-out-of-car-window, low pressure on top, needs speed) — built 2026-11-24, booked 2026-11-24 12:00
 - P02 Why do your fingers go wrinkly underwater? (PAPER format, premium) — built 2026-11-23 in chat, booked 2026-11-23 22:00
 - P01 Why do onions make you cry? (PAPER format reference) — built 2026-11-23 in chat, booked 2026-11-23 20:30
 - HIW23 How does a mosquito find you in the dark? (breath CO2 ~15 m, skin-germ smell, body heat up close, only females bite for eggs; loose clothes) — built 2026-11-23, booked 2026-11-23 19:00
@@ -37,9 +40,6 @@ moment itself (mystery close-up or a relatable "why does this happen?"), then si
 10. Why does metal spark in the microwave? (SAME topic as the finished HIW11 fork-in-the-microwave video — skipped; post HIW11 instead if the owner approves)
 (do NOT make: padlock hole — owner rejected it)
 (then the older list below, rewritten in the same mystery-hook style)
-7. How does a plane actually stay up? (lift — the "equal transit time" myth is wrong)
-8. Why do bruises change colour? (haemoglobin → biliverdin → bilirubin)
-9. Why does your stomach growl? (muscle waves pushing gas and fluid)
 10. How does caffeine keep you awake? (blocks adenosine receptors)
 12. How do noise-cancelling headphones work? (anti-noise, phase inversion)
 14. How do microwaves heat food? (water molecules spinning; "inside-out" myth)

@@ -32,6 +32,12 @@ downloads props for us:
    For a MISS, try a simpler query (one or two words) and push again, or use another prop.
 4. LOOK at each new prop (contact sheet) before using it. Only transparent PNGs are accepted by the fetcher.
 
+## Sound assets (2026-11-24)
+`voices/voice2_bubbly_presenter_ref.wav` and `sfx/*.mp3` are committed with `git add -f` (they're gitignored types).
+`music/quirky.mp3` is NOT in the repo yet → episodes fall back to `music/timeless.mp3` (copied by setup_paper.sh). Add the
+quirky bed with `git add -f howitworks/paper/music/quirky.mp3` and new episodes use it automatically (`PAPER_MUSIC` overrides).
+Voice tips: trim lines with a silence trim, keep videos 20–26 s (atempo ≤ 1.05 is fine); check lines with ASR.
+
 ## Build
 ```
 bash howitworks/paper/setup_paper.sh                    # once per session: chatterbox venv, skia, scipy, pillow

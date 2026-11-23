@@ -181,6 +181,28 @@ def cloud(c, x, y, R, col, k, seed=0, a=1.0):
     c.drawPath(off(p, 8, 12), skia.Paint(Color=skia.Color4f(0, 0, 0, .22 * a), AntiAlias=True, MaskFilter=skia.MaskFilter.MakeBlur(skia.kNormal_BlurStyle, 8)))
     c.drawPath(p, skia.Paint(Color=skia.Color4f(.98, .98, .96, a), Style=skia.Paint.kStrokeAndFill_Style, StrokeWidth=26, StrokeJoin=skia.Paint.kRound_Join, AntiAlias=True))
     c.drawPath(p, skia.Paint(Color=skia.Color4f(*col, a), AntiAlias=True)); c.restore()
+def arrow(c, x, y, L, rot, k, col=WHT, w=34):
+    """Paper arrow pointing along +x (rot in degrees), tail at (x, y). Grows with k."""
+    if k <= 0: return
+    L = L * eo(min(1, k)); hw = w * 1.25
+    c.save(); c.translate(x, y); c.rotate(rot); p = skia.Path()
+    p.moveTo(0, -w / 2); p.lineTo(max(0, L - hw * 1.2), -w / 2); p.lineTo(max(0, L - hw * 1.2), -hw); p.lineTo(L, 0)
+    p.lineTo(max(0, L - hw * 1.2), hw); p.lineTo(max(0, L - hw * 1.2), w / 2); p.lineTo(0, w / 2); p.close()
+    c.drawPath(off(p, 6, 10), skia.Paint(Color=skia.Color4f(0, 0, 0, .28), AntiAlias=True, MaskFilter=skia.MaskFilter.MakeBlur(skia.kNormal_BlurStyle, 6)))
+    c.drawPath(p, skia.Paint(Color=skia.Color4f(.98, .98, .96, 1), Style=skia.Paint.kStrokeAndFill_Style, StrokeWidth=16, StrokeJoin=skia.Paint.kRound_Join, AntiAlias=True))
+    c.drawPath(p, skia.Paint(Color=skia.Color4f(*col, 1), AntiAlias=True)); c.restore()
+def blob(c, x, y, R, col, rot=0, k=1, seed=0):
+    """Irregular paper blob (a splat / bruise / patch) with a white border."""
+    if k <= 0: return
+    r = random.Random(seed); s = back(min(1, k)); n = 14
+    pts = [(R * r.uniform(0.8, 1.1) * math.cos(i / n * 2 * math.pi), R * r.uniform(0.75, 1.05) * math.sin(i / n * 2 * math.pi)) for i in range(n)]
+    c.save(); c.translate(x, y); c.rotate(rot); c.scale(s, s); p = skia.Path(); p.moveTo(*pts[0])
+    for i in range(n):
+        a, b = pts[i], pts[(i + 1) % n]; p.quadTo(a[0], a[1], (a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
+    p.close()
+    c.drawPath(off(p, 8, 12), skia.Paint(Color=skia.Color4f(0, 0, 0, .28), AntiAlias=True, MaskFilter=skia.MaskFilter.MakeBlur(skia.kNormal_BlurStyle, 8)))
+    c.drawPath(p, skia.Paint(Color=skia.Color4f(.98, .98, .96, 1), Style=skia.Paint.kStrokeAndFill_Style, StrokeWidth=26, StrokeJoin=skia.Paint.kRound_Join, AntiAlias=True))
+    c.drawPath(p, skia.Paint(Color=skia.Color4f(*col, 1), AntiAlias=True)); c.restore()
 
 # ---------------- photo-paper water ----------------
 _OC = None

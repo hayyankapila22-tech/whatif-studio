@@ -184,3 +184,35 @@
   audio track present on all three, loop end = hook scene. Media in whatif-media (raw URLs 200).
 - Tomorrow: ready/ still empty and "Next up" is down to the older list (next: plane lift, bruise colours, stomach growl,
   caffeine…) — the owner may want to add fresh "super common" topics.
+
+## 2026-11-24 (nightly run, 02:19 Asia/Shanghai) — P03 plane, P04 bruises, P05 stomach growl (paper format)
+- All 3 slots were free (no 2026-11-24 rows, nothing due in Buffer; Metricool only had the old HIW13 onions 21:00 and
+  HIW14 voice 22:30 YouTube backlog). ready/queue.json was empty (removed the already-posted p01 mp4 left in ready/).
+- Retry check: only Buffer `error` post in the last 2 days is still HIW17 YouTube (daily-limit) — NOT retried (runbook rule).
+- **BLOCKER FOUND: the paper kit's sound/voice assets were never committed.** `voices/voice2_bubbly_presenter_ref.wav`,
+  `music/quirky.mp3` and all `sfx/*.mp3` were only on the chat session's disk (`*.wav`/`*.mp3` are gitignored), and the
+  cloud can't reach Pixabay. Workarounds this run (owner please check / replace):
+  - Voice 2: rebuilt the reference by separating the voice track out of the posted P02 video (audio-separator, roformer
+    vocals, 12.6 s). It is the same synthetic voice-2 output, not a real person. Pitch matches (median F0 ~217–248 Hz).
+    Now committed with `git add -f` so future runs have it.
+  - SFX: synthesised replacements (`paper/make_sfx.py`: pop, swooshes, paper rustle, impacts, sparkles, bubbles, splash,
+    scratch, dings, snip) — committed with `git add -f`. They are simpler than the Pixabay originals.
+  - Music: **quirky.mp3 is missing → these 3 videos use the channel's Timeless bed** (`assets/music/main_track.mp3`,
+    copied to `paper/music/timeless.mp3`). Episodes now pick `quirky` automatically when `paper/music/quirky.mp3` exists.
+    Owner: please add the quirky track with `git add -f howitworks/paper/music/quirky.mp3` (and the Pixabay sfx if you
+    prefer them over the synthesised ones).
+- setup_paper.sh now runs make_sfx.py, copies the Timeless fallback and warns when quirky.mp3 / the voice ref are missing.
+- Installing audio-separator put a torchvision 0.29 into system Python that broke the chatterbox venv (torch 2.6) —
+  fixed by uninstalling system torchvision. Don't install torch-based packages into system Python.
+- Props: fetch-props workflow — 2 concurrent runs collided on `_last_fetch.log` (run 8: "unresolved conflict" but the job
+  still shows success); re-ran via workflow_dispatch. Wrong props re-requested: airplane (wireframe render), paper_plane
+  (torn paper; the re-fetch is a propeller plane — used as "small plane"), plaster (cats), burger (chef figurine),
+  water_glass (splash), vacuum (nozzle only; re-fetch is a line drawing), megaphone (a real woman — re-fetched as a
+  vector), table (red artifact). ice_pack request dropped (iceberg) — used ice_cube + towel.
+- Lengths: P03 26.0 s (voice trimmed + atempo 1.05), P04 24.6 s, P05 26.5 s; all -14 LUFS, audio track present, 8.9–9.0 MB.
+  Checked with ASR transcripts (faster-whisper) — every line intelligible.
+- Booked: TikTok + Instagram at 12:00 / 15:30 / 19:00 in Buffer; YouTube in Buffer at 12:15 and 15:45 (yesterday's Buffer
+  YouTube uploads were 12:10 / 15:40); YouTube 19:00 via Metricool (439285239).
+- Heads-up: Metricool still has HIW13 "Why do onions make you cry?" on YouTube tonight 21:00 (old backlog) — same topic
+  as P01 onions that went to YouTube yesterday 20:30. Left it (owner booked it); delete in Metricool if unwanted.
+- Next up in TOPICS is now caffeine, noise-cancelling headphones, microwaves… (owner may want fresh "super common" topics).
