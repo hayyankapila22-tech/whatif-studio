@@ -163,12 +163,6 @@
     "cutout": true
   },
   {
-    "name": "megaphone",
-    "q": "megaphone",
-    "must": "megaphone",
-    "cutout": true
-  },
-  {
     "name": "empty_plate",
     "q": "empty plate",
     "must": "plate",
@@ -176,10 +170,17 @@
     "cutout": true
   },
   {
+    "name": "megaphone",
+    "q": "megaphone",
+    "must": "megaphone",
+    "avoid": "woman,man,person,people,girl,boy,protest",
+    "type": "illustration"
+  },
+  {
     "name": "table",
-    "q": "wooden table isolated",
+    "q": "coffee table",
     "must": "table",
-    "avoid": "chair,set,food",
+    "avoid": "chair,set,food,clock,lamp",
     "cutout": true
   }
 ]
