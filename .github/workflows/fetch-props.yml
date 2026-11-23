@@ -1,0 +1,32 @@
+# Downloads Pixabay props for the paper-cutout videos.
+# The nightly Claude run (cloud) cannot reach Pixabay, so it writes the props it needs into
+# howitworks/paper/props_requests.json and pushes; this workflow (GitHub's servers have open internet)
+# downloads them into howitworks/paper/library/ and commits them back. Needs repo secret PIXABAY_KEY.
+name: fetch-props
+on:
+  push:
+    paths: ["howitworks/paper/props_requests.json"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: { group: fetch-props, cancel-in-progress: false }
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pillow numpy
+      - name: Download props
+        env: { PIXABAY_KEY: "${{ secrets.PIXABAY_KEY }}" }
+        run: python howitworks/paper/fetch_props.py
+      - name: Commit
+        run: |
+          git config user.name "props-bot"
+          git config user.email "props-bot@users.noreply.github.com"
+          git add howitworks/paper/library
+          git diff --cached --quiet && { echo "nothing new"; exit 0; }
+          git commit -m "props: fetched from Pixabay [skip ci]"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
