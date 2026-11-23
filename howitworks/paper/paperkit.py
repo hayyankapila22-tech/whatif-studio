@@ -272,7 +272,9 @@ class Kit:
         out_a = np.zeros((N, 2), np.float32); voice = np.zeros((N, 2), np.float32)
         for st, vf in zip(s.S, s.voice_files):
             v = load(vf); v /= max(1e-6, np.abs(v).max()); a = int(st * SR); v = v[:max(0, N - a)]; voice[a:a + len(v)] += v * 0.95
-        m = load(os.path.join(MUS, s.music + '.mp3'))[:N]; m /= max(1e-6, np.abs(m).max())
+        m = load(os.path.join(MUS, s.music + '.mp3'))
+        e = np.convolve(np.abs(m).mean(1), np.ones(SR) / SR, 'same'); st = max(0, int(np.argmax(e > 0.6 * e.max())) - SR // 2)   # skip a quiet intro
+        m = m[st:st + N]; m /= max(1e-6, np.abs(m).max())
         env = np.convolve((np.abs(voice).mean(1) > 0.02).astype(np.float32), np.ones(int(0.25 * SR)) / (0.25 * SR), 'same')
         gain = 0.42 - 0.24 * np.clip(env * 3, 0, 1); m *= gain[:len(m), None]
         fi = int(0.3 * SR); m[:fi] *= np.linspace(0, 1, fi)[:, None]; fo = int(1.0 * SR); m[-fo:] *= np.linspace(1, 0, fo)[:, None]
