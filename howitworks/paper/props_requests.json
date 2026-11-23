@@ -161,5 +161,25 @@
     "q": "folded towel",
     "must": "towel",
     "cutout": true
+  },
+  {
+    "name": "megaphone",
+    "q": "megaphone",
+    "must": "megaphone",
+    "cutout": true
+  },
+  {
+    "name": "empty_plate",
+    "q": "empty plate",
+    "must": "plate",
+    "avoid": "food,fork,knife",
+    "cutout": true
+  },
+  {
+    "name": "table",
+    "q": "wooden table isolated",
+    "must": "table",
+    "avoid": "chair,set,food",
+    "cutout": true
   }
 ]
