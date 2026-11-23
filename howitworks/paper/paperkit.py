@@ -225,7 +225,7 @@ class Frame:
     def k(s, a, b): return prog(s.tq, a, b)
 
 class Kit:
-    def __init__(s, starts, dur, colors, shakes=(), music='funk_music1', voice_files=None):
+    def __init__(s, starts, dur, colors, shakes=(), music='quirky', voice_files=None):
         s.S = list(starts); s.B = [0.0] + [x - 0.2 for x in s.S[1:]]; s.DUR = dur; s.shakes = list(shakes)
         s.BG = [paper_bg(PALETTE[c] if isinstance(c, str) else c, seed=i) for i, c in enumerate(colors)]
         s.EV = []; s.music = music; s.voice_files = voice_files or []

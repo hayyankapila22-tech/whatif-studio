@@ -12,7 +12,7 @@ Reference episode: `episodes/p01_onions/` (copy it). Older reference render: own
 - **Stop-motion feel**: everything moves at 15 poses/s with a small jitter (`f.jx, f.jy, f.jr`).
 - **Paper labels**: 2 per scene at y≈330 and y≈470 (white / yellow / red / black), short and punchy, keyword in CAPS.
   Stamps (`stamp`) for NOPE!/STING!/NO TEARS!, big `glyph('?')`, `rays`, `bolt`, `cloud` (gas/steam), photo `water`/`drop`.
-- **Sound**: royalty-free funk bed `music/funk_music1.mp3` (ducks under the voice automatically) + LOTS of effects:
+- **Sound**: royalty-free QUIRKY/playful bed `music/quirky.mp3` (owner pick 2026-11-23; ducks under the voice, quiet intro skipped) + LOTS of effects:
   a pop on every prop/label, swoosh + paper rustle on every scene change (`K.default_sfx()`), impacts on stamps,
   splash/bubble/scratch/ding/sparkle/snip where they fit. Aim for 30–45 effects per video.
 - **Voice**: VOICE 2 "bubbly presenter" (owner's pick for this format; overrides "Liam" for paper videos):

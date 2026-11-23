@@ -5,6 +5,8 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- P02 Why do your fingers go wrinkly underwater? (PAPER format, premium) — built 2026-11-23 in chat, booked 2026-11-23 22:00
+- P01 Why do onions make you cry? (PAPER format reference) — built 2026-11-23 in chat, booked 2026-11-23 20:30
 - HIW23 How does a mosquito find you in the dark? (breath CO2 ~15 m, skin-germ smell, body heat up close, only females bite for eggs; loose clothes) — built 2026-11-23, booked 2026-11-23 19:00
 - HIW22 Why doesn't your stomach digest itself? (acid dissolves metal, mucus + baking-soda-like base, lining renews every few days, ulcer when the shield breaks; painkillers / germ) — built 2026-11-23, booked 2026-11-23 15:30
 - HIW21 Why do you get goosebumps? (tiny muscle per hair, cold / big rush, furry ancestors: warm air + look bigger, scared cat puff) — built 2026-11-23, booked 2026-11-23 12:00
