@@ -331,5 +331,27 @@
     "must": "microwave",
     "avoid": "people,line art,sketch,outline,icon",
     "type": "vector"
+  },
+  {
+    "name": "mw_a",
+    "q": "microwave oven",
+    "must": "microwave",
+    "avoid": "people,woman,man,person,kitchen,cabinet,island,drawer,interior,line art,drawing",
+    "cutout": true,
+    "type": "photo"
+  },
+  {
+    "name": "mw_b",
+    "q": "retro microwave",
+    "must": "microwave",
+    "avoid": "people,woman,man,person,kitchen,interior",
+    "cutout": true
+  },
+  {
+    "name": "mw_c",
+    "q": "microwave oven appliance isolated",
+    "must": "microwave",
+    "avoid": "people,line art,sketch,outline",
+    "type": "illustration"
   }
 ]
