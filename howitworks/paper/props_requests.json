@@ -310,5 +310,18 @@
     "q": "stopwatch",
     "must": "stopwatch",
     "avoid": "people,runner"
+  },
+  {
+    "name": "sleeping_cat",
+    "q": "sleeping cat",
+    "must": "cat",
+    "avoid": "people,woman,man,person,dog",
+    "cutout": true
+  },
+  {
+    "name": "moon",
+    "q": "full moon",
+    "must": "moon",
+    "avoid": "people,landscape,tree,city"
   }
 ]
