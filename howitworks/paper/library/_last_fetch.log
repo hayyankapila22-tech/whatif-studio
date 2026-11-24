@@ -1,2 +1,3 @@
-OK microwave <- 3999561 (photo)
-OK microwave2 <- 197207 (vector/svg)
+MISS mw_a (microwave oven)
+MISS mw_b (retro microwave)
+OK mw_c <- 4709390 (illustration)
