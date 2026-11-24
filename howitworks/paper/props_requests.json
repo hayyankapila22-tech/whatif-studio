@@ -198,10 +198,11 @@
   },
   {
     "name": "pillow",
-    "q": "pillow",
+    "q": "white pillow isolated",
     "must": "pillow",
-    "avoid": "bed,woman,man,girl,child,sleeping",
-    "cutout": true
+    "avoid": "bed,woman,man,girl,child,baby,sleeping,person,people,dog,cat",
+    "cutout": true,
+    "type": "photo"
   },
   {
     "name": "battery",
@@ -217,9 +218,10 @@
   },
   {
     "name": "traffic_cone",
-    "q": "traffic cone",
-    "must": "cone",
-    "avoid": "ice cream"
+    "q": "orange traffic cone",
+    "must": "traffic",
+    "avoid": "pine,pinecone,ice cream,people",
+    "cutout": true
   },
   {
     "name": "padlock",
@@ -229,10 +231,11 @@
   },
   {
     "name": "headphones",
-    "q": "headphones",
+    "q": "headphones isolated white",
     "must": "headphones",
-    "avoid": "woman,man,girl,boy,people,person,dj",
-    "cutout": true
+    "avoid": "woman,man,girl,boy,people,person,dj,sennheiser,sony,beats,logo",
+    "cutout": true,
+    "type": "photo"
   },
   {
     "name": "microphone",
@@ -260,10 +263,11 @@
   },
   {
     "name": "microwave",
-    "q": "microwave oven",
+    "q": "microwave oven isolated white background",
     "must": "microwave",
-    "avoid": "people,woman,man,kitchen interior",
-    "cutout": true
+    "avoid": "people,woman,man,kitchen,interior,stove,cooker",
+    "cutout": true,
+    "type": "photo"
   },
   {
     "name": "soup_bowl",
@@ -291,9 +295,10 @@
   },
   {
     "name": "ruler",
-    "q": "ruler",
+    "q": "wooden ruler",
     "must": "ruler",
-    "avoid": "people,king"
+    "avoid": "people,king,triangle,set square",
+    "cutout": true
   },
   {
     "name": "pizza_slice",
