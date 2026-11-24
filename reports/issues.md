@@ -216,3 +216,18 @@
 - Heads-up: Metricool still has HIW13 "Why do onions make you cry?" on YouTube tonight 21:00 (old backlog) — same topic
   as P01 onions that went to YouTube yesterday 20:30. Left it (owner booked it); delete in Metricool if unwanted.
 - Next up in TOPICS is now caffeine, noise-cancelling headphones, microwaves… (owner may want fresh "super common" topics).
+
+## 2026-11-25 run (P06 coffee 12:00, P07 noise-cancelling 15:30, P08 microwave 19:00)
+- All 3 slots were free (no 2026-11-25 rows, nothing in Buffer or Metricool for today). ready/queue.json empty → made 3 new paper episodes.
+- Retry check: no Buffer posts with status `error` in the last 2 days — nothing to retry.
+- **music/quirky.mp3 is STILL missing** → P06–P08 use the Timeless fallback bed again. Owner: please add it with `git add -f howitworks/paper/music/quirky.mp3`.
+- Props: first fetch gave wrong objects for pillow (baby; re-fetch = a sofa → replaced with sleeping_cat + moon), traffic_cone (pinecone; re-fetch OK),
+  headphones (brand logo; re-fetch OK), ruler (set-square line art; re-fetch OK) and microwave (photo 6914223 = an oven cabinet, then a line
+  drawing, then a kitchen island; 2 photo queries MISS). Used `mw_c` (Pixabay illustration 4709390, realistic render). `library/microwave.png`
+  (kitchen island) and `microwave2.png` (line drawing) are WRONG — don't use them.
+- Voice: P07 line 2 ("Plot twist…") came out as "Plocked twist" with seed 7 → regenerated with seed 11 (ASR clean). All other lines checked with
+  faster-whisper (installed into system python; needed numpy input because of an `av` version clash).
+- Lines silence-trimmed (no atempo needed): P06 25.8 s, P07 25.6 s, P08 23.5 s; all have audio, 8.6–8.8 MB.
+- Booked: TikTok + Instagram 12:00 / 15:30 / 19:00 in Buffer; YouTube in Buffer at 12:20 and 15:50 (yesterday's Buffer YouTube uploads were
+  12:15 / 15:45); YouTube 19:00 via Metricool (440733367).
+- Next up in TOPICS: cats purring, hiccups, touchscreens…

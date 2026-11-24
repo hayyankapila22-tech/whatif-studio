@@ -5,6 +5,9 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- P08 Does a microwave cook food from the inside out? (PAPER; myth, water wiggles billions of times a second = heat, waves reach only a few cm, lava edges / frozen middle; stir halfway + let it sit) — built 2026-11-25, booked 2026-11-25 19:00
+- P07 How do noise-cancelling headphones work? (PAPER; they ADD sound, outside mics, opposite wave cancels, best on steady hums, voices sneak through) — built 2026-11-25, booked 2026-11-25 15:30
+- P06 How does coffee keep you awake? (PAPER; no energy, sleepy chemical builds up, caffeine blocks its parking spots, crash, last coffee ~8 h before bed) — built 2026-11-25, booked 2026-11-25 12:00
 - P05 Why does your stomach growl? (PAPER; gut muscles squeeze all day, empty = no muffling, clean-up wave ~2 h after eating; snack / water) — built 2026-11-24, booked 2026-11-24 19:00
 - P04 Why do bruises change colour? (PAPER; vessels break + leak, red→purple/blue→green→yellow→brown, clean-up cells, ~2 weeks; ice pack in a towel) — built 2026-11-24, booked 2026-11-24 15:30
 - P03 How does a giant plane actually stay up? (PAPER; 'catch-up' myth, tilted/curved wing shoves air down, hand-out-of-car-window, low pressure on top, needs speed) — built 2026-11-24, booked 2026-11-24 12:00
@@ -40,9 +43,6 @@ moment itself (mystery close-up or a relatable "why does this happen?"), then si
 10. Why does metal spark in the microwave? (SAME topic as the finished HIW11 fork-in-the-microwave video — skipped; post HIW11 instead if the owner approves)
 (do NOT make: padlock hole — owner rejected it)
 (then the older list below, rewritten in the same mystery-hook style)
-10. How does caffeine keep you awake? (blocks adenosine receptors)
-12. How do noise-cancelling headphones work? (anti-noise, phase inversion)
-14. How do microwaves heat food? (water molecules spinning; "inside-out" myth)
 15. Why do cats purr? (2023 study: special pads in the voice box)
 16. Why do we hiccup? (diaphragm spasm + vocal cords snapping shut)
 18. How does a touchscreen know it's your finger? (capacitive sensing)

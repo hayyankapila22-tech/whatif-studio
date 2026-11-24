@@ -46,7 +46,7 @@ def scene(c, t, f):
             ph = s0 + 0.9 + i*0.35
             ang = i/7*2*math.pi + 0.3
             cloud(c, W/2 + 330*math.cos(ang) + jx, 1060 + 300*math.sin(ang) + jy, 70, SLEEPY, f.k(ph, ph + 0.25), seed=i)
-        stk(c, 'pillow', W*0.24 + jx, 1600 + jy, 0.8, -10 + jr, f.k(s0 + 2.4, s0 + 2.65), maxd=400)
+        stk(c, 'moon', W*0.24 + jx, 1600 + jy, 0.8, -10 + jr, f.k(s0 + 2.4, s0 + 2.65), maxd=360)
         zzz(c, 860, 1560, 130, 12 + jr*2, f.k(s0 + 2.6, s0 + 2.85))
         label(c, "a SLEEPY chemical", W/2, 330, 86, -2 + jr*.5, k=f.k(s0 + 0.5, s0 + 0.75), seed=5)
         label(c, "BUILDS UP all day", W/2 + 15, 470, 88, 3 - jr*.5, bgcol=SLEEPY, k=f.k(s0 + 1.2, s0 + 1.45), seed=6)
@@ -70,7 +70,7 @@ def scene(c, t, f):
             row = i // 4; col = i % 4
             cloud(c, 230 + col*210 + (row % 2)*100 + jx, 1650 - row*150 + jy, 95, SLEEPY, 1, seed=i)
         stk(c, 'coffee_cup', W*0.70 + jx, 1000 + jy, 0.8, 10 + jr - (25 if tq > s0 + 2.6 else 0), f.k(B[4] + 0.1, B[4] + 0.4), maxd=440)
-        stk(c, 'pillow', W*0.30 + jx, 1010 + jy, 0.9, -8 + jr, f.k(s0 + 2.5, s0 + 2.7), maxd=420)
+        stk(c, 'sleeping_cat', W*0.30 + jx, 1010 + jy, 0.9, -8 + jr, f.k(s0 + 2.5, s0 + 2.7), maxd=440)
         if tq > s0 + 2.6: stamp(c, "CRASH!", W/2, 1260, 160, -8, f.k(s0 + 2.6, s0 + 2.85))
         label(c, "the sleepy stuff PILES UP", W/2, 330, 70, -2 + jr*.5, k=f.k(s0 + 0.4, s0 + 0.65), seed=9)
         label(c, "then... CRASH!", W/2 + 15, 470, 100, 3 - jr*.5, bgcol=RED, fg=WHT, k=f.k(s0 + 2.6, s0 + 2.85), seed=10)
@@ -79,7 +79,7 @@ def scene(c, t, f):
         rays(c, W/2, 1150, 1100, WHT, tq*8, f.k(B[5] + 0.2, B[5] + 0.6), a=0.3)
         stk(c, 'alarm_clock', W*0.30 + jx, 1060 + jy, 0.95, -10 + jr, f.k(s0 + 0.3, s0 + 0.55), maxd=440)
         stk(c, 'coffee_cup', W*0.72 + jx, 1100 + jy, 0.85, 8 + jr, f.k(s0 + 1.6, s0 + 1.85), maxd=420)
-        stk(c, 'pillow', W*0.50 + jx, 1580 + jy, 0.75, -4 + jr, f.k(s0 + 2.6, s0 + 2.85), maxd=380)
+        stk(c, 'moon', W*0.30 + jx, 1560 + jy, 0.95, -8 + jr, f.k(s0 + 2.6, s0 + 2.85), maxd=380); stk(c, 'sleeping_cat', W*0.68 + jx, 1580 + jy, 0.8, 6 + jr, f.k(s0 + 2.8, s0 + 3.05), maxd=420)
         label(c, "it lasts for HOURS", W/2, 330, 92, -2 + jr*.5, k=f.k(s0 + 0.4, s0 + 0.65), seed=11)
         label(c, "last coffee: 8 h before BED", W/2 + 15, 470, 66, 3 - jr*.5, bgcol=BLK, fg=YEL, k=f.k(s0 + 1.7, s0 + 1.95), seed=12)
         if tq > DUR - 1.5: stamp(c, "SWEET DREAMS!", W/2, 1300, 100, -6, f.k(DUR - 1.5, DUR - 1.25), col=(.45, .3, .95))
