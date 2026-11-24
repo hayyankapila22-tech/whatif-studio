@@ -263,10 +263,10 @@
   },
   {
     "name": "microwave",
-    "q": "microwave",
+    "q": "microwave oven",
     "must": "microwave",
-    "avoid": "people,woman,man,person",
-    "cutout": true
+    "avoid": "people,woman,man,person,kitchen,stove,cooker,interior",
+    "type": "illustration"
   },
   {
     "name": "soup_bowl",
