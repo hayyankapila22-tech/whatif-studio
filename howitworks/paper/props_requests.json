@@ -263,10 +263,11 @@
   },
   {
     "name": "microwave",
-    "q": "microwave oven",
+    "q": "microwave appliance",
     "must": "microwave",
-    "avoid": "people,woman,man,person,kitchen,stove,cooker,interior",
-    "type": "illustration"
+    "avoid": "people,woman,man,person,stove,cooker,interior,line art,drawing,sketch",
+    "cutout": true,
+    "type": "photo"
   },
   {
     "name": "soup_bowl",
@@ -323,5 +324,12 @@
     "q": "full moon",
     "must": "moon",
     "avoid": "people,landscape,tree,city"
+  },
+  {
+    "name": "microwave2",
+    "q": "microwave oven cartoon",
+    "must": "microwave",
+    "avoid": "people,line art,sketch,outline,icon",
+    "type": "vector"
   }
 ]
