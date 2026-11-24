@@ -182,5 +182,129 @@
     "must": "table",
     "avoid": "chair,set,food,clock,lamp",
     "cutout": true
+  },
+  {
+    "name": "coffee_cup",
+    "q": "coffee cup",
+    "must": "coffee",
+    "avoid": "beans,people,woman,man,latte art",
+    "cutout": true
+  },
+  {
+    "name": "coffee_beans",
+    "q": "coffee beans",
+    "must": "coffee",
+    "avoid": "cup,people"
+  },
+  {
+    "name": "pillow",
+    "q": "pillow",
+    "must": "pillow",
+    "avoid": "bed,woman,man,girl,child,sleeping",
+    "cutout": true
+  },
+  {
+    "name": "battery",
+    "q": "battery",
+    "must": "battery",
+    "avoid": "car,phone"
+  },
+  {
+    "name": "alarm_clock",
+    "q": "alarm clock",
+    "must": "alarm",
+    "avoid": "woman,man,bed"
+  },
+  {
+    "name": "traffic_cone",
+    "q": "traffic cone",
+    "must": "cone",
+    "avoid": "ice cream"
+  },
+  {
+    "name": "padlock",
+    "q": "padlock",
+    "must": "padlock",
+    "avoid": "heart,love"
+  },
+  {
+    "name": "headphones",
+    "q": "headphones",
+    "must": "headphones",
+    "avoid": "woman,man,girl,boy,people,person,dj",
+    "cutout": true
+  },
+  {
+    "name": "microphone",
+    "q": "microphone",
+    "must": "microphone",
+    "avoid": "singer,woman,man,stage,people"
+  },
+  {
+    "name": "microchip",
+    "q": "microchip",
+    "must": "chip",
+    "avoid": "potato,poker,cookie"
+  },
+  {
+    "name": "parrot",
+    "q": "parrot",
+    "must": "parrot",
+    "avoid": "people"
+  },
+  {
+    "name": "train",
+    "q": "train locomotive",
+    "must": "train",
+    "avoid": "people,station"
+  },
+  {
+    "name": "microwave",
+    "q": "microwave oven",
+    "must": "microwave",
+    "avoid": "people,woman,man,kitchen interior",
+    "cutout": true
+  },
+  {
+    "name": "soup_bowl",
+    "q": "bowl of soup",
+    "must": "soup",
+    "avoid": "people,spoon"
+  },
+  {
+    "name": "spoon",
+    "q": "spoon",
+    "must": "spoon",
+    "avoid": "people,fork"
+  },
+  {
+    "name": "volcano",
+    "q": "volcano",
+    "must": "volcano",
+    "avoid": "people"
+  },
+  {
+    "name": "thermometer",
+    "q": "thermometer",
+    "must": "thermometer",
+    "avoid": "people,fever,child"
+  },
+  {
+    "name": "ruler",
+    "q": "ruler",
+    "must": "ruler",
+    "avoid": "people,king"
+  },
+  {
+    "name": "pizza_slice",
+    "q": "pizza slice",
+    "must": "pizza",
+    "avoid": "people"
+  },
+  {
+    "name": "stopwatch",
+    "q": "stopwatch",
+    "must": "stopwatch",
+    "avoid": "people,runner"
   }
 ]
