@@ -5,6 +5,9 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- P11 How does your phone know it's your finger? (PAPER; body carries electricity, invisible charged grid under the glass, finger soaks up charge, gloves no / sausage yes, water drops fool it) — built 2026-11-26, booked 2026-11-26 19:00
+- P10 Why do we get hiccups? (PAPER; diaphragm twitches, gulp of air, vocal cords slam shut = hic, triggers: eating fast / fizzy / excitement; stops in minutes, cold water sips) — built 2026-11-26, booked 2026-11-26 15:30
+- P09 Why do cats purr? (PAPER; not always happy, throat muscles twitch ~25x/s on breath in AND out, scared/hurt/vet = calming, kittens purr at a few days old) — built 2026-11-26, booked 2026-11-26 12:00
 - P08 Does a microwave cook food from the inside out? (PAPER; myth, water wiggles billions of times a second = heat, waves reach only a few cm, lava edges / frozen middle; stir halfway + let it sit) — built 2026-11-25, booked 2026-11-25 19:00
 - P07 How do noise-cancelling headphones work? (PAPER; they ADD sound, outside mics, opposite wave cancels, best on steady hums, voices sneak through) — built 2026-11-25, booked 2026-11-25 15:30
 - P06 How does coffee keep you awake? (PAPER; no energy, sleepy chemical builds up, caffeine blocks its parking spots, crash, last coffee ~8 h before bed) — built 2026-11-25, booked 2026-11-25 12:00
@@ -43,9 +46,6 @@ moment itself (mystery close-up or a relatable "why does this happen?"), then si
 10. Why does metal spark in the microwave? (SAME topic as the finished HIW11 fork-in-the-microwave video — skipped; post HIW11 instead if the owner approves)
 (do NOT make: padlock hole — owner rejected it)
 (then the older list below, rewritten in the same mystery-hook style)
-15. Why do cats purr? (2023 study: special pads in the voice box)
-16. Why do we hiccup? (diaphragm spasm + vocal cords snapping shut)
-18. How does a touchscreen know it's your finger? (capacitive sensing)
 19. How do fireflies glow? (luciferin + luciferase, cold light)
 20. Why is the sky blue but sunsets red? (Rayleigh scattering)
 21. How does salt melt ice? (freezing-point depression)

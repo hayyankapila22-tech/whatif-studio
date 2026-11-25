@@ -231,3 +231,20 @@
 - Booked: TikTok + Instagram 12:00 / 15:30 / 19:00 in Buffer; YouTube in Buffer at 12:20 and 15:50 (yesterday's Buffer YouTube uploads were
   12:15 / 15:45); YouTube 19:00 via Metricool (440733367).
 - Next up in TOPICS: cats purring, hiccups, touchscreens…
+
+## 2026-11-26 run (P09 cats purr 12:00, P10 hiccups 15:30, P11 touchscreen 19:00)
+- All 3 slots were free (no 2026-11-26 rows, nothing in Buffer or Metricool for today). ready/queue.json empty → made 3 new paper episodes.
+- Retry check: no Buffer posts with status `error` in the last 2 days — nothing to retry. Yesterday's P06/P07/P08 all show `sent`.
+- **music/quirky.mp3 is STILL missing** → P09–P11 use the Timeless fallback bed again. Owner: please add it with `git add -f howitworks/paper/music/quirky.mp3`.
+- Props: wrong/unusable first fetches — soda_can (Coca-Cola branded → used `fizzy_glass`), balloon (balloon dog) and balloon2 (hot-air balloon) → not used,
+  lungs (made of tiny people figures → `lungs2` cute cartoon lungs used), heart2 (cookie cutters → kept `heart`), can2 (splashing can, unused),
+  stethoscope (red blob artifact → `stethoscope2`), baby_bottle (a man feeding a baby — WRONG, don't use), smartphone (tilted photo with a finger → `phone2` blank screen),
+  sausage (with flowers → `sausage2`).
+- P11: the electrode grid is drawn rotated (35°) to sit on the tilted `phone2` screen.
+- Voice: P10 line 5 "fizzy" came out as "busy" (seed 7, ASR base + small) → regenerated with seed 11 (ASR clean). All other lines checked with faster-whisper.
+  faster-whisper had to be reinstalled into system python (no torch involved). Lines silence-trimmed (`vo_N_raw.wav` kept); no atempo.
+- Lengths: P09 22.5 s, P10 20.7 s, P11 24.0 s; all have audio, 8.7–8.8 MB.
+- Booked: TikTok + Instagram 12:00 / 15:30 / 19:00 in Buffer; YouTube in Buffer at 12:25 and 15:55 (yesterday's Buffer YouTube uploads were
+  12:20 / 15:50); YouTube 19:00 via Metricool (442169126). Note the Buffer YouTube offset keeps creeping +5 min a day — consider resetting it
+  on a day when a slot is skipped.
+- Next up in TOPICS: fireflies, sky blue / red sunsets, salt melting ice…
