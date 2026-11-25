@@ -353,5 +353,96 @@
     "must": "microwave",
     "avoid": "people,line art,sketch,outline",
     "type": "illustration"
+  },
+  {
+    "name": "cat",
+    "q": "cat sitting isolated",
+    "must": "cat",
+    "avoid": "people,woman,man,person,dog,child",
+    "cutout": true
+  },
+  {
+    "name": "kitten",
+    "q": "kitten",
+    "must": "kitten",
+    "avoid": "people,woman,man,person,dog,child",
+    "cutout": true
+  },
+  {
+    "name": "heart",
+    "q": "red heart",
+    "must": "heart",
+    "avoid": "people,hands,woman,man,anatomy",
+    "type": "illustration"
+  },
+  {
+    "name": "yarn_ball",
+    "q": "ball of yarn",
+    "must": "yarn",
+    "avoid": "people,hands,woman,cat,needles",
+    "cutout": true
+  },
+  {
+    "name": "stethoscope",
+    "q": "stethoscope",
+    "must": "stethoscope",
+    "avoid": "people,doctor,woman,man,hands",
+    "cutout": true
+  },
+  {
+    "name": "balloon",
+    "q": "red balloon",
+    "must": "balloon",
+    "avoid": "people,child,hands,bunch,heart",
+    "cutout": true
+  },
+  {
+    "name": "soda_can",
+    "q": "soda can",
+    "must": "can",
+    "avoid": "people,hands,trash,crushed",
+    "cutout": true
+  },
+  {
+    "name": "door",
+    "q": "wooden door",
+    "must": "door",
+    "avoid": "people,house,building,wall,window",
+    "cutout": true
+  },
+  {
+    "name": "smartphone",
+    "q": "smartphone",
+    "must": "smartphone",
+    "avoid": "people,hands,hand,woman,man,holding",
+    "cutout": true
+  },
+  {
+    "name": "gloves",
+    "q": "winter gloves",
+    "must": "gloves",
+    "avoid": "people,hands,woman,man,medical,latex,boxing",
+    "cutout": true
+  },
+  {
+    "name": "sausage",
+    "q": "sausage",
+    "must": "sausage",
+    "avoid": "people,plate,grill,bread,hot dog,soup,dish",
+    "cutout": true
+  },
+  {
+    "name": "baby_bottle",
+    "q": "baby bottle",
+    "must": "bottle",
+    "avoid": "people,baby,child,hands,woman",
+    "cutout": true
+  },
+  {
+    "name": "lungs",
+    "q": "human lungs",
+    "must": "lungs",
+    "type": "illustration",
+    "avoid": "x-ray,cancer,smoking,cigarette"
   }
 ]
