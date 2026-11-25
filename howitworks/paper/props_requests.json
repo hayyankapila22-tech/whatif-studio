@@ -444,5 +444,61 @@
     "must": "lungs",
     "type": "illustration",
     "avoid": "x-ray,cancer,smoking,cigarette"
+  },
+  {
+    "name": "heart2",
+    "q": "red heart",
+    "must": "heart",
+    "avoid": "people,hands,hand,woman,man,anatomy,pattern,tree",
+    "cutout": true
+  },
+  {
+    "name": "balloon2",
+    "q": "red balloon",
+    "must": "balloon",
+    "avoid": "dog,animal,twisted,people,child,hands,bunch,heart,balloons",
+    "cutout": true
+  },
+  {
+    "name": "fizzy_glass",
+    "q": "glass of cola ice",
+    "must": "cola",
+    "avoid": "coca,logo,brand,can,bottle,people,hand",
+    "cutout": true
+  },
+  {
+    "name": "can2",
+    "q": "aluminum can",
+    "must": "can",
+    "avoid": "coca,cola,pepsi,logo,brand,people,hand,crushed,trash,paint,food",
+    "cutout": true
+  },
+  {
+    "name": "phone2",
+    "q": "smartphone blank screen",
+    "must": "smartphone",
+    "avoid": "hands,hand,finger,people,woman,man,holding",
+    "cutout": true
+  },
+  {
+    "name": "sausage2",
+    "q": "sausage isolated",
+    "must": "sausage",
+    "avoid": "plate,flower,herbs,people,bread,dish,grill",
+    "cutout": true
+  },
+  {
+    "name": "lungs2",
+    "q": "lungs cartoon",
+    "must": "lungs",
+    "avoid": "people,figures,x-ray,cancer,smoking,cigarette",
+    "type": "illustration"
+  },
+  {
+    "name": "stethoscope2",
+    "q": "stethoscope isolated",
+    "must": "stethoscope",
+    "avoid": "people,doctor,woman,man,hands,heart",
+    "cutout": true
   }
 ]
