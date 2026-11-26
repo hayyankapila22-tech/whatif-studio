@@ -5,6 +5,9 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- P14 Why does salt melt ice on the road? (PAPER; salt isn't hot, ice has a thin water layer melting + refreezing, salt blocks refreezing, melts below 0 °C, < about -10 °C salt struggles -> sand for grip) — built 2026-11-27, booked 2026-11-27 19:00
+- P13 Why is the sky blue but sunsets orange? (PAPER; sunlight = all colours, blue bounces most, sunset light crosses way more air, blue scattered away, Mars has blue sunsets) — built 2026-11-27, booked 2026-11-27 15:30
+- P12 How do fireflies light up? (PAPER; no batteries, 2 chemicals + oxygen = glow, cold light almost no heat, species flash codes to find a mate, lights off at night helps) — built 2026-11-27, booked 2026-11-27 12:00
 - P11 How does your phone know it's your finger? (PAPER; body carries electricity, invisible charged grid under the glass, finger soaks up charge, gloves no / sausage yes, water drops fool it) — built 2026-11-26, booked 2026-11-26 19:00
 - P10 Why do we get hiccups? (PAPER; diaphragm twitches, gulp of air, vocal cords slam shut = hic, triggers: eating fast / fizzy / excitement; stops in minutes, cold water sips) — built 2026-11-26, booked 2026-11-26 15:30
 - P09 Why do cats purr? (PAPER; not always happy, throat muscles twitch ~25x/s on breath in AND out, scared/hurt/vet = calming, kittens purr at a few days old) — built 2026-11-26, booked 2026-11-26 12:00
@@ -46,9 +49,6 @@ moment itself (mystery close-up or a relatable "why does this happen?"), then si
 10. Why does metal spark in the microwave? (SAME topic as the finished HIW11 fork-in-the-microwave video — skipped; post HIW11 instead if the owner approves)
 (do NOT make: padlock hole — owner rejected it)
 (then the older list below, rewritten in the same mystery-hook style)
-19. How do fireflies glow? (luciferin + luciferase, cold light)
-20. Why is the sky blue but sunsets red? (Rayleigh scattering)
-21. How does salt melt ice? (freezing-point depression)
 22. Why does popcorn pop? (water → steam, pressure, starch foam)
 23. How does your heart beat on its own? (the heart's natural pacemaker)
 24. How does sunscreen work? (absorbing/scattering UV)

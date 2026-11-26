@@ -248,3 +248,18 @@
   12:20 / 15:50); YouTube 19:00 via Metricool (442169126). Note the Buffer YouTube offset keeps creeping +5 min a day — consider resetting it
   on a day when a slot is skipped.
 - Next up in TOPICS: fireflies, sky blue / red sunsets, salt melting ice…
+
+## 2026-11-27 run (P12 fireflies 12:00, P13 sky colours 15:30, P14 salt on ice 19:00)
+- All 3 slots were free (no 2026-11-27 rows, nothing in Buffer or Metricool for today). ready/queue.json empty → made 3 new paper episodes.
+- Retry check: no Buffer posts with status `error` in the last 2 days — nothing to retry. Yesterday's P09/P10/P11 all show `sent`.
+- **music/quirky.mp3 is STILL missing** → P12–P14 use the Timeless fallback bed again. Owner: please add it with `git add -f howitworks/paper/music/quirky.mp3`.
+- Setup race: the voice job was started while setup_paper.sh was still installing torch → first TTS attempt failed (no torch). Wait for "paper setup ok" before running tts_voice.py.
+- Props: wrong/unusable fetches — glass_jar and shovel (broken cutouts), mars (a rover → `mars2` planet OK), truck (Edeka-branded — don't use),
+  street_lamp (stray artifact lines — don't use), light_bulb (old prop: glass cut away, looks broken → use `bulb3`). MISS: sunglasses (→ `sunglasses2` OK),
+  snowplow, snowman. `prism` is actually a rainbow vector (used as "every colour").
+- Voice: P14 line 2 "Plot twist" came out as "Placked twist" again (seed 7; same as P07) → reworded to "Here's the twist:" with seed 11 (ASR clean).
+  Tip for future scripts: avoid "Plot twist" with this voice. All other lines checked with faster-whisper (reinstalled in system python).
+- Lines silence-trimmed (`vo_N_raw.wav` kept); no atempo. Lengths: P12 23.3 s, P13 25.8 s, P14 24.5 s; all have audio, 8.6–8.7 MB. Metricool YouTube 19:00 id 443517912.
+- Booked: TikTok + Instagram 12:00 / 15:30 / 19:00 in Buffer; YouTube in Buffer at 12:30 and 16:00 (yesterday's Buffer YouTube uploads were
+  12:25 / 15:55); YouTube 19:00 via Metricool. The +5 min creep continues (now 12:30 / 16:00).
+- Next up in TOPICS: popcorn, heartbeat, sunscreen…
