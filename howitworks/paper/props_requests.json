@@ -500,5 +500,84 @@
     "must": "stethoscope",
     "avoid": "people,doctor,woman,man,hands,heart",
     "cutout": true
+  },
+  {
+    "name": "firefly",
+    "q": "firefly insect",
+    "must": "firefly",
+    "avoid": "people,woman,man,jar,night city",
+    "cutout": true
+  },
+  {
+    "name": "glass_jar",
+    "q": "empty glass jar",
+    "must": "jar",
+    "avoid": "people,hands,food,jam,honey",
+    "cutout": true
+  },
+  {
+    "name": "flashlight",
+    "q": "flashlight",
+    "must": "flashlight",
+    "avoid": "people,hands,man,woman",
+    "cutout": true
+  },
+  {
+    "name": "sun",
+    "q": "sun",
+    "type": "illustration",
+    "must": "sun",
+    "avoid": "people,beach,woman,man,face"
+  },
+  {
+    "name": "earth",
+    "q": "planet earth globe",
+    "must": "earth",
+    "avoid": "people,hands,map"
+  },
+  {
+    "name": "mars",
+    "q": "planet mars",
+    "must": "mars",
+    "avoid": "people,rover,astronaut"
+  },
+  {
+    "name": "prism",
+    "q": "glass prism",
+    "must": "prism",
+    "avoid": "people,hands"
+  },
+  {
+    "name": "sunglasses",
+    "q": "sunglasses",
+    "must": "sunglasses",
+    "avoid": "people,woman,man,face,girl",
+    "cutout": true
+  },
+  {
+    "name": "salt_shaker",
+    "q": "salt shaker",
+    "must": "salt",
+    "avoid": "people,hands,pepper,food,table",
+    "cutout": true
+  },
+  {
+    "name": "snowplow",
+    "q": "snow plow truck",
+    "must": "snow",
+    "avoid": "people,man,woman"
+  },
+  {
+    "name": "snowflake",
+    "q": "snowflake",
+    "must": "snowflake",
+    "avoid": "people,christmas tree,woman"
+  },
+  {
+    "name": "shovel",
+    "q": "snow shovel",
+    "must": "shovel",
+    "avoid": "people,man,woman,hands",
+    "cutout": true
   }
 ]
