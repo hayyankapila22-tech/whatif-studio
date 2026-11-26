@@ -9,3 +9,5 @@ __pycache__/
 cb_jobs.json
 cb_wav/
 tts.log
+build.log
+tts*.log
