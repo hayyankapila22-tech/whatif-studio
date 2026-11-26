@@ -579,5 +579,44 @@
     "must": "shovel",
     "avoid": "people,man,woman,hands",
     "cutout": true
+  },
+  {
+    "name": "mars2",
+    "q": "mars planet",
+    "type": "illustration",
+    "must": "mars",
+    "avoid": "rover,robot,vehicle,people,astronaut"
+  },
+  {
+    "name": "sunglasses2",
+    "q": "sunglasses isolated",
+    "must": "sunglasses",
+    "avoid": "people,woman,man,face,girl,boy,model"
+  },
+  {
+    "name": "truck",
+    "q": "truck isolated",
+    "must": "truck",
+    "avoid": "people,man,woman,toy",
+    "cutout": true
+  },
+  {
+    "name": "sand_pile",
+    "q": "pile of sand",
+    "must": "sand",
+    "avoid": "people,beach,sea,children,castle"
+  },
+  {
+    "name": "street_lamp",
+    "q": "street lamp",
+    "must": "lamp",
+    "avoid": "people,city,night,road,woman,man",
+    "cutout": true
+  },
+  {
+    "name": "snowman",
+    "q": "snowman",
+    "must": "snowman",
+    "avoid": "people,children,woman,man"
   }
 ]
