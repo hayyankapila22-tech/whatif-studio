@@ -618,5 +618,18 @@
     "q": "snowman",
     "must": "snowman",
     "avoid": "people,children,woman,man"
+  },
+  {
+    "name": "bulb2",
+    "q": "light bulb",
+    "type": "illustration",
+    "must": "bulb",
+    "avoid": "people,idea,brain,hand,woman,man,head"
+  },
+  {
+    "name": "bulb3",
+    "q": "incandescent light bulb glowing isolated",
+    "must": "bulb",
+    "avoid": "people,hand,woman,man,head"
   }
 ]
