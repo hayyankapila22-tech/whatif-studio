@@ -631,5 +631,98 @@
     "q": "incandescent light bulb glowing isolated",
     "must": "bulb",
     "avoid": "people,hand,woman,man,head"
+  },
+  {
+    "name": "popcorn",
+    "q": "popcorn bowl",
+    "must": "popcorn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face"
+  },
+  {
+    "name": "popcorn_pile",
+    "q": "popcorn isolated",
+    "must": "popcorn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,bowl,cinema,movie"
+  },
+  {
+    "name": "corn_kernels",
+    "q": "corn kernels",
+    "must": "corn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face"
+  },
+  {
+    "name": "corn_cob",
+    "q": "corn cob",
+    "must": "corn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,field"
+  },
+  {
+    "name": "cooking_pot",
+    "q": "cooking pot",
+    "must": "pot",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,plant,flower",
+    "cutout": true
+  },
+  {
+    "name": "mason_jar",
+    "q": "mason jar",
+    "must": "jar",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,flower,candle"
+  },
+  {
+    "name": "flame",
+    "q": "fire flame",
+    "must": "fire",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face"
+  },
+  {
+    "name": "human_heart",
+    "q": "human heart anatomy",
+    "type": "illustration",
+    "must": "heart",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,love,valentine"
+  },
+  {
+    "name": "drum",
+    "q": "drum",
+    "must": "drum",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,kit,band,concert"
+  },
+  {
+    "name": "sneakers",
+    "q": "running shoes",
+    "must": "shoe",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,feet,legs"
+  },
+  {
+    "name": "sunscreen",
+    "q": "sunscreen bottle",
+    "must": "sun",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,body,skin,back,beach",
+    "cutout": true
+  },
+  {
+    "name": "beach_ball",
+    "q": "beach ball",
+    "must": "ball",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face"
+  },
+  {
+    "name": "beach_umbrella",
+    "q": "beach umbrella",
+    "must": "umbrella",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,sea,chair"
+  },
+  {
+    "name": "sun_hat",
+    "q": "straw hat",
+    "must": "hat",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face"
+  },
+  {
+    "name": "swim_ring",
+    "q": "swim ring",
+    "must": "ring",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,pool,water"
   }
 ]
