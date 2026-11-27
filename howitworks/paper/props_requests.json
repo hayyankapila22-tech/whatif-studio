@@ -841,5 +841,18 @@
     "q": "single popcorn",
     "must": "popcorn",
     "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,jar,bowl,glass,box"
+  },
+  {
+    "name": "popped_two",
+    "q": "popcorn white background",
+    "must": "popcorn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,jar,bowl,glass,box,bucket,cinema"
+  },
+  {
+    "name": "popped_three",
+    "q": "popcorn",
+    "type": "illustration",
+    "must": "popcorn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,jar,bowl,glass,box,bucket,cinema,bag"
   }
 ]
