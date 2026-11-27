@@ -823,5 +823,23 @@
     "type": "illustration",
     "must": "drop",
     "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face"
+  },
+  {
+    "name": "kernel_a",
+    "q": "unpopped popcorn",
+    "must": "popcorn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,jar,bowl,glass"
+  },
+  {
+    "name": "kernel_b",
+    "q": "maize grains",
+    "must": "maize",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,cob,field,plant"
+  },
+  {
+    "name": "popped_one",
+    "q": "single popcorn",
+    "must": "popcorn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,jar,bowl,glass,box"
   }
 ]
