@@ -724,5 +724,104 @@
     "q": "swim ring",
     "must": "ring",
     "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,pool,water"
+  },
+  {
+    "name": "popcorn_bowl",
+    "q": "popcorn bowl red",
+    "must": "popcorn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,jar,glass",
+    "cutout": true
+  },
+  {
+    "name": "popcorn_kernel",
+    "q": "popcorn kernels",
+    "must": "popcorn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,jar,bowl"
+  },
+  {
+    "name": "popcorn_kernel2",
+    "q": "dried corn kernels",
+    "must": "corn",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,cob,field"
+  },
+  {
+    "name": "saucepan",
+    "q": "saucepan",
+    "must": "pan",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,food,vegetables,potatoes",
+    "cutout": true
+  },
+  {
+    "name": "pot2",
+    "q": "cooking pot isolated",
+    "type": "illustration",
+    "must": "pot",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,plant,flower"
+  },
+  {
+    "name": "flame2",
+    "q": "flame",
+    "type": "illustration",
+    "must": "flame",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,candle"
+  },
+  {
+    "name": "human_heart2",
+    "q": "anatomical heart",
+    "must": "heart",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,love,valentine,rainbow,colorful"
+  },
+  {
+    "name": "human_heart3",
+    "q": "human heart",
+    "type": "illustration",
+    "must": "heart",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,love,valentine,rainbow,colorful,abstract"
+  },
+  {
+    "name": "sunscreen2",
+    "q": "sun cream bottle",
+    "must": "cream",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,body,skin,back,beach,woman",
+    "cutout": true
+  },
+  {
+    "name": "lotion",
+    "q": "lotion bottle",
+    "must": "bottle",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,body,skin",
+    "cutout": true
+  },
+  {
+    "name": "beach_ball2",
+    "q": "inflatable beach ball",
+    "must": "beach",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,soccer,football"
+  },
+  {
+    "name": "sun_hat2",
+    "q": "sun hat",
+    "must": "hat",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face,collection,set",
+    "cutout": true
+  },
+  {
+    "name": "lifebuoy",
+    "q": "lifebuoy",
+    "must": "lifebuoy",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face"
+  },
+  {
+    "name": "swim_ring2",
+    "q": "inflatable ring",
+    "must": "inflatable",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face"
+  },
+  {
+    "name": "sweat_drop",
+    "q": "water drop",
+    "type": "illustration",
+    "must": "drop",
+    "avoid": "people,man,woman,girl,boy,hand,hands,child,children,face"
   }
 ]
