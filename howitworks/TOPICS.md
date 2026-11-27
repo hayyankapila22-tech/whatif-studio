@@ -5,6 +5,9 @@ very visual, and backed by ≥ 3 sourceable facts. Health/body topics: education
 ingredients not brands. Debated science is presented as debated.
 
 ## Done
+- P17 How does sunscreen stop a sunburn? (PAPER; invisible UV burns, most sunscreens soak up UV -> tiny bit of heat, mineral = white particles that block, wears off with sweat/water/towels, reapply ~every 2 h + after swimming) — built 2026-11-28, booked 2026-11-28 19:00
+- P16 How does your heart beat all by itself? (PAPER; no thinking needed even asleep, built-in natural pacemaker, electric signal ~once a second, top squeezes then bottom, ~100,000 beats a day) — built 2026-11-28, booked 2026-11-28 15:30
+- P15 Why does popcorn pop? (PAPER; drop of water in every kernel, heat -> steam trapped by tough shell, pressure -> POP at ~180 °C, starch puffs to foam inside out; sealed jar, dried-out kernels won't pop) — built 2026-11-28, booked 2026-11-28 12:00
 - P14 Why does salt melt ice on the road? (PAPER; salt isn't hot, ice has a thin water layer melting + refreezing, salt blocks refreezing, melts below 0 °C, < about -10 °C salt struggles -> sand for grip) — built 2026-11-27, booked 2026-11-27 19:00
 - P13 Why is the sky blue but sunsets orange? (PAPER; sunlight = all colours, blue bounces most, sunset light crosses way more air, blue scattered away, Mars has blue sunsets) — built 2026-11-27, booked 2026-11-27 15:30
 - P12 How do fireflies light up? (PAPER; no batteries, 2 chemicals + oxygen = glow, cold light almost no heat, species flash codes to find a mate, lights off at night helps) — built 2026-11-27, booked 2026-11-27 12:00
@@ -49,9 +52,6 @@ moment itself (mystery close-up or a relatable "why does this happen?"), then si
 10. Why does metal spark in the microwave? (SAME topic as the finished HIW11 fork-in-the-microwave video — skipped; post HIW11 instead if the owner approves)
 (do NOT make: padlock hole — owner rejected it)
 (then the older list below, rewritten in the same mystery-hook style)
-22. Why does popcorn pop? (water → steam, pressure, starch foam)
-23. How does your heart beat on its own? (the heart's natural pacemaker)
-24. How does sunscreen work? (absorbing/scattering UV)
 25. How do glow sticks work? (chemical reaction, no heat)
 26. Why do we yawn? (theories still debated; contagious yawning)
 27. How does a fever help fight infection?

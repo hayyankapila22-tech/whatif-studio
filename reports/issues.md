@@ -263,3 +263,20 @@
 - Booked: TikTok + Instagram 12:00 / 15:30 / 19:00 in Buffer; YouTube in Buffer at 12:30 and 16:00 (yesterday's Buffer YouTube uploads were
   12:25 / 15:55); YouTube 19:00 via Metricool. The +5 min creep continues (now 12:30 / 16:00).
 - Next up in TOPICS: popcorn, heartbeat, sunscreen…
+
+## 2026-11-28 run (P15 popcorn 12:00, P16 heartbeat 15:30, P17 sunscreen 19:00)
+- All 3 slots were free (no 2026-11-28 rows, nothing in Buffer or Metricool for today). ready/queue.json empty → made 3 new paper episodes.
+- Retry check: no Buffer posts with status `error` in the last 2 days — nothing to retry. Yesterday's P12/P13/P14 all show `sent` (P14 YouTube via Metricool also live).
+- **music/quirky.mp3 is STILL missing** → P15–P17 use the Timeless fallback bed again. Owner: please add it with `git add -f howitworks/paper/music/quirky.mp3`.
+- Props: wrong/unusable fetches — cooking_pot (pot with potatoes → `pot2`), saucepan (hanging pot rack), mason_jar (outline only), flame (fire basket → `flame2`),
+  human_heart (psychedelic rainbow → `human_heart2` / `human_heart3` OK), sunscreen + sunscreen2 (cartoon hand / ice cream → blank `lotion` bottle with a paper "SPF 50" label),
+  beach_ball (soccer balls), beach_ball2 (volleyball players — don't use), sun_hat (grid of hats → `sun_hat2`), swim_ring (rusty ring → `swim_ring2`),
+  kernel_a / kernel_b / popped_one / popped_two / popped_three (all popcorn boxes or line art; `kernel_b` box used as a side prop). popcorn_kernel / corn_kernels
+  are duplicates of the popcorn jar / corn cob. Pixabay has no clean single popcorn kernel → P15 uses a drawn paper kernel next to the real corn cob, popped bits = cream paper puffs.
+- Cleaned stray pixel islands (tiny white specks next to the sticker) from library/popcorn.png, sweat_drop.png and drum.png.
+- Font: Poppins has no "→" glyph (renders as a box) — don't use arrows in label text.
+- Voice: all 18 lines ASR-clean on the first take (seed 11, faster-whisper small). Lines silence-trimmed (`vo_N_raw.wav` kept); no atempo.
+  Lengths: P15 26.0 s, P16 23.1 s, P17 25.8 s; all have audio, 8.5–8.6 MB.
+- Booked: TikTok + Instagram 12:00 / 15:30 / 19:00 in Buffer; YouTube in Buffer at 12:35 and 16:05 (yesterday's Buffer YouTube uploads were
+  12:30 / 16:00); YouTube 19:00 via Metricool (444740269). The +5 min creep continues.
+- Topic backlog is getting short: after glow sticks, yawning, fever, déjà vu and vaccines the "Next up" list is empty — owner may want to add topics.
